@@ -1,832 +1,1004 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ubaid Ullah Asim | AI Strategist &amp; Technical Project Manager</title>
-<meta name="description" content="Premium white portfolio for Ubaid Ullah Asim, an AI Strategist and Technical Project Manager focused on SaaS delivery, AI automation, and product execution.">
-<meta name="author" content="Ubaid Ullah Asim">
-<meta name="robots" content="index, follow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          primary: '#1d4ed8',
-          ink: '#0f172a',
-          muted: '#64748b',
-          line: '#e2e8f0',
-          soft: '#f8fafc'
-        },
-        boxShadow: {
-          soft: '0 16px 50px rgba(15, 23, 42, 0.06)'
-        },
-        fontFamily: {
-          sans: ['Manrope', 'system-ui', 'sans-serif']
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ubaid Ullah Asim | AI Strategist &amp; Technical Project Manager</title>
+  <meta name="description"
+    content="Premium white portfolio for Ubaid Ullah Asim, an AI Strategist and Technical Project Manager focused on SaaS delivery, AI automation, and product execution.">
+  <meta name="author" content="Ubaid Ullah Asim">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1d4ed8',
+            ink: '#0f172a',
+            muted: '#64748b',
+            line: '#e2e8f0',
+            soft: '#f8fafc'
+          },
+          boxShadow: {
+            soft: '0 16px 50px rgba(15, 23, 42, 0.06)'
+          },
+          fontFamily: {
+            sans: ['Manrope', 'system-ui', 'sans-serif']
+          }
         }
       }
     }
-  }
-</script>
-<style>
-  :root {
-    color-scheme: light;
-    --bg: #ffffff;
-    --text: #0f172a;
-    --muted: #64748b;
-    --line: #e2e8f0;
-    --primary: #1d4ed8;
-  }
-
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Manrope', system-ui, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
-
-  .card {
-    background: #fff;
-    border: 1px solid var(--line);
-    box-shadow: 0 16px 50px rgba(15, 23, 42, 0.06);
-  }
-
-  .chip {
-    display: inline-flex;
-    align-items: center;
-    border-radius: 999px;
-    border: 1px solid var(--line);
-    background: #fff;
-    color: var(--muted);
-    padding: 0.42rem 0.8rem;
-    font-size: 0.875rem;
-    line-height: 1;
-  }
-
-  .tech-grid {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .tech-card {
-    height: 100%;
-  }
-
-  .tech-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.65rem;
-    margin-top: 1rem;
-  }
-
-  .proj-filter {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem;
-  }
-
-  .proj-filter-btn {
-    appearance: none;
-    border: 1px solid var(--line);
-    background: #fff;
-    color: var(--muted);
-    border-radius: 999px;
-    padding: 0.8rem 1rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    line-height: 1;
-    cursor: pointer;
-    transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
-  }
-
-  .proj-filter-btn:hover {
-    transform: translateY(-1px);
-    color: var(--text);
-    border-color: rgba(29, 78, 216, 0.2);
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
-  }
-
-  .proj-filter-btn.active {
-    background: var(--primary);
-    color: #fff;
-    border-color: var(--primary);
-    box-shadow: 0 14px 32px rgba(29, 78, 216, 0.18);
-  }
-
-  .projects-grid-main {
-    display: grid;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-
-  .project-card {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    height: 100%;
-    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
-  }
-
-  .project-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
-    border-color: rgba(29, 78, 216, 0.14);
-  }
-
-  .project-head {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.9rem;
-  }
-
-  .project-icon {
-    flex: 0 0 auto;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 1rem;
-    border: 1px solid rgba(29, 78, 216, 0.12);
-    background: rgba(29, 78, 216, 0.05);
-    color: var(--primary);
-    display: grid;
-    place-items: center;
-    font-size: 1.35rem;
-  }
-
-  .project-stacks {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .project-cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    border: 1px solid var(--primary);
-    background: var(--primary);
-    color: #fff;
-    padding: 0.7rem 1rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
-  }
-
-  .project-cta:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 14px 28px rgba(29, 78, 216, 0.18);
-    opacity: 0.96;
-  }
-
-  .kicker::before {
-    content: '';
-    display: inline-block;
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 999px;
-    background: var(--primary);
-    margin-right: 0.6rem;
-  }
-
-  .nav-link {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 0.95rem;
-  }
-  .nav-link:hover { color: var(--text); }
-
-  .button-primary {
-    background: var(--primary);
-    color: #fff;
-    border: 1px solid var(--primary);
-  }
-
-  .button-secondary {
-    background: #fff;
-    color: var(--text);
-    border: 1px solid var(--line);
-  }
-
-  .field {
-    width: 100%;
-    border: 1px solid var(--line);
-    border-radius: 1rem;
-    padding: 0.95rem 1rem;
-    outline: none;
-    background: #fff;
-    color: var(--text);
-    transition: border-color 180ms ease, box-shadow 180ms ease;
-  }
-  .field:focus {
-    border-color: rgba(29, 78, 216, 0.45);
-    box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.08);
-  }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 700ms ease, transform 700ms ease;
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .timeline {
-    position: relative;
-    padding-left: 1.6rem;
-  }
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 0.42rem;
-    top: 0.3rem;
-    bottom: 0.3rem;
-    width: 1px;
-    background: var(--line);
-  }
-  .timeline-dot {
-    position: absolute;
-    left: -0.02rem;
-    top: 0.4rem;
-    width: 0.9rem;
-    height: 0.9rem;
-    border-radius: 999px;
-    background: #fff;
-    border: 2px solid var(--primary);
-    box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.08);
-  }
-
-  .menu-panel {
-    display: none;
-  }
-  .menu-panel.open {
-    display: block;
-  }
-
-  .hero-shell {
-    overflow: hidden;
-  }
-</style>
-</head>
-<body>
-<header class="sticky top-0 z-50 border-b border-line bg-white/90 backdrop-blur">
-  <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-    <a href="#top" class="text-sm font-extrabold tracking-tight text-ink sm:text-base">Ubaid Ullah Asim</a>
-    <nav class="hidden items-center gap-8 md:flex">
-      <a class="nav-link" href="#about">About</a>
-      <a class="nav-link" href="#services">Services</a>
-      <a class="nav-link" href="#work">Work</a>
-      <a class="nav-link" href="#experience">Experience</a>
-      <a class="nav-link" href="#contact">Contact</a>
-    </nav>
-    <a href="#contact" class="hidden rounded-full border border-primary bg-primary px-5 py-2.5 text-sm font-semibold text-white md:inline-flex">Book a Call</a>
-    <button id="menuButton" class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line md:hidden" type="button" aria-label="Open menu">
-      <span class="block h-0.5 w-5 bg-ink"></span>
-    </button>
-  </div>
-  <div id="mobileMenu" class="menu-panel border-t border-line bg-white md:hidden">
-    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4 sm:px-6">
-      <a class="nav-link" href="#about">About</a>
-      <a class="nav-link" href="#services">Services</a>
-      <a class="nav-link" href="#work">Work</a>
-      <a class="nav-link" href="#experience">Experience</a>
-      <a class="nav-link" href="#contact">Contact</a>
-      <a href="#contact" class="inline-flex items-center justify-center rounded-full border border-primary bg-primary px-5 py-2.5 text-sm font-semibold text-white">Book a Call</a>
-    </div>
-  </div>
-</header>
-
-<main id="top">
-  <section class="mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 lg:px-8 lg:pb-28 lg:pt-20">
-    <div class="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
-      <div class="reveal">
-        <div class="kicker mb-5 inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">Open to AI &amp; SaaS Projects</div>
-        <h1 class="max-w-3xl text-4xl font-bold tracking-tight text-ink sm:text-5xl lg:text-6xl">
-          AI Strategist &amp; Technical PM
-      Building Scalable
-      <span class="text-primary">AI-Powered Systems</span>
-        </h1>
-        <p class="mt-6 max-w-2xl text-lg leading-8 text-muted">
-          I help founders and operators design intelligent SaaS products, automate recurring work, and move from idea to shipped system with a clean, disciplined product approach.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a href="#contact" class="inline-flex items-center justify-center rounded-full border border-primary bg-primary px-6 py-3 text-sm font-semibold text-white">Start a Project</a>
-          <a href="#work" class="inline-flex items-center justify-center rounded-full border border-line bg-white px-6 py-3 text-sm font-semibold text-ink">View Work</a>
-        </div>
-        <div class="mt-10 grid max-w-2xl gap-4 sm:grid-cols-2">
-          <div class="card rounded-3xl p-5">
-            <div class="text-sm font-semibold text-primary">Focus</div>
-            <div class="mt-2 text-base font-semibold text-ink">AI strategy that supports real workflows</div>
-            <p class="mt-2 text-sm leading-6 text-muted">Clear use cases, measurable outcomes, and strong product judgment.</p>
-          </div>
-          <div class="card rounded-3xl p-5">
-            <div class="text-sm font-semibold text-primary">Delivery</div>
-            <div class="mt-2 text-base font-semibold text-ink">Technical project leadership from concept to launch</div>
-            <p class="mt-2 text-sm leading-6 text-muted">Roadmaps, implementation, alignment, and release discipline.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="reveal lg:justify-self-end">
-        <div class="card hero-shell rounded-[2rem] p-4 sm:p-5">
-          <div class="grid gap-4 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
-            <div class="overflow-hidden rounded-[1.5rem] border border-line bg-white p-8 flex items-center justify-center relative">
-              <img src="pp.jpeg" alt="Ubaid Ullah Asim portrait" class="w-56 h-56 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full object-cover shadow-soft border-2 border-line self-center">
-              <div class="absolute left-6 bottom-6 inline-flex items-center gap-3 rounded-full bg-white/95 border border-line px-3 py-1.5 text-sm font-semibold shadow-soft">
-                <span class="h-2 w-2 rounded-full bg-primary block"></span>
-                AI Strategist
-              </div>
-            </div>
-            <div class="flex flex-col gap-4">
-              <div class="card rounded-[1.5rem] p-5">
-                <div class="text-xs font-semibold uppercase tracking-[0.22em] text-muted">Profile</div>
-                <div class="mt-3 text-2xl font-bold tracking-tight text-ink">Ubaid Ullah Asim</div>
-                <div class="mt-1 text-sm font-semibold text-primary">AI Strategist &amp; Technical Project Manager</div>
-                <p class="mt-4 text-sm leading-6 text-muted">Based in Lahore, building premium AI-driven SaaS systems and clean technical delivery models.</p>
-              </div>
-              <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-                <div class="card rounded-[1.5rem] p-5">
-                  <div class="text-sm font-semibold text-primary">6+ years</div>
-                  <p class="mt-2 text-sm leading-6 text-muted">Product engineering, systems thinking, and delivery leadership.</p>
-                </div>
-                <div class="card rounded-[1.5rem] p-5">
-                  <div class="text-sm font-semibold text-primary">3+ years</div>
-                  <p class="mt-2 text-sm leading-6 text-muted">Applied AI, automation workflows, and operational intelligence.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="mt-10 grid gap-4 md:grid-cols-4 reveal">
-      <div class="card rounded-3xl p-5"><div class="text-3xl font-bold tracking-tight text-ink">5+</div><div class="mt-1 text-sm text-muted">Years of technical delivery</div></div>
-      <div class="card rounded-3xl p-5"><div class="text-3xl font-bold tracking-tight text-ink">3+</div><div class="mt-1 text-sm text-muted">Years focused on AI systems</div></div>
-      <div class="card rounded-3xl p-5"><div class="text-3xl font-bold tracking-tight text-ink">30+</div><div class="mt-1 text-sm text-muted">Products and workflows shipped</div></div>
-      <div class="card rounded-3xl p-5"><div class="text-3xl font-bold tracking-tight text-ink">1</div><div class="mt-1 text-sm text-muted">Primary color used throughout</div></div>
-    </div>
-  </section>
-
-  <section id="about" class="border-t border-line bg-white">
-    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-      <div class="reveal max-w-2xl">
-        <div class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">About</div>
-        <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">A strategic operator who understands product, people, and the systems behind both.</h2>
-        <p class="mt-5 text-base leading-8 text-muted">I work at the intersection of AI strategy and execution. My background in backend engineering, mobile development, and technical project management gives me the context to turn abstract ideas into well-structured, reliable products.</p>
-      </div>
-
-      <div class="mt-12 grid gap-4 md:grid-cols-3">
-        <div class="card rounded-3xl p-6 reveal"><div class="text-sm font-semibold text-primary">AI Strategy</div><p class="mt-3 text-sm leading-6 text-muted">Prioritizing use cases, mapping value, and defining practical AI roadmaps.</p></div>
-        <div class="card rounded-3xl p-6 reveal"><div class="text-sm font-semibold text-primary">Technical PM</div><p class="mt-3 text-sm leading-6 text-muted">Keeping product, design, and engineering aligned with a clean delivery cadence.</p></div>
-        <div class="card rounded-3xl p-6 reveal"><div class="text-sm font-semibold text-primary">SaaS Delivery</div><p class="mt-3 text-sm leading-6 text-muted">Shaping systems that feel polished, stable, and ready for scale.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="services" class="border-t border-line bg-white">
-    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-      <div class="reveal max-w-2xl">
-        <div class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">Services</div>
-        <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">The core engagements I design and lead.</h2>
-      </div>
-
-      <div class="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        <div class="card rounded-3xl p-6 reveal">
-          <div class="text-sm font-semibold text-primary">AI Strategy</div>
-          <p class="mt-3 text-sm leading-6 text-muted">Identify where AI creates real value, then define a roadmap that teams can execute.</p>
-        </div>
-        <div class="card rounded-3xl p-6 reveal">
-          <div class="text-sm font-semibold text-primary">Project Management</div>
-          <p class="mt-3 text-sm leading-6 text-muted">Keep teams accountable with crisp planning, clear priorities, and practical release management.</p>
-        </div>
-        <div class="card rounded-3xl p-6 reveal">
-          <div class="text-sm font-semibold text-primary">SaaS Product Delivery</div>
-          <p class="mt-3 text-sm leading-6 text-muted">Shape premium user experiences and dependable systems for web and mobile products.</p>
-        </div>
-        <div class="card rounded-3xl p-6 reveal">
-          <div class="text-sm font-semibold text-primary">Automation Systems</div>
-          <p class="mt-3 text-sm leading-6 text-muted">Replace repetitive work with thoughtful automation that improves speed and consistency.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="work" class="border-t border-line bg-white">
-    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-      <div class="reveal max-w-2xl">
-        <div class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">Selected Work</div>
-        <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Representative outcomes and product patterns.</h2>
-        <p class="mt-4 text-base leading-8 text-muted">A short presentation of the kinds of systems I help teams build and launch.</p>
-      </div>
-
-      <div class="mt-12 grid gap-4 md:grid-cols-3">
-        <article class="card rounded-[1.75rem] p-6 reveal">
-          <div class="chip">AI Support Platform</div>
-          <h3 class="mt-5 text-xl font-bold tracking-tight text-ink">AI customer support and knowledge workflows</h3>
-          <p class="mt-3 text-sm leading-7 text-muted">Designing intelligent support experiences that connect product data, internal knowledge, and user-facing automation.</p>
-          <div class="mt-5 flex flex-wrap gap-2"><span class="chip">RAG</span><span class="chip">NestJS</span><span class="chip">Next.js</span></div>
-        </article>
-        <article class="card rounded-[1.75rem] p-6 reveal">
-          <div class="chip">Ops Automation</div>
-          <h3 class="mt-5 text-xl font-bold tracking-tight text-ink">Operational workflows that reduce manual effort</h3>
-          <p class="mt-3 text-sm leading-7 text-muted">Turning repeated business tasks into streamlined systems with clear ownership and measurable outputs.</p>
-          <div class="mt-5 flex flex-wrap gap-2"><span class="chip">Automation</span><span class="chip">Process Design</span><span class="chip">SaaS</span></div>
-        </article>
-        <article class="card rounded-[1.75rem] p-6 reveal">
-          <div class="chip">Product Delivery</div>
-          <h3 class="mt-5 text-xl font-bold tracking-tight text-ink">Technical leadership for clean product launches</h3>
-          <p class="mt-3 text-sm leading-7 text-muted">Aligning roadmap, engineering, and stakeholders around a refined release plan and stable delivery cadence.</p>
-          <div class="mt-5 flex flex-wrap gap-2"><span class="chip">PM</span><span class="chip">Roadmap</span><span class="chip">Delivery</span></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="tech" class="border-t border-line bg-white">
-    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-      <div class="reveal mx-auto max-w-2xl text-center">
-        <div class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">Technologies</div>
-        <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">The Full Stack of Modern AI Development</h2>
-        <p class="mt-4 text-base leading-8 text-muted">A curated stack across AI, backend, frontend, mobile, and cloud delivery.</p>
-      </div>
-
-      <div class="tech-grid mt-12 md:grid-cols-2 xl:grid-cols-4">
-        <div class="card tech-card rounded-3xl p-6 reveal">
-          <div class="text-sm font-semibold text-primary">AI &amp; Automation</div>
-          <div class="tech-badges">
-            <span class="chip">OpenAI APIs</span><span class="chip">Claude API</span><span class="chip">LangChain</span><span class="chip">CrewAI</span><span class="chip">AutoGen</span><span class="chip">Ollama</span><span class="chip">RAG Systems</span><span class="chip">Agentic AI</span><span class="chip">n8n</span><span class="chip">MCP Workflows</span><span class="chip">Vector DBs</span><span class="chip">Pinecone</span><span class="chip">ChromaDB</span>
-          </div>
-        </div>
-        <div class="card tech-card rounded-3xl p-6 reveal" style="transition-delay:0.1s;">
-          <div class="text-sm font-semibold text-primary">Backend</div>
-          <div class="tech-badges">
-            <span class="chip">NestJS</span><span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">FastAPI</span><span class="chip">GraphQL</span><span class="chip">REST APIs</span><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">Firebase</span><span class="chip">Supabase</span>
-          </div>
-        </div>
-        <div class="card tech-card rounded-3xl p-6 reveal" style="transition-delay:0.2s;">
-          <div class="text-sm font-semibold text-primary">Frontend &amp; Mobile</div>
-          <div class="tech-badges">
-            <span class="chip">Flutter</span><span class="chip">FlutterFlow</span><span class="chip">React.js</span><span class="chip">Next.js</span><span class="chip">Tailwind CSS</span><span class="chip">TypeScript</span>
-          </div>
-        </div>
-        <div class="card tech-card rounded-3xl p-6 reveal" style="transition-delay:0.3s;">
-          <div class="text-sm font-semibold text-primary">Cloud &amp; DevOps</div>
-          <div class="tech-badges">
-            <span class="chip">AWS</span><span class="chip">Docker</span><span class="chip">CI/CD</span><span class="chip">GitHub</span><span class="chip">Vercel</span><span class="chip">Cloud Deployments</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects" class="border-t border-line bg-white">
-    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-      <div class="reveal mx-auto max-w-2xl text-center">
-        <div class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">Featured Projects</div>
-        <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Systems I&apos;ve Built &amp; Shipped to Production</h2>
-        <p class="mt-4 text-base leading-8 text-muted">30+ projects across AI platforms, mobile apps, and web products.</p>
-      </div>
-
-      <div class="proj-filter mt-12 reveal" style="transition-delay:0.15s;">
-        <button class="proj-filter-btn active" onclick="filterProjects('all', this)">All Projects</button>
-        <button class="proj-filter-btn" onclick="filterProjects('featured', this)">Featured</button>
-        <button class="proj-filter-btn" onclick="filterProjects('ai', this)">AI Products</button>
-        <button class="proj-filter-btn" onclick="filterProjects('mobile', this)">Mobile Apps</button>
-        <button class="proj-filter-btn" onclick="filterProjects('web', this)">Web Apps</button>
-      </div>
-
-      <div class="projects-grid-main mt-12" id="projectsGrid"></div>
-    </div>
-  </section>
-
-  <section id="experience" class="border-t border-line bg-white">
-    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-      <div class="reveal max-w-2xl">
-        <div class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">Experience</div>
-        <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">A practical career built across engineering and leadership.</h2>
-      </div>
-
-      <div class="mt-12 space-y-6">
-        <div class="timeline reveal">
-          <span class="timeline-dot"></span>
-          <div class="card rounded-3xl p-6">
-            <div class="flex flex-wrap items-start justify-between gap-3">
-              <div>
-                <h3 class="text-xl font-bold text-ink">Co-Founder &amp; Technical Project Manager</h3>
-                <p class="mt-1 text-sm font-semibold text-primary">Devsinn Technologies</p>
-              </div>
-              <span class="chip">Current</span>
-            </div>
-            <p class="mt-4 text-sm leading-7 text-muted">Leading delivery, roadmap structure, and technical direction for AI and SaaS initiatives.</p>
-          </div>
-        </div>
-
-        <div class="timeline reveal">
-          <span class="timeline-dot"></span>
-          <div class="card rounded-3xl p-6">
-            <div class="flex flex-wrap items-start justify-between gap-3">
-              <div>
-                <h3 class="text-xl font-bold text-ink">Senior Backend Developer</h3>
-                <p class="mt-1 text-sm font-semibold text-primary">Devsinn Technologies</p>
-              </div>
-              <span class="chip">Backend</span>
-            </div>
-            <p class="mt-4 text-sm leading-7 text-muted">Architected APIs, data models, and infrastructure for product teams shipping at pace.</p>
-          </div>
-        </div>
-
-        <div class="timeline reveal">
-          <span class="timeline-dot"></span>
-          <div class="card rounded-3xl p-6">
-            <div class="flex flex-wrap items-start justify-between gap-3">
-              <div>
-                <h3 class="text-xl font-bold text-ink">Senior Software Engineer</h3>
-                <p class="mt-1 text-sm font-semibold text-primary">Securehops</p>
-              </div>
-              <span class="chip">Engineering</span>
-            </div>
-            <p class="mt-4 text-sm leading-7 text-muted">Contributed to enterprise-grade software delivery with a focus on reliability and product quality.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="border-t border-line bg-white">
-    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-      <div class="reveal rounded-[2rem] border border-line bg-white px-6 py-10 text-center shadow-soft sm:px-10">
-        <div class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">Let’s Work Together</div>
-        <h2 class="mx-auto mt-5 max-w-3xl text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">A premium AI and product execution partner for companies that care about polish.</h2>
-        <p class="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted">If you need an AI strategist, technical PM, or a strong execution layer between business goals and engineering output, I can help shape the work and drive it forward.</p>
-        <div class="mt-8 flex flex-wrap justify-center gap-3">
-          <a href="#contact" class="inline-flex items-center justify-center rounded-full border border-primary bg-primary px-6 py-3 text-sm font-semibold text-white">Book a Call</a>
-          <a href="#experience" class="inline-flex items-center justify-center rounded-full border border-line bg-white px-6 py-3 text-sm font-semibold text-ink">Review Experience</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="border-t border-line bg-white">
-    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-      <div class="reveal max-w-2xl">
-        <div class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">Contact</div>
-        <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Let’s discuss your next AI or SaaS initiative.</h2>
-      </div>
-
-      <div class="mt-12 grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-        <div class="reveal">
-          <div class="card rounded-[1.75rem] p-6 sm:p-8">
-            <h3 class="text-2xl font-bold tracking-tight text-ink">Ubaid Ullah Asim</h3>
-            <p class="mt-2 text-sm font-semibold text-primary">AI Strategist &amp; Technical Project Manager</p>
-            <p class="mt-5 text-sm leading-7 text-muted">Based in Lahore, Pakistan. Available for remote consulting, strategy, and product delivery partnerships.</p>
-
-            <div class="mt-8 space-y-4">
-              <div class="flex items-start gap-4">
-                <div class="flex h-11 w-11 items-center justify-center rounded-2xl border border-line bg-white text-primary">01</div>
-                <div>
-                  <div class="text-sm font-semibold text-ink">Company</div>
-                  <div class="mt-1 text-sm text-muted">Devsinn Technologies</div>
-                </div>
-              </div>
-              <div class="flex items-start gap-4">
-                <div class="flex h-11 w-11 items-center justify-center rounded-2xl border border-line bg-white text-primary">02</div>
-                <div>
-                  <div class="text-sm font-semibold text-ink">Location</div>
-                  <div class="mt-1 text-sm text-muted">Lahore, Pakistan</div>
-                </div>
-              </div>
-              <div class="flex items-start gap-4">
-                <div class="flex h-11 w-11 items-center justify-center rounded-2xl border border-line bg-white text-primary">03</div>
-                <div>
-                  <div class="text-sm font-semibold text-ink">LinkedIn</div>
-                  <a class="mt-1 block text-sm text-primary" href="https://www.linkedin.com/in/ubaid-ullah-asim" target="_blank" rel="noreferrer">linkedin.com/in/ubaid-ullah-asim</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal">
-          <form class="card rounded-[1.75rem] p-6 sm:p-8" onsubmit="handleSubmit(event)">
-            <div class="grid gap-4 sm:grid-cols-2">
-              <div>
-                <label class="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-muted">Name</label>
-                <input class="field" type="text" name="name" placeholder="Your name" required>
-              </div>
-              <div>
-                <label class="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-muted">Email</label>
-                <input class="field" type="email" name="email" placeholder="you@company.com" required>
-              </div>
-            </div>
-            <div class="mt-4">
-              <label class="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-muted">Project type</label>
-              <input class="field" type="text" name="subject" placeholder="AI strategy, product delivery, automation, and so on">
-            </div>
-            <div class="mt-4">
-              <label class="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-muted">Message</label>
-              <textarea class="field min-h-[150px] resize-y" name="message" placeholder="Share your goals, timeline, and the outcome you want to achieve."></textarea>
-            </div>
-            <div class="mt-6 flex flex-wrap gap-3">
-              <button type="submit" class="inline-flex items-center justify-center rounded-full border border-primary bg-primary px-6 py-3 text-sm font-semibold text-white">Send Message</button>
-              <a href="https://www.linkedin.com/in/ubaid-ullah-asim" target="_blank" rel="noreferrer" class="inline-flex items-center justify-center rounded-full border border-line bg-white px-6 py-3 text-sm font-semibold text-ink">Connect on LinkedIn</a>
-            </div>
-            <div id="successMessage" class="mt-6 hidden rounded-2xl border border-primary/20 bg-primary/5 px-4 py-3 text-sm font-semibold text-primary">Message ready. In a live deployment, this would be wired to your email or CRM endpoint.</div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="border-t border-line bg-white">
-  <div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-muted sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-    <div class="font-semibold text-ink">Ubaid Ullah Asim</div>
-    <div>AI Strategist &amp; Technical Project Manager · Lahore, Pakistan</div>
-  </div>
-</footer>
-
-<script>
-const PROJECTS = [
-  // AI / Featured
-  {id:"chatsupplies",name:"ChatSupplies",tag:"AI Chatbot Platform",desc:"AI-powered customer support chatbot platform with website and PDF training, RAG architecture, and real-time business workflow automation.",emoji:"&#128172;",color:"#3b82f6",link:"https://chatsupplies.com",stacks:["RAG","OpenAI","NestJS","Next.js","MongoDB","AI"],cats:["featured","ai","web"]},
-  {id:"drafidox",name:"Drafidox",tag:"AI Documentation System",desc:"AI-powered documentation and workflow automation system transforming operational processes into intelligent, scalable documentation pipelines.",emoji:"&#128196;",color:"#8b5cf6",link:"https://drafidox.com",stacks:["AI Workflows","Process Automation","NestJS","MongoDB"],cats:["featured","ai","web"]},
-  {id:"smartlogomaker",name:"Smart Logo Maker",tag:"AI Branding Platform",desc:"AI-powered branding and logo generation platform delivering instant, high-quality logo creation with a seamless customization workflow.",emoji:"&#10024;",color:"#06b6d4",link:"https://smart-logomaker.com",stacks:["AI Generation","Next.js","Tailwind","AWS"],cats:["featured","ai","web"]},
-  // Mobile
-  {id:"salamly",name:"Salamly",tag:"Mobile App",desc:"Islamic app for Quran reading, Islamic quotes and social networking — community-driven spiritual platform.",emoji:"&#127774;",color:"#22c55e",link:"https://play.google.com/store/apps/details?id=com.salamgram.salamgram",stacks:["Flutter","Firebase","Node.js","MongoDB"],cats:["mobile"]},
-  {id:"wirdbook",name:"Wird Book",tag:"Mobile App",desc:"Compilation of litanies based on Prophetic traditions as recommended by Imam Abulhasan Al-Shadhili. Available on iOS and Android.",emoji:"&#128213;",color:"#8b5cf6",link:"https://play.google.com/store/apps/details?id=wirdbook.eito",stacks:["Flutter","Firebase","REST API"],cats:["mobile"]},
-  {id:"fams",name:"FAMS Mobile",tag:"Fleet Management",desc:"Complete GPS fleet management solution for real-time tracking, cost control, security, and optimized fleet operations.",emoji:"&#128663;",color:"#3b82f6",link:"https://play.google.com/store/apps/details?id=com.falkenherz.fams",stacks:["Flutter","Firebase","GPS","REST API"],cats:["mobile"]},
-  {id:"mood",name:"Mood Social",tag:"Social / Events",desc:"Find events based on your interests and go together with others. Create your own event or join one near you today.",emoji:"&#127881;",color:"#ec4899",link:"https://apps.apple.com/ca/app/mood-social-events-friends/id1403003910",stacks:["Flutter","Firebase","Node.js"],cats:["mobile"]},
-  {id:"instacalm",name:"InstaCalm Anxiety",tag:"Health & Wellness",desc:"InstaCalm employs 30+ Cognitive Behavioural Hypnotherapy Sessions for instant anxiety relief. Available iOS &amp; Android.",emoji:"&#129504;",color:"#06b6d4",link:"https://play.google.com/store/apps/details?id=com.instacalm.instacalm_anxiety_treatment1",stacks:["Flutter","Firebase","REST API"],cats:["mobile"]},
-  {id:"weteachs",name:"WeTeachs",tag:"EdTech Platform",desc:"Platform that connects Experts and Students, offering flexible learning, personalized profiles, and a vibrant community hub.",emoji:"&#127891;",color:"#f59e0b",link:"https://play.google.com/store/apps/details?id=com.weteachappneww.app",stacks:["Flutter","FlutterFlow","Firebase","Node.js"],cats:["mobile"]},
-  {id:"sendsorta",name:"Sendsorta",tag:"Parenting App",desc:"Supportive app empowering parents of children with special needs through personalized guidance and expert-led resources.",emoji:"&#128153;",color:"#8b5cf6",link:"https://play.google.com/store/apps/details?id=com.embeddedtech.sendsorta",stacks:["Flutter","FlutterFlow","Firebase","Node.js"],cats:["mobile"]},
-  {id:"circleup",name:"CircleUp",tag:"Social Networking",desc:"Community for 20s &amp; 30s who choose real connection, shared experiences, and belonging over scrolling.",emoji:"&#127759;",color:"#6366f1",link:"https://play.google.com/store/apps/details?id=branded.mc57e8347a78d4b36b00540b68e03cf09.circleup",stacks:["Flutter","FlutterFlow","Firebase","Node.js"],cats:["mobile"]},
-  {id:"funky",name:"Funky",tag:"Social Media App",desc:"Multifaceted social media application offering modes for creators, kids, and advertisers to engage and earn.",emoji:"&#127926;",color:"#ec4899",link:"",stacks:["Flutter","Firebase","Node.js","MongoDB"],cats:["mobile"]},
-  {id:"roshi",name:"Roshi Career",tag:"Career / LinkedIn-like",desc:"Specialized career app tailored for recruiters and job seekers featuring a built-in CV generator for professional profiles.",emoji:"&#128188;",color:"#3b82f6",link:"",stacks:["Flutter","Firebase","Node.js","MongoDB"],cats:["mobile"]},
-  {id:"ohready",name:"ohReady Admin",tag:"Food Delivery",desc:"Order food from your mobile phone in your town. ohReady delivers food to your doorstep.",emoji:"&#127829;",color:"#f59e0b",link:"",stacks:["Flutter","Firebase","Node.js","MongoDB"],cats:["mobile"]},
-  {id:"fittech",name:"Fittech",tag:"Fitness App",desc:"Fitness app designed for gyms and Spanish speakers, facilitating daily fitness tracking.",emoji:"&#128170;",color:"#22c55e",link:"",stacks:["Flutter","Firebase","Node.js","MongoDB"],cats:["mobile"]},
-  {id:"pricepro",name:"PricePro",tag:"Restaurant Management",desc:"Application to manage menus of different restaurant branches. Copy/move items across branches and set different rates.",emoji:"&#128179;",color:"#06b6d4",link:"https://play.google.com/store/apps/details?id=com.mycompany.price",stacks:["Flutter","Firebase","Node.js","MongoDB"],cats:["mobile"]},
-  {id:"mycash",name:"MyCash",tag:"Fintech",desc:"No-interest loan application providing easy and compassionate financial assistance to users in need.",emoji:"&#128176;",color:"#22c55e",link:"",stacks:["Flutter","Firebase","Node.js","MongoDB"],cats:["mobile"]},
-  {id:"ekcabfare",name:"EkCabFare",tag:"Transport",desc:"Displays and compares fares between Uber, Careem, and Ola cabs using real-time pricing data.",emoji:"&#128661;",color:"#f59e0b",link:"",stacks:["Flutter","Firebase","Scraping","Node.js"],cats:["mobile"]},
-  {id:"airhome",name:"AirHomeRestaurant",tag:"Food App",desc:"Specialized restaurant application with dual interface for sellers and buyers, akin to FoodPanda.",emoji:"&#127858;",color:"#ec4899",link:"",stacks:["Flutter","Firebase","Node.js","MongoDB"],cats:["mobile"]},
-  // Web
-  {id:"certainli",name:"Certainli.se",tag:"Compliance Platform",desc:"Product compliance platform with extensive expertise in product development and regulatory requirements.",emoji:"&#9989;",color:"#3b82f6",link:"https://certainli.se/",stacks:["React","Next.js","Node.js","MongoDB","Docker","AWS"],cats:["web"]},
-  {id:"wyzepay",name:"WyzePay",tag:"Sports FinTech",desc:"Empowers sports clubs to engage fans and drive revenue through tokenized wallets, in-app payments, and gamified loyalty.",emoji:"&#9917;",color:"#22c55e",link:"https://wyzepay.com/",stacks:["React","Next.js","Node.js","Express","MongoDB"],cats:["web"]},
-  {id:"jiffy",name:"Jiffy",tag:"Legal Services",desc:"Secure, same-day delivery and expert handling of legal documents across the UAE with real-time tracking and attestation.",emoji:"&#9878;&#65039;",color:"#f59e0b",link:"https://jiffy.ae/",stacks:["React","Next.js","Node.js","MongoDB","AWS"],cats:["web"]},
-  {id:"rx101",name:"Rx101 Savers Card",tag:"Healthcare",desc:"Helps CHM members save on prescriptions and healthcare needs with convenient and affordable medication options.",emoji:"&#128138;",color:"#ec4899",link:"https://rx101.org/",stacks:["React","Next.js","Node.js","Express","MongoDB"],cats:["web"]},
-  {id:"alttext",name:"AltText AI",tag:"AI / SEO Tool",desc:"AI-powered alt text platform making website images visible to search engines, accessibility tools, and AI assistants.",emoji:"&#128065;&#65039;",color:"#8b5cf6",link:"https://alttext.ai/",stacks:["React","Next.js","AI","Node.js","AWS"],cats:["web","ai"]},
-  {id:"circleupweb",name:"CircleUp",tag:"Career Platform",desc:"Launch your career from college with AI-powered access to global opportunities.",emoji:"&#127759;",color:"#6366f1",link:"https://www.joincircleup.com/",stacks:["React","Next.js","Node.js","MongoDB","Tailwind"],cats:["web"]},
-  {id:"weteachsweb",name:"WeTeachs Web",tag:"EdTech",desc:"Connects learners and experts globally, enabling personalized learning, teaching, and growth all in one platform.",emoji:"&#127891;",color:"#f59e0b",link:"https://www.weteachs.com/",stacks:["React","Next.js","Node.js","MongoDB"],cats:["web"]},
-  {id:"hpappen",name:"Hp Appen",tag:"EdTech / MCQ",desc:"Swedish-based MCQ website offering a streamlined and comprehensive approach to mastering multiple-choice questions.",emoji:"&#128218;",color:"#06b6d4",link:"https://www.hpappen.se/",stacks:["React","Next.js","Node.js","MongoDB","Docker","AWS"],cats:["web"]},
-  {id:"hpappenprod",name:"Hp Appen App",tag:"EdTech / Production",desc:"Production application for Hpappen — streamlined MCQ practice with advanced features and performance tracking.",emoji:"&#128202;",color:"#3b82f6",link:"https://app.hpappen.se/",stacks:["React","Next.js","Node.js","MongoDB","AWS"],cats:["web"]},
-];
-
-  const projectsGrid = document.getElementById('projectsGrid');
-  const projectFilterButtons = Array.from(document.querySelectorAll('.proj-filter-btn'));
-
-  function getInitials(name) {
-    if (!name) return '';
-    const parts = name.split(/\s+/).filter(Boolean);
-    const initials = parts.slice(0, 2).map(w => w.replace(/[^A-Za-z0-9]/g, '').charAt(0).toUpperCase()).join('');
-    return initials || name.slice(0, 2).toUpperCase();
-  }
-
-  function renderProjects(category = 'all') {
-    const filteredProjects = category === 'all'
-      ? PROJECTS
-      : PROJECTS.filter((project) => project.cats.includes(category));
-
-    if (!projectsGrid) {
-      return;
+  </script>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --primary: #1d4ed8;
     }
 
-    projectsGrid.innerHTML = '';
+    * {
+      box-sizing: border-box;
+    }
 
-    filteredProjects.forEach((project) => {
-      const article = document.createElement('article');
-      article.className = 'card project-card rounded-[1.75rem] p-6 reveal';
-      article.dataset.cats = project.cats.join(' ');
+    html {
+      scroll-behavior: smooth;
+    }
 
-      const head = document.createElement('div');
-      head.className = 'project-head';
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Manrope', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
 
-      const icon = document.createElement('div');
-      icon.className = 'project-icon';
-      // Use a colored square with initials instead of emoji
-      icon.style.background = project.color;
-      icon.style.borderColor = project.color;
-      icon.style.color = '#fff';
-      icon.style.fontWeight = '700';
-      icon.textContent = getInitials(project.name);
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 16px 50px rgba(15, 23, 42, 0.06);
+    }
 
-      const titleWrap = document.createElement('div');
-      const tag = document.createElement('div');
-      tag.className = 'chip';
-      tag.textContent = project.tag;
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--muted);
+      padding: 0.42rem 0.8rem;
+      font-size: 0.875rem;
+      line-height: 1;
+    }
 
-      const title = document.createElement('h3');
-      title.className = 'mt-3 text-xl font-bold tracking-tight text-ink';
-      title.textContent = project.name;
+    .tech-grid {
+      display: grid;
+      gap: 1rem;
+    }
 
-      titleWrap.append(tag, title);
-      head.append(icon, titleWrap);
+    .tech-card {
+      height: 100%;
+    }
 
-      const desc = document.createElement('p');
-      desc.className = 'text-sm leading-7 text-muted';
-      desc.innerHTML = project.desc;
+    .tech-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1rem;
+    }
 
-      const stacks = document.createElement('div');
-      stacks.className = 'project-stacks';
-      project.stacks.forEach((stack) => {
-        const chip = document.createElement('span');
-        chip.className = 'chip';
-        chip.textContent = stack;
-        stacks.appendChild(chip);
-      });
+    .proj-filter {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+    }
 
-      const footer = document.createElement('div');
-      footer.className = 'mt-auto flex items-center justify-between gap-3';
+    .proj-filter-btn {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 0.8rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      line-height: 1;
+      cursor: pointer;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+    }
 
-      const status = document.createElement('span');
-      status.className = 'text-sm font-semibold text-primary';
-      status.textContent = project.cats.includes('featured') ? 'Featured build' : 'Selected project';
+    .proj-filter-btn:hover {
+      transform: translateY(-1px);
+      color: var(--text);
+      border-color: rgba(29, 78, 216, 0.2);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+    }
 
-      const link = project.link
-        ? Object.assign(document.createElement('a'), {
+    .proj-filter-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 14px 32px rgba(29, 78, 216, 0.18);
+    }
+
+    .projects-grid-main {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      height: 100%;
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+      border-color: rgba(29, 78, 216, 0.14);
+    }
+
+    .project-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+    }
+
+    .project-icon {
+      flex: 0 0 auto;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(29, 78, 216, 0.12);
+      background: rgba(29, 78, 216, 0.05);
+      color: var(--primary);
+      display: grid;
+      place-items: center;
+      font-size: 1.35rem;
+    }
+
+    .project-stacks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .project-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      border: 1px solid var(--primary);
+      background: var(--primary);
+      color: #fff;
+      padding: 0.7rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+    }
+
+    .project-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 28px rgba(29, 78, 216, 0.18);
+      opacity: 0.96;
+    }
+
+    .kicker::before {
+      content: '';
+      display: inline-block;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 999px;
+      background: var(--primary);
+      margin-right: 0.6rem;
+    }
+
+    .nav-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .nav-link:hover {
+      color: var(--text);
+    }
+
+    .button-primary {
+      background: var(--primary);
+      color: #fff;
+      border: 1px solid var(--primary);
+    }
+
+    .button-secondary {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .field {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      padding: 0.95rem 1rem;
+      outline: none;
+      background: #fff;
+      color: var(--text);
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .field:focus {
+      border-color: rgba(29, 78, 216, 0.45);
+      box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.08);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 1.6rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.42rem;
+      top: 0.3rem;
+      bottom: 0.3rem;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -0.02rem;
+      top: 0.4rem;
+      width: 0.9rem;
+      height: 0.9rem;
+      border-radius: 999px;
+      background: #fff;
+      border: 2px solid var(--primary);
+      box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.08);
+    }
+
+    .menu-panel {
+      display: none;
+    }
+
+    .menu-panel.open {
+      display: block;
+    }
+
+    .hero-shell {
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="sticky top-0 z-50 border-b border-line bg-white/90 backdrop-blur">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <a href="#top" class="text-sm font-extrabold tracking-tight text-ink sm:text-base">Ubaid Ullah Asim</a>
+      <nav class="hidden items-center gap-8 md:flex">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#services">Services</a>
+        <a class="nav-link" href="#work">Work</a>
+        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+      <a href="#contact"
+        class="hidden rounded-full border border-primary bg-primary px-5 py-2.5 text-sm font-semibold text-white md:inline-flex">Book
+        a Call</a>
+      <button id="menuButton"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line md:hidden"
+        type="button" aria-label="Open menu">
+        <span class="block h-0.5 w-5 bg-ink"></span>
+      </button>
+    </div>
+    <div id="mobileMenu" class="menu-panel border-t border-line bg-white md:hidden">
+      <div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4 sm:px-6">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#services">Services</a>
+        <a class="nav-link" href="#work">Work</a>
+        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#contact">Contact</a>
+        <a href="#contact"
+          class="inline-flex items-center justify-center rounded-full border border-primary bg-primary px-5 py-2.5 text-sm font-semibold text-white">Book
+          a Call</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 lg:px-8 lg:pb-28 lg:pt-20">
+      <div class="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+        <div class="reveal">
+          <div
+            class="kicker mb-5 inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">
+            Open to AI &amp; SaaS Projects</div>
+          <h1 class="max-w-3xl text-4xl font-bold tracking-tight text-ink sm:text-5xl lg:text-6xl">
+            AI Strategist &amp; Technical PM
+            Building Scalable
+            <span class="text-primary">AI-Powered Systems</span>
+          </h1>
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-muted">
+            I help founders and operators design intelligent SaaS products, automate recurring work, and move from idea
+            to shipped system with a clean, disciplined product approach.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#contact"
+              class="inline-flex items-center justify-center rounded-full border border-primary bg-primary px-6 py-3 text-sm font-semibold text-white">Start
+              a Project</a>
+            <a href="#work"
+              class="inline-flex items-center justify-center rounded-full border border-line bg-white px-6 py-3 text-sm font-semibold text-ink">View
+              Work</a>
+          </div>
+          <div class="mt-10 grid max-w-2xl gap-4 sm:grid-cols-2">
+            <div class="card rounded-3xl p-5">
+              <div class="text-sm font-semibold text-primary">Focus</div>
+              <div class="mt-2 text-base font-semibold text-ink">AI strategy that supports real workflows</div>
+              <p class="mt-2 text-sm leading-6 text-muted">Clear use cases, measurable outcomes, and strong product
+                judgment.</p>
+            </div>
+            <div class="card rounded-3xl p-5">
+              <div class="text-sm font-semibold text-primary">Delivery</div>
+              <div class="mt-2 text-base font-semibold text-ink">Technical project leadership from concept to launch
+              </div>
+              <p class="mt-2 text-sm leading-6 text-muted">Roadmaps, implementation, alignment, and release discipline.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal lg:justify-self-end">
+          <div class="card hero-shell rounded-[2rem] p-4 sm:p-5">
+            <div class="grid gap-4">
+              <div
+                class="overflow-hidden rounded-[1.5rem] border border-line bg-white p-8 flex items-center justify-center relative">
+                <img src="pp.jpeg" alt="Ubaid Ullah Asim portrait"
+                  class="w-56 h-56 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full object-cover shadow-soft border-2 border-line self-center">
+                <div
+                  class="absolute left-6 bottom-6 inline-flex items-center gap-3 rounded-full bg-white/95 border border-line px-3 py-1.5 text-sm font-semibold shadow-soft">
+                  <span class="h-2 w-2 rounded-full bg-primary block"></span>
+                  AI Strategist
+                </div>
+              </div>
+              <div class="flex flex-col gap-4">
+                <div class="card rounded-[1.5rem] p-5">
+                  <div class="text-xs font-semibold uppercase tracking-[0.22em] text-muted">Profile</div>
+                  <div class="mt-3 text-2xl font-bold tracking-tight text-ink">Ubaid Ullah Asim</div>
+                  <div class="mt-1 text-sm font-semibold text-primary">AI Strategist &amp; Technical Project Manager
+                  </div>
+                  <p class="mt-4 text-sm leading-6 text-muted">Based in Lahore, building premium AI-driven SaaS systems
+                    and clean technical delivery models.</p>
+                </div>
+                <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+                  <div class="card rounded-[1.5rem] p-5">
+                    <div class="text-sm font-semibold text-primary">6+ years</div>
+                    <p class="mt-2 text-sm leading-6 text-muted">Product engineering, systems thinking, and delivery
+                      leadership.</p>
+                  </div>
+                  <div class="card rounded-[1.5rem] p-5">
+                    <div class="text-sm font-semibold text-primary">3+ years</div>
+                    <p class="mt-2 text-sm leading-6 text-muted">Applied AI, automation workflows, and operational
+                      intelligence.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-10 grid gap-4 md:grid-cols-4 reveal">
+        <div class="card rounded-3xl p-5">
+          <div class="text-3xl font-bold tracking-tight text-ink">5+</div>
+          <div class="mt-1 text-sm text-muted">Years of technical delivery</div>
+        </div>
+        <div class="card rounded-3xl p-5">
+          <div class="text-3xl font-bold tracking-tight text-ink">3+</div>
+          <div class="mt-1 text-sm text-muted">Years focused on AI systems</div>
+        </div>
+        <div class="card rounded-3xl p-5">
+          <div class="text-3xl font-bold tracking-tight text-ink">30+</div>
+          <div class="mt-1 text-sm text-muted">Products and workflows shipped</div>
+        </div>
+        <div class="card rounded-3xl p-5">
+          <div class="text-3xl font-bold tracking-tight text-ink">1</div>
+          <div class="mt-1 text-sm text-muted">Primary color used throughout</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="border-t border-line bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+        <div class="reveal max-w-2xl">
+          <div
+            class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">
+            About</div>
+          <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">A strategic operator who understands
+            product, people, and the systems behind both.</h2>
+          <p class="mt-5 text-base leading-8 text-muted">I work at the intersection of AI strategy and execution. My
+            background in backend engineering, mobile development, and technical project management gives me the context
+            to turn abstract ideas into well-structured, reliable products.</p>
+        </div>
+
+        <div class="mt-12 grid gap-4 md:grid-cols-3">
+          <div class="card rounded-3xl p-6 reveal">
+            <div class="text-sm font-semibold text-primary">AI Strategy</div>
+            <p class="mt-3 text-sm leading-6 text-muted">Prioritizing use cases, mapping value, and defining practical
+              AI roadmaps.</p>
+          </div>
+          <div class="card rounded-3xl p-6 reveal">
+            <div class="text-sm font-semibold text-primary">Technical PM</div>
+            <p class="mt-3 text-sm leading-6 text-muted">Keeping product, design, and engineering aligned with a clean
+              delivery cadence.</p>
+          </div>
+          <div class="card rounded-3xl p-6 reveal">
+            <div class="text-sm font-semibold text-primary">SaaS Delivery</div>
+            <p class="mt-3 text-sm leading-6 text-muted">Shaping systems that feel polished, stable, and ready for
+              scale.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="border-t border-line bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+        <div class="reveal max-w-2xl">
+          <div
+            class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">
+            Services</div>
+          <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">The core engagements I design and
+            lead.</h2>
+        </div>
+
+        <div class="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div class="card rounded-3xl p-6 reveal">
+            <div class="text-sm font-semibold text-primary">AI Strategy</div>
+            <p class="mt-3 text-sm leading-6 text-muted">Identify where AI creates real value, then define a roadmap
+              that teams can execute.</p>
+          </div>
+          <div class="card rounded-3xl p-6 reveal">
+            <div class="text-sm font-semibold text-primary">Project Management</div>
+            <p class="mt-3 text-sm leading-6 text-muted">Keep teams accountable with crisp planning, clear priorities,
+              and practical release management.</p>
+          </div>
+          <div class="card rounded-3xl p-6 reveal">
+            <div class="text-sm font-semibold text-primary">SaaS Product Delivery</div>
+            <p class="mt-3 text-sm leading-6 text-muted">Shape premium user experiences and dependable systems for web
+              and mobile products.</p>
+          </div>
+          <div class="card rounded-3xl p-6 reveal">
+            <div class="text-sm font-semibold text-primary">Automation Systems</div>
+            <p class="mt-3 text-sm leading-6 text-muted">Replace repetitive work with thoughtful automation that
+              improves speed and consistency.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="border-t border-line bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+        <div class="reveal max-w-2xl">
+          <div
+            class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">
+            Selected Work</div>
+          <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Representative outcomes and product
+            patterns.</h2>
+          <p class="mt-4 text-base leading-8 text-muted">A short presentation of the kinds of systems I help teams build
+            and launch.</p>
+        </div>
+
+        <div class="mt-12 grid gap-4 md:grid-cols-3">
+          <article class="card rounded-[1.75rem] p-6 reveal">
+            <div class="chip">AI Support Platform</div>
+            <h3 class="mt-5 text-xl font-bold tracking-tight text-ink">AI customer support and knowledge workflows</h3>
+            <p class="mt-3 text-sm leading-7 text-muted">Designing intelligent support experiences that connect product
+              data, internal knowledge, and user-facing automation.</p>
+            <div class="mt-5 flex flex-wrap gap-2"><span class="chip">RAG</span><span class="chip">NestJS</span><span
+                class="chip">Next.js</span></div>
+          </article>
+          <article class="card rounded-[1.75rem] p-6 reveal">
+            <div class="chip">Ops Automation</div>
+            <h3 class="mt-5 text-xl font-bold tracking-tight text-ink">Operational workflows that reduce manual effort
+            </h3>
+            <p class="mt-3 text-sm leading-7 text-muted">Turning repeated business tasks into streamlined systems with
+              clear ownership and measurable outputs.</p>
+            <div class="mt-5 flex flex-wrap gap-2"><span class="chip">Automation</span><span class="chip">Process
+                Design</span><span class="chip">SaaS</span></div>
+          </article>
+          <article class="card rounded-[1.75rem] p-6 reveal">
+            <div class="chip">Product Delivery</div>
+            <h3 class="mt-5 text-xl font-bold tracking-tight text-ink">Technical leadership for clean product launches
+            </h3>
+            <p class="mt-3 text-sm leading-7 text-muted">Aligning roadmap, engineering, and stakeholders around a
+              refined release plan and stable delivery cadence.</p>
+            <div class="mt-5 flex flex-wrap gap-2"><span class="chip">PM</span><span class="chip">Roadmap</span><span
+                class="chip">Delivery</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="tech" class="border-t border-line bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <div
+            class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">
+            Technologies</div>
+          <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">The Full Stack of Modern AI
+            Development</h2>
+          <p class="mt-4 text-base leading-8 text-muted">A curated stack across AI, backend, frontend, mobile, and cloud
+            delivery.</p>
+        </div>
+
+        <div class="tech-grid mt-12 md:grid-cols-2 xl:grid-cols-4">
+          <div class="card tech-card rounded-3xl p-6 reveal">
+            <div class="text-sm font-semibold text-primary">AI &amp; Automation</div>
+            <div class="tech-badges">
+              <span class="chip">OpenAI APIs</span><span class="chip">Claude API</span><span
+                class="chip">LangChain</span><span class="chip">CrewAI</span><span class="chip">AutoGen</span><span
+                class="chip">Ollama</span><span class="chip">RAG Systems</span><span class="chip">Agentic AI</span><span
+                class="chip">n8n</span><span class="chip">MCP Workflows</span><span class="chip">Vector DBs</span><span
+                class="chip">Pinecone</span><span class="chip">ChromaDB</span>
+            </div>
+          </div>
+          <div class="card tech-card rounded-3xl p-6 reveal" style="transition-delay:0.1s;">
+            <div class="text-sm font-semibold text-primary">Backend</div>
+            <div class="tech-badges">
+              <span class="chip">NestJS</span><span class="chip">Node.js</span><span class="chip">Express.js</span><span
+                class="chip">FastAPI</span><span class="chip">GraphQL</span><span class="chip">REST APIs</span><span
+                class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">Firebase</span><span
+                class="chip">Supabase</span>
+            </div>
+          </div>
+          <div class="card tech-card rounded-3xl p-6 reveal" style="transition-delay:0.2s;">
+            <div class="text-sm font-semibold text-primary">Frontend &amp; Mobile</div>
+            <div class="tech-badges">
+              <span class="chip">Flutter</span><span class="chip">FlutterFlow</span><span
+                class="chip">React.js</span><span class="chip">Next.js</span><span class="chip">Tailwind CSS</span><span
+                class="chip">TypeScript</span>
+            </div>
+          </div>
+          <div class="card tech-card rounded-3xl p-6 reveal" style="transition-delay:0.3s;">
+            <div class="text-sm font-semibold text-primary">Cloud &amp; DevOps</div>
+            <div class="tech-badges">
+              <span class="chip">AWS</span><span class="chip">Docker</span><span class="chip">CI/CD</span><span
+                class="chip">GitHub</span><span class="chip">Vercel</span><span class="chip">Cloud Deployments</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="border-t border-line bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+        <div class="reveal mx-auto max-w-2xl text-center">
+          <div
+            class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">
+            Featured Projects</div>
+          <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Systems I&apos;ve Built &amp; Shipped
+            to Production</h2>
+          <p class="mt-4 text-base leading-8 text-muted">30+ projects across AI platforms, mobile apps, and web
+            products.</p>
+        </div>
+
+        <div class="proj-filter mt-12 reveal" style="transition-delay:0.15s;">
+          <button class="proj-filter-btn active" onclick="filterProjects('all', this)">All Projects</button>
+          <button class="proj-filter-btn" onclick="filterProjects('featured', this)">Featured</button>
+          <button class="proj-filter-btn" onclick="filterProjects('ai', this)">AI Products</button>
+          <button class="proj-filter-btn" onclick="filterProjects('mobile', this)">Mobile Apps</button>
+          <button class="proj-filter-btn" onclick="filterProjects('web', this)">Web Apps</button>
+        </div>
+
+        <div class="projects-grid-main mt-12" id="projectsGrid"></div>
+
+        <div id="viewAllContainer" class="mt-12 flex justify-center hidden">
+          <button id="viewAllBtn" class="proj-filter-btn active" style="padding: 0.8rem 2.5rem;"
+            onclick="handleViewAll()">View All</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="border-t border-line bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+        <div class="reveal max-w-2xl">
+          <div
+            class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">
+            Experience</div>
+          <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">A practical career built across
+            engineering and leadership.</h2>
+        </div>
+
+        <div class="mt-12 space-y-6">
+          <div class="timeline reveal">
+            <span class="timeline-dot"></span>
+            <div class="card rounded-3xl p-6">
+              <div class="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <h3 class="text-xl font-bold text-ink">Co-Founder &amp; Technical Project Manager</h3>
+                  <p class="mt-1 text-sm font-semibold text-primary">Devsinn Technologies</p>
+                </div>
+                <span class="chip">Current</span>
+              </div>
+              <p class="mt-4 text-sm leading-7 text-muted">Leading delivery, roadmap structure, and technical direction
+                for AI and SaaS initiatives.</p>
+            </div>
+          </div>
+
+          <div class="timeline reveal">
+            <span class="timeline-dot"></span>
+            <div class="card rounded-3xl p-6">
+              <div class="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <h3 class="text-xl font-bold text-ink">Senior Backend Developer</h3>
+                  <p class="mt-1 text-sm font-semibold text-primary">Devsinn Technologies</p>
+                </div>
+                <span class="chip">Backend</span>
+              </div>
+              <p class="mt-4 text-sm leading-7 text-muted">Architected APIs, data models, and infrastructure for product
+                teams shipping at pace.</p>
+            </div>
+          </div>
+
+          <div class="timeline reveal">
+            <span class="timeline-dot"></span>
+            <div class="card rounded-3xl p-6">
+              <div class="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <h3 class="text-xl font-bold text-ink">Senior Software Engineer</h3>
+                  <p class="mt-1 text-sm font-semibold text-primary">Securehops</p>
+                </div>
+                <span class="chip">Engineering</span>
+              </div>
+              <p class="mt-4 text-sm leading-7 text-muted">Contributed to enterprise-grade software delivery with a
+                focus on reliability and product quality.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-line bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+        <div class="reveal rounded-[2rem] border border-line bg-white px-6 py-10 text-center shadow-soft sm:px-10">
+          <div
+            class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">
+            Let’s Work Together</div>
+          <h2 class="mx-auto mt-5 max-w-3xl text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">A
+            premium AI and product execution partner for companies that care about polish.</h2>
+          <p class="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted">If you need an AI strategist, technical PM,
+            or a strong execution layer between business goals and engineering output, I can help shape the work and
+            drive it forward.</p>
+          <div class="mt-8 flex flex-wrap justify-center gap-3">
+            <a href="#contact"
+              class="inline-flex items-center justify-center rounded-full border border-primary bg-primary px-6 py-3 text-sm font-semibold text-white">Book
+              a Call</a>
+            <a href="#experience"
+              class="inline-flex items-center justify-center rounded-full border border-line bg-white px-6 py-3 text-sm font-semibold text-ink">Review
+              Experience</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="border-t border-line bg-white">
+      <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+        <div class="reveal max-w-2xl">
+          <div
+            class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">
+            Contact</div>
+          <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Let’s discuss your next AI or SaaS
+            initiative.</h2>
+        </div>
+
+        <div class="mt-12 grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+          <div class="reveal">
+            <div class="card rounded-[1.75rem] p-6 sm:p-8">
+              <h3 class="text-2xl font-bold tracking-tight text-ink">Ubaid Ullah Asim</h3>
+              <p class="mt-2 text-sm font-semibold text-primary">AI Strategist &amp; Technical Project Manager</p>
+              <p class="mt-5 text-sm leading-7 text-muted">Based in Lahore, Pakistan. Available for remote consulting,
+                strategy, and product delivery partnerships.</p>
+
+              <div class="mt-8 space-y-4">
+                <div class="flex items-start gap-4">
+                  <div
+                    class="flex h-11 w-11 items-center justify-center rounded-2xl border border-line bg-white text-primary">
+                    01</div>
+                  <div>
+                    <div class="text-sm font-semibold text-ink">Company</div>
+                    <div class="mt-1 text-sm text-muted">Devsinn Technologies</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <div
+                    class="flex h-11 w-11 items-center justify-center rounded-2xl border border-line bg-white text-primary">
+                    02</div>
+                  <div>
+                    <div class="text-sm font-semibold text-ink">Location</div>
+                    <div class="mt-1 text-sm text-muted">Lahore, Pakistan</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <div
+                    class="flex h-11 w-11 items-center justify-center rounded-2xl border border-line bg-white text-primary">
+                    03</div>
+                  <div>
+                    <div class="text-sm font-semibold text-ink">LinkedIn</div>
+                    <a class="mt-1 block text-sm text-primary" href="https://www.linkedin.com/in/ubaid-ullah-asim"
+                      target="_blank" rel="noreferrer">linkedin.com/in/ubaid-ullah-asim</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <form class="card rounded-[1.75rem] p-6 sm:p-8" onsubmit="handleSubmit(event)">
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label class="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-muted">Name</label>
+                  <input class="field" type="text" name="name" placeholder="Your name" required>
+                </div>
+                <div>
+                  <label class="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-muted">Email</label>
+                  <input class="field" type="email" name="email" placeholder="you@company.com" required>
+                </div>
+              </div>
+              <div class="mt-4">
+                <label class="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-muted">Project type</label>
+                <input class="field" type="text" name="subject"
+                  placeholder="AI strategy, product delivery, automation, and so on">
+              </div>
+              <div class="mt-4">
+                <label class="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-muted">Message</label>
+                <textarea class="field min-h-[150px] resize-y" name="message"
+                  placeholder="Share your goals, timeline, and the outcome you want to achieve."></textarea>
+              </div>
+              <div class="mt-6 flex flex-wrap gap-3">
+                <button type="submit"
+                  class="inline-flex items-center justify-center rounded-full border border-primary bg-primary px-6 py-3 text-sm font-semibold text-white">Send
+                  Message</button>
+                <a href="https://www.linkedin.com/in/ubaid-ullah-asim" target="_blank" rel="noreferrer"
+                  class="inline-flex items-center justify-center rounded-full border border-line bg-white px-6 py-3 text-sm font-semibold text-ink">Connect
+                  on LinkedIn</a>
+              </div>
+              <div id="successMessage"
+                class="mt-6 hidden rounded-2xl border border-primary/20 bg-primary/5 px-4 py-3 text-sm font-semibold text-primary">
+                Message ready. In a live deployment, this would be wired to your email or CRM endpoint.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-line bg-white">
+    <div
+      class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-muted sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+      <div class="font-semibold text-ink">Ubaid Ullah Asim</div>
+      <div>AI Strategist &amp; Technical Project Manager · Lahore, Pakistan</div>
+    </div>
+  </footer>
+
+  <script>
+    const PROJECTS = [
+      // AI / Featured
+      { id: "chatsupplies", name: "ChatSupplies", tag: "AI Chatbot Platform", desc: "AI-powered customer support chatbot platform with website and PDF training, RAG architecture, and real-time business workflow automation.", emoji: "&#128172;", color: "#3b82f6", link: "https://chatsupplies.com", stacks: ["RAG", "OpenAI", "NestJS", "Next.js", "MongoDB", "AI"], cats: ["featured", "ai", "web"] },
+      { id: "drafidox", name: "Drafidox", tag: "AI Documentation System", desc: "AI-powered documentation and workflow automation system transforming operational processes into intelligent, scalable documentation pipelines.", emoji: "&#128196;", color: "#8b5cf6", link: "https://drafidox.com", stacks: ["AI Workflows", "Process Automation", "NestJS", "MongoDB"], cats: ["featured", "ai", "web"] },
+      { id: "smartlogomaker", name: "Smart Logo Maker", tag: "AI Branding Platform", desc: "AI-powered branding and logo generation platform delivering instant, high-quality logo creation with a seamless customization workflow.", emoji: "&#10024;", color: "#06b6d4", link: "https://smart-logomaker.com", stacks: ["AI Generation", "Next.js", "Tailwind", "AWS"], cats: ["featured", "ai", "web"] },
+      // Mobile
+      { id: "salamly", name: "Salamly", tag: "Mobile App", desc: "Islamic app for Quran reading, Islamic quotes and social networking — community-driven spiritual platform.", emoji: "&#127774;", color: "#22c55e", link: "https://play.google.com/store/apps/details?id=com.salamgram.salamgram", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "wirdbook", name: "Wird Book", tag: "Mobile App", desc: "Compilation of litanies based on Prophetic traditions as recommended by Imam Abulhasan Al-Shadhili. Available on iOS and Android.", emoji: "&#128213;", color: "#8b5cf6", link: "https://play.google.com/store/apps/details?id=wirdbook.eito", stacks: ["Flutter", "Firebase", "REST API"], cats: ["mobile"] },
+      { id: "fams", name: "FAMS Mobile", tag: "Fleet Management", desc: "Complete GPS fleet management solution for real-time tracking, cost control, security, and optimized fleet operations.", emoji: "&#128663;", color: "#3b82f6", link: "https://play.google.com/store/apps/details?id=com.falkenherz.fams", stacks: ["Flutter", "Firebase", "GPS", "REST API"], cats: ["mobile"] },
+      { id: "mood", name: "Mood Social", tag: "Social / Events", desc: "Find events based on your interests and go together with others. Create your own event or join one near you today.", emoji: "&#127881;", color: "#ec4899", link: "https://apps.apple.com/ca/app/mood-social-events-friends/id1403003910", stacks: ["Flutter", "Firebase", "Node.js"], cats: ["mobile"] },
+      { id: "instacalm", name: "InstaCalm Anxiety", tag: "Health & Wellness", desc: "InstaCalm employs 30+ Cognitive Behavioural Hypnotherapy Sessions for instant anxiety relief. Available iOS &amp; Android.", emoji: "&#129504;", color: "#06b6d4", link: "https://play.google.com/store/apps/details?id=com.instacalm.instacalm_anxiety_treatment1", stacks: ["Flutter", "Firebase", "REST API"], cats: ["mobile"] },
+      { id: "weteachs", name: "WeTeachs", tag: "EdTech Platform", desc: "Platform that connects Experts and Students, offering flexible learning, personalized profiles, and a vibrant community hub.", emoji: "&#127891;", color: "#f59e0b", link: "https://play.google.com/store/apps/details?id=com.weteachappneww.app", stacks: ["Flutter", "FlutterFlow", "Firebase", "Node.js"], cats: ["mobile"] },
+      { id: "sendsorta", name: "Sendsorta", tag: "Parenting App", desc: "Supportive app empowering parents of children with special needs through personalized guidance and expert-led resources.", emoji: "&#128153;", color: "#8b5cf6", link: "https://play.google.com/store/apps/details?id=com.embeddedtech.sendsorta", stacks: ["Flutter", "FlutterFlow", "Firebase", "Node.js"], cats: ["mobile"] },
+      { id: "circleup", name: "CircleUp", tag: "Social Networking", desc: "Community for 20s &amp; 30s who choose real connection, shared experiences, and belonging over scrolling.", emoji: "&#127759;", color: "#6366f1", link: "https://play.google.com/store/apps/details?id=branded.mc57e8347a78d4b36b00540b68e03cf09.circleup", stacks: ["Flutter", "FlutterFlow", "Firebase", "Node.js"], cats: ["mobile"] },
+      { id: "funky", name: "Funky", tag: "Social Media App", desc: "Multifaceted social media application offering modes for creators, kids, and advertisers to engage and earn.", emoji: "&#127926;", color: "#ec4899", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "roshi", name: "Roshi Career", tag: "Career / LinkedIn-like", desc: "Specialized career app tailored for recruiters and job seekers featuring a built-in CV generator for professional profiles.", emoji: "&#128188;", color: "#3b82f6", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "ohready", name: "ohReady Admin", tag: "Food Delivery", desc: "Order food from your mobile phone in your town. ohReady delivers food to your doorstep.", emoji: "&#127829;", color: "#f59e0b", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "fittech", name: "Fittech", tag: "Fitness App", desc: "Fitness app designed for gyms and Spanish speakers, facilitating daily fitness tracking.", emoji: "&#128170;", color: "#22c55e", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "pricepro", name: "PricePro", tag: "Restaurant Management", desc: "Application to manage menus of different restaurant branches. Copy/move items across branches and set different rates.", emoji: "&#128179;", color: "#06b6d4", link: "https://play.google.com/store/apps/details?id=com.mycompany.price", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "mycash", name: "MyCash", tag: "Fintech", desc: "No-interest loan application providing easy and compassionate financial assistance to users in need.", emoji: "&#128176;", color: "#22c55e", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "ekcabfare", name: "EkCabFare", tag: "Transport", desc: "Displays and compares fares between Uber, Careem, and Ola cabs using real-time pricing data.", emoji: "&#128661;", color: "#f59e0b", link: "", stacks: ["Flutter", "Firebase", "Scraping", "Node.js"], cats: ["mobile"] },
+      { id: "airhome", name: "AirHomeRestaurant", tag: "Food App", desc: "Specialized restaurant application with dual interface for sellers and buyers, akin to FoodPanda.", emoji: "&#127858;", color: "#ec4899", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      // Web
+      { id: "certainli", name: "Certainli.se", tag: "Compliance Platform", desc: "Product compliance platform with extensive expertise in product development and regulatory requirements.", emoji: "&#9989;", color: "#3b82f6", link: "https://certainli.se/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "Docker", "AWS"], cats: ["web"] },
+      { id: "wyzepay", name: "WyzePay", tag: "Sports FinTech", desc: "Empowers sports clubs to engage fans and drive revenue through tokenized wallets, in-app payments, and gamified loyalty.", emoji: "&#9917;", color: "#22c55e", link: "https://wyzepay.com/", stacks: ["React", "Next.js", "Node.js", "Express", "MongoDB"], cats: ["web"] },
+      { id: "jiffy", name: "Jiffy", tag: "Legal Services", desc: "Secure, same-day delivery and expert handling of legal documents across the UAE with real-time tracking and attestation.", emoji: "&#9878;&#65039;", color: "#f59e0b", link: "https://jiffy.ae/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "AWS"], cats: ["web"] },
+      { id: "rx101", name: "Rx101 Savers Card", tag: "Healthcare", desc: "Helps CHM members save on prescriptions and healthcare needs with convenient and affordable medication options.", emoji: "&#128138;", color: "#ec4899", link: "https://rx101.org/", stacks: ["React", "Next.js", "Node.js", "Express", "MongoDB"], cats: ["web"] },
+      { id: "alttext", name: "AltText AI", tag: "AI / SEO Tool", desc: "AI-powered alt text platform making website images visible to search engines, accessibility tools, and AI assistants.", emoji: "&#128065;&#65039;", color: "#8b5cf6", link: "https://alttext.ai/", stacks: ["React", "Next.js", "AI", "Node.js", "AWS"], cats: ["web", "ai"] },
+      { id: "circleupweb", name: "CircleUp", tag: "Career Platform", desc: "Launch your career from college with AI-powered access to global opportunities.", emoji: "&#127759;", color: "#6366f1", link: "https://www.joincircleup.com/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "Tailwind"], cats: ["web"] },
+      { id: "weteachsweb", name: "WeTeachs Web", tag: "EdTech", desc: "Connects learners and experts globally, enabling personalized learning, teaching, and growth all in one platform.", emoji: "&#127891;", color: "#f59e0b", link: "https://www.weteachs.com/", stacks: ["React", "Next.js", "Node.js", "MongoDB"], cats: ["web"] },
+      { id: "hpappen", name: "Hp Appen", tag: "EdTech / MCQ", desc: "Swedish-based MCQ website offering a streamlined and comprehensive approach to mastering multiple-choice questions.", emoji: "&#128218;", color: "#06b6d4", link: "https://www.hpappen.se/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "Docker", "AWS"], cats: ["web"] },
+      { id: "hpappenprod", name: "Hp Appen App", tag: "EdTech / Production", desc: "Production application for Hpappen — streamlined MCQ practice with advanced features and performance tracking.", emoji: "&#128202;", color: "#3b82f6", link: "https://app.hpappen.se/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "AWS"], cats: ["web"] },
+    ];
+
+    const projectsGrid = document.getElementById('projectsGrid');
+    const projectFilterButtons = Array.from(document.querySelectorAll('.proj-filter-btn'));
+
+    let currentCategory = 'all';
+    let showAll = false;
+
+    function getInitials(name) {
+      if (!name) return '';
+      const parts = name.split(/\s+/).filter(Boolean);
+      const initials = parts.slice(0, 2).map(w => w.replace(/[^A-Za-z0-9]/g, '').charAt(0).toUpperCase()).join('');
+      return initials || name.slice(0, 2).toUpperCase();
+    }
+
+    function renderProjects(category = 'all') {
+      currentCategory = category;
+
+      const filteredProjects = category === 'all'
+        ? PROJECTS
+        : PROJECTS.filter((project) => project.cats.includes(category));
+
+      if (!projectsGrid) {
+        return;
+      }
+
+      projectsGrid.innerHTML = '';
+
+      const limit = 4;
+      const projectsToRender = showAll ? filteredProjects : filteredProjects.slice(0, limit);
+
+      projectsToRender.forEach((project) => {
+        const article = document.createElement('article');
+        article.className = 'card project-card rounded-[1.75rem] p-6 reveal';
+        article.dataset.cats = project.cats.join(' ');
+
+        const head = document.createElement('div');
+        head.className = 'project-head';
+
+        const icon = document.createElement('div');
+        icon.className = 'project-icon';
+        // Use a colored square with initials instead of emoji
+        icon.style.background = project.color;
+        icon.style.borderColor = project.color;
+        icon.style.color = '#fff';
+        icon.style.fontWeight = '700';
+        icon.textContent = getInitials(project.name);
+
+        const titleWrap = document.createElement('div');
+        const tag = document.createElement('div');
+        tag.className = 'chip';
+        tag.textContent = project.tag;
+
+        const title = document.createElement('h3');
+        title.className = 'mt-3 text-xl font-bold tracking-tight text-ink';
+        title.textContent = project.name;
+
+        titleWrap.append(tag, title);
+        head.append(icon, titleWrap);
+
+        const desc = document.createElement('p');
+        desc.className = 'text-sm leading-7 text-muted';
+        desc.innerHTML = project.desc;
+
+        const stacks = document.createElement('div');
+        stacks.className = 'project-stacks';
+        project.stacks.forEach((stack) => {
+          const chip = document.createElement('span');
+          chip.className = 'chip';
+          chip.textContent = stack;
+          stacks.appendChild(chip);
+        });
+
+        const footer = document.createElement('div');
+        footer.className = 'mt-auto flex items-center justify-between gap-3';
+
+        const status = document.createElement('span');
+        status.className = 'text-sm font-semibold text-primary';
+        status.textContent = project.cats.includes('featured') ? 'Featured build' : 'Selected project';
+
+        const link = project.link
+          ? Object.assign(document.createElement('a'), {
             className: 'project-cta',
             href: project.link,
             target: '_blank',
             rel: 'noreferrer',
             textContent: 'View Project'
           })
-        : Object.assign(document.createElement('span'), {
+          : Object.assign(document.createElement('span'), {
             className: 'project-cta',
             textContent: 'Coming Soon'
           });
 
-      if (!project.link) {
-        link.style.opacity = '0.65';
-        link.style.pointerEvents = 'none';
+        if (!project.link) {
+          link.style.opacity = '0.65';
+          link.style.pointerEvents = 'none';
+        }
+
+        footer.append(status, link);
+        article.append(head, desc, stacks, footer);
+        projectsGrid.appendChild(article);
+      });
+
+      const viewAllContainer = document.getElementById('viewAllContainer');
+      if (viewAllContainer) {
+        if (filteredProjects.length > limit && !showAll) {
+          viewAllContainer.classList.remove('hidden');
+        } else {
+          viewAllContainer.classList.add('hidden');
+        }
       }
 
-      footer.append(status, link);
-      article.append(head, desc, stacks, footer);
-      projectsGrid.appendChild(article);
-    });
-
-    document.querySelectorAll('#projectsGrid .reveal').forEach((node) => observer.observe(node));
-  }
-
-  function filterProjects(category, button) {
-    projectFilterButtons.forEach((item) => item.classList.remove('active'));
-    if (button) {
-      button.classList.add('active');
+      document.querySelectorAll('#projectsGrid .reveal').forEach((node) => observer.observe(node));
     }
-    renderProjects(category);
-  }
 
-  window.filterProjects = filterProjects;
-
-
-  const menuButton = document.getElementById('menuButton');
-  const mobileMenu = document.getElementById('mobileMenu');
-
-  menuButton.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-  });
-
-  document.querySelectorAll('#mobileMenu a').forEach(link => {
-    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
-  });
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+    function filterProjects(category, button) {
+      projectFilterButtons.forEach((item) => item.classList.remove('active'));
+      if (button) {
+        button.classList.add('active');
       }
+      showAll = false;
+      renderProjects(category);
+    }
+
+    function handleViewAll() {
+      showAll = true;
+      renderProjects(currentCategory);
+    }
+
+    window.filterProjects = filterProjects;
+    window.handleViewAll = handleViewAll;
+
+
+    const menuButton = document.getElementById('menuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
     });
-  }, { threshold: 0.12 });
 
-  renderProjects();
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
 
-  document.querySelectorAll('.reveal').forEach((node) => observer.observe(node));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
 
-  function handleSubmit(event) {
-    event.preventDefault();
-    document.getElementById('successMessage').classList.remove('hidden');
-    event.target.reset();
-  }
-</script>
+    renderProjects();
+
+    document.querySelectorAll('.reveal').forEach((node) => observer.observe(node));
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      document.getElementById('successMessage').classList.remove('hidden');
+      event.target.reset();
+    }
+  </script>
 </body>
+
 </html>
