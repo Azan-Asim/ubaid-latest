@@ -19,14 +19,17 @@
       theme: {
         extend: {
           colors: {
-            primary: '#1d4ed8',
-            ink: '#0f172a',
-            muted: '#64748b',
-            line: '#e2e8f0',
-            soft: '#f8fafc'
+            primary: '#8b7cf7',
+            'primary-dark': '#7059f0',
+            ink: '#2d2946',
+            muted: '#7e7b97',
+            line: '#e8e4f0',
+            soft: '#f8f5ff'
           },
           boxShadow: {
-            soft: '0 16px 50px rgba(15, 23, 42, 0.06)'
+            soft: '0 16px 50px rgba(139, 124, 247, 0.08)',
+            glow: '0 0 40px rgba(139, 124, 247, 0.15)',
+            'card-hover': '0 24px 60px rgba(139, 124, 247, 0.14)',
           },
           fontFamily: {
             sans: ['Manrope', 'system-ui', 'sans-serif']
@@ -38,11 +41,16 @@
   <style>
     :root {
       color-scheme: light;
-      --bg: #ffffff;
-      --text: #0f172a;
-      --muted: #64748b;
-      --line: #e2e8f0;
-      --primary: #1d4ed8;
+      --bg: #fdfbff;
+      --text: #2d2946;
+      --muted: #7e7b97;
+      --line: #e8e4f0;
+      --primary: #8b7cf7;
+      --primary-light: #c4b5fd;
+      --primary-ultra-light: #ede9fe;
+      --accent-rose: #f9a8d4;
+      --accent-peach: #fdba74;
+      --accent-mint: #6ee7b7;
     }
 
     * {
@@ -60,12 +68,401 @@
       font-family: 'Manrope', system-ui, sans-serif;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+      overflow-x: hidden;
     }
 
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-14px);
+      }
+    }
+
+    @keyframes floatSlow {
+
+      0%,
+      100% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+
+      33% {
+        transform: translate(10px, -15px) rotate(3deg);
+      }
+
+      66% {
+        transform: translate(-8px, -8px) rotate(-2deg);
+      }
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: -200% center;
+      }
+
+      100% {
+        background-position: 200% center;
+      }
+    }
+
+    @keyframes gradientMove {
+
+      0%,
+      100% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+
+    @keyframes pulseGlow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(139, 124, 247, 0.25);
+      }
+
+      50% {
+        box-shadow: 0 0 20px 6px rgba(139, 124, 247, 0.12);
+      }
+    }
+
+    @keyframes pulseDot {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.85);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes slideRevealLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-60px) scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+      }
+    }
+
+    @keyframes slideRevealRight {
+      from {
+        opacity: 0;
+        transform: translateX(60px) scale(0.95);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+      }
+    }
+
+    @keyframes blobFloat1 {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      25% {
+        transform: translate(30px, -40px) scale(1.05);
+      }
+
+      50% {
+        transform: translate(-20px, -60px) scale(0.95);
+      }
+
+      75% {
+        transform: translate(-40px, -20px) scale(1.02);
+      }
+    }
+
+    @keyframes blobFloat2 {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      25% {
+        transform: translate(-25px, 30px) scale(0.97);
+      }
+
+      50% {
+        transform: translate(35px, 20px) scale(1.04);
+      }
+
+      75% {
+        transform: translate(15px, -25px) scale(0.98);
+      }
+    }
+
+    @keyframes blobFloat3 {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+      }
+
+      33% {
+        transform: translate(20px, -30px) scale(1.05) rotate(5deg);
+      }
+
+      66% {
+        transform: translate(-30px, 15px) scale(0.96) rotate(-3deg);
+      }
+    }
+
+    @keyframes borderGlow {
+
+      0%,
+      100% {
+        border-color: rgba(139, 124, 247, 0.15);
+      }
+
+      50% {
+        border-color: rgba(139, 124, 247, 0.35);
+      }
+    }
+
+    @keyframes typewriter {
+      from {
+        width: 0;
+      }
+
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        border-right-color: var(--primary);
+      }
+
+      50% {
+        border-right-color: transparent;
+      }
+    }
+
+    @keyframes spinSlow {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes waveFloat {
+
+      0%,
+      100% {
+        transform: translateY(0) scaleX(1);
+      }
+
+      50% {
+        transform: translateY(-6px) scaleX(1.02);
+      }
+    }
+
+    @keyframes bounceSoft {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px) scale(1.05);
+      }
+    }
+
+    .animate-float-slow {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .animate-float-slower {
+      animation: float 8s ease-in-out infinite reverse;
+    }
+
+    .icon-bounce {
+      animation: bounceSoft 4s ease-in-out infinite;
+    }
+
+    .gradient-border-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.85);
+      background-clip: padding-box;
+      border: 1px solid transparent;
+      z-index: 1;
+    }
+
+    .gradient-border-card::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      bottom: -2px;
+      left: -2px;
+      background: linear-gradient(135deg, var(--primary), var(--accent-rose), var(--accent-peach), var(--primary));
+      background-size: 300% 300%;
+      z-index: -1;
+      border-radius: inherit;
+      animation: gradientMove 4s ease infinite;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .gradient-border-card:hover::before {
+      opacity: 1;
+    }
+
+    /* ===== INFINITE MARQUEE SCROLL ===== */
+    .marquee-container {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+      overflow: hidden;
+      display: flex;
+      padding: 1rem 0;
+      position: relative;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: scrollMarquee 35s linear infinite;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    .marquee-set {
+      display: flex;
+      gap: 1.5rem;
+      padding-right: 1.5rem;
+      /* Gap between the two sets */
+    }
+
+    .marquee-card-wrapper {
+      width: 320px;
+      flex-shrink: 0;
+    }
+
+    @keyframes scrollMarquee {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ===== GRADIENT TEXT ===== */
+    .gradient-text {
+      background: linear-gradient(135deg, #8b7cf7, #f9a8d4, #fdba74, #8b7cf7);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientMove 6s ease infinite;
+    }
+
+    /* ===== COMPONENTS ===== */
     .card {
-      background: #fff;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--line);
-      box-shadow: 0 16px 50px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 8px 32px rgba(139, 124, 247, 0.06);
+      transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1),
+        box-shadow 400ms cubic-bezier(0.23, 1, 0.32, 1),
+        border-color 400ms ease;
+    }
+
+    .card:hover {
+      border-color: rgba(139, 124, 247, 0.25);
     }
 
     .chip {
@@ -73,11 +470,19 @@
       align-items: center;
       border-radius: 999px;
       border: 1px solid var(--line);
-      background: #fff;
+      background: rgba(255, 255, 255, 0.9);
       color: var(--muted);
       padding: 0.42rem 0.8rem;
       font-size: 0.875rem;
       line-height: 1;
+      transition: all 300ms ease;
+    }
+
+    .chip:hover {
+      border-color: var(--primary-light);
+      color: var(--primary);
+      background: var(--primary-ultra-light);
+      transform: translateY(-1px);
     }
 
     .tech-grid {
@@ -106,7 +511,7 @@
     .proj-filter-btn {
       appearance: none;
       border: 1px solid var(--line);
-      background: #fff;
+      background: rgba(255, 255, 255, 0.9);
       color: var(--muted);
       border-radius: 999px;
       padding: 0.8rem 1rem;
@@ -114,21 +519,22 @@
       font-weight: 600;
       line-height: 1;
       cursor: pointer;
-      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+      transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
     }
 
     .proj-filter-btn:hover {
-      transform: translateY(-1px);
+      transform: translateY(-2px);
       color: var(--text);
-      border-color: rgba(29, 78, 216, 0.2);
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+      border-color: rgba(139, 124, 247, 0.3);
+      box-shadow: 0 12px 30px rgba(139, 124, 247, 0.1);
+      background: rgba(139, 124, 247, 0.04);
     }
 
     .proj-filter-btn.active {
-      background: var(--primary);
+      background: linear-gradient(135deg, #8b7cf7, #a78bfa);
       color: #fff;
-      border-color: var(--primary);
-      box-shadow: 0 14px 32px rgba(29, 78, 216, 0.18);
+      border-color: transparent;
+      box-shadow: 0 14px 32px rgba(139, 124, 247, 0.25);
     }
 
     .projects-grid-main {
@@ -142,13 +548,15 @@
       flex-direction: column;
       gap: 1rem;
       height: 100%;
-      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+      transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1),
+        box-shadow 400ms cubic-bezier(0.23, 1, 0.32, 1),
+        border-color 400ms ease;
     }
 
     .project-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
-      border-color: rgba(29, 78, 216, 0.14);
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 24px 60px rgba(139, 124, 247, 0.14);
+      border-color: rgba(139, 124, 247, 0.2);
     }
 
     .project-head {
@@ -162,12 +570,18 @@
       width: 3rem;
       height: 3rem;
       border-radius: 1rem;
-      border: 1px solid rgba(29, 78, 216, 0.12);
-      background: rgba(29, 78, 216, 0.05);
+      border: 1px solid rgba(139, 124, 247, 0.15);
+      background: rgba(139, 124, 247, 0.08);
       color: var(--primary);
       display: grid;
       place-items: center;
       font-size: 1.35rem;
+      transition: transform 300ms ease, box-shadow 300ms ease;
+    }
+
+    .project-card:hover .project-icon {
+      transform: scale(1.08) rotate(3deg);
+      box-shadow: 0 4px 16px rgba(139, 124, 247, 0.2);
     }
 
     .project-stacks {
@@ -181,20 +595,36 @@
       align-items: center;
       justify-content: center;
       border-radius: 999px;
-      border: 1px solid var(--primary);
-      background: var(--primary);
+      border: 1px solid transparent;
+      background: linear-gradient(135deg, #8b7cf7, #a78bfa);
       color: #fff;
       padding: 0.7rem 1rem;
       font-size: 0.9rem;
       font-weight: 600;
       text-decoration: none;
-      transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+      transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+      transition: left 500ms ease;
+    }
+
+    .project-cta:hover::before {
+      left: 100%;
     }
 
     .project-cta:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 28px rgba(29, 78, 216, 0.18);
-      opacity: 0.96;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(139, 124, 247, 0.25);
     }
 
     .kicker::before {
@@ -205,26 +635,62 @@
       border-radius: 999px;
       background: var(--primary);
       margin-right: 0.6rem;
+      animation: pulseDot 2s ease-in-out infinite;
     }
 
     .nav-link {
       color: var(--muted);
       text-decoration: none;
       font-size: 0.95rem;
+      position: relative;
+      transition: color 300ms ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--accent-rose));
+      border-radius: 999px;
+      transition: width 300ms ease;
     }
 
     .nav-link:hover {
       color: var(--text);
     }
 
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
     .button-primary {
-      background: var(--primary);
+      background: linear-gradient(135deg, #8b7cf7, #a78bfa);
       color: #fff;
-      border: 1px solid var(--primary);
+      border: 1px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .button-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 600ms ease;
+    }
+
+    .button-primary:hover::before {
+      left: 100%;
     }
 
     .button-secondary {
-      background: #fff;
+      background: rgba(255, 255, 255, 0.9);
       color: var(--text);
       border: 1px solid var(--line);
     }
@@ -235,20 +701,23 @@
       border-radius: 1rem;
       padding: 0.95rem 1rem;
       outline: none;
-      background: #fff;
+      background: rgba(255, 255, 255, 0.8);
       color: var(--text);
-      transition: border-color 180ms ease, box-shadow 180ms ease;
+      transition: border-color 300ms ease, box-shadow 300ms ease, background 300ms ease;
     }
 
     .field:focus {
-      border-color: rgba(29, 78, 216, 0.45);
-      box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.08);
+      border-color: rgba(139, 124, 247, 0.5);
+      box-shadow: 0 0 0 4px rgba(139, 124, 247, 0.08);
+      background: #fff;
     }
 
+    /* ===== REVEAL ANIMATIONS ===== */
     .reveal {
       opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 700ms ease, transform 700ms ease;
+      transform: translateY(30px);
+      transition: opacity 800ms cubic-bezier(0.23, 1, 0.32, 1),
+        transform 800ms cubic-bezier(0.23, 1, 0.32, 1);
     }
 
     .reveal.visible {
@@ -256,6 +725,43 @@
       transform: translateY(0);
     }
 
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 800ms cubic-bezier(0.23, 1, 0.32, 1),
+        transform 800ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 800ms cubic-bezier(0.23, 1, 0.32, 1),
+        transform 800ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.88);
+      transition: opacity 800ms cubic-bezier(0.23, 1, 0.32, 1),
+        transform 800ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* ===== TIMELINE ===== */
     .timeline {
       position: relative;
       padding-left: 1.6rem;
@@ -267,8 +773,9 @@
       left: 0.42rem;
       top: 0.3rem;
       bottom: 0.3rem;
-      width: 1px;
-      background: var(--line);
+      width: 2px;
+      background: linear-gradient(to bottom, var(--primary), var(--accent-rose), var(--accent-peach));
+      border-radius: 999px;
     }
 
     .timeline-dot {
@@ -280,7 +787,8 @@
       border-radius: 999px;
       background: #fff;
       border: 2px solid var(--primary);
-      box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.08);
+      box-shadow: 0 0 0 4px rgba(139, 124, 247, 0.1);
+      animation: pulseGlow 3s ease-in-out infinite;
     }
 
     .menu-panel {
@@ -289,27 +797,547 @@
 
     .menu-panel.open {
       display: block;
+      animation: fadeInDown 300ms ease;
     }
 
     .hero-shell {
       overflow: hidden;
     }
+
+    /* ===== FLOATING BLOBS ===== */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.35;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .blob-1 {
+      width: 400px;
+      height: 400px;
+      background: linear-gradient(135deg, rgba(139, 124, 247, 0.4), rgba(196, 181, 253, 0.3));
+      top: -100px;
+      right: -100px;
+      animation: blobFloat1 18s ease-in-out infinite;
+    }
+
+    .blob-2 {
+      width: 350px;
+      height: 350px;
+      background: linear-gradient(135deg, rgba(249, 168, 212, 0.35), rgba(253, 186, 116, 0.25));
+      bottom: -80px;
+      left: -80px;
+      animation: blobFloat2 22s ease-in-out infinite;
+    }
+
+    .blob-3 {
+      width: 250px;
+      height: 250px;
+      background: linear-gradient(135deg, rgba(110, 231, 183, 0.3), rgba(139, 124, 247, 0.2));
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: blobFloat3 15s ease-in-out infinite;
+    }
+
+    /* ===== HERO FLOATING SHAPES ===== */
+    .hero-float-shape {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-shape-1 {
+      width: 60px;
+      height: 60px;
+      border: 2px solid rgba(139, 124, 247, 0.2);
+      border-radius: 16px;
+      top: 15%;
+      left: 5%;
+      animation: floatSlow 8s ease-in-out infinite;
+      transform: rotate(15deg);
+    }
+
+    .hero-shape-2 {
+      width: 40px;
+      height: 40px;
+      background: rgba(249, 168, 212, 0.15);
+      border-radius: 50%;
+      top: 25%;
+      right: 10%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .hero-shape-3 {
+      width: 24px;
+      height: 24px;
+      background: rgba(253, 186, 116, 0.2);
+      border-radius: 6px;
+      bottom: 25%;
+      left: 8%;
+      animation: floatSlow 10s ease-in-out infinite reverse;
+      transform: rotate(45deg);
+    }
+
+    .hero-shape-4 {
+      width: 50px;
+      height: 50px;
+      border: 2px solid rgba(110, 231, 183, 0.2);
+      border-radius: 50%;
+      bottom: 15%;
+      right: 5%;
+      animation: float 7s ease-in-out infinite 1s;
+    }
+
+    .hero-shape-5 {
+      width: 16px;
+      height: 16px;
+      background: rgba(139, 124, 247, 0.25);
+      border-radius: 50%;
+      top: 60%;
+      left: 15%;
+      animation: pulseDot 4s ease-in-out infinite;
+    }
+
+    /* ===== STAT COUNTER ===== */
+    .stat-number {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ===== CTA BUTTONS ===== */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: linear-gradient(135deg, #8b7cf7, #a78bfa);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+      transition: left 600ms ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 40px rgba(139, 124, 247, 0.3);
+    }
+
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      color: var(--text);
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      border-color: rgba(139, 124, 247, 0.3);
+      box-shadow: 0 12px 30px rgba(139, 124, 247, 0.08);
+      background: #fff;
+    }
+
+    /* ===== SECTION DIVIDERS ===== */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--line), rgba(139, 124, 247, 0.2), var(--line), transparent);
+    }
+
+    /* ===== SECTION SOFT BACKGROUNDS ===== */
+    .section-lavender {
+      background: linear-gradient(180deg, #f8f5ff 0%, #fdfbff 100%);
+    }
+
+    .section-rose {
+      background: linear-gradient(180deg, #fdf2f8 0%, #fdfbff 100%);
+    }
+
+    .section-mint {
+      background: linear-gradient(180deg, #f0fdf4 0%, #fdfbff 100%);
+    }
+
+    .section-peach {
+      background: linear-gradient(180deg, #fff7ed 0%, #fdfbff 100%);
+    }
+
+    /* ===== SCROLL JACKING CSS ===== */
+    .scroll-jack-container {
+      height: 1200vh;
+      position: relative;
+    }
+
+    .scroll-jack-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, #f8f5ff 0%, #fdfbff 100%);
+    }
+
+    .scroll-jack-title {
+      flex: 0 0 auto;
+      margin-top: 10vh;
+      margin-bottom: 4vh;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .scroll-jack-content {
+      flex: 1 1 auto;
+      width: 100%;
+      position: relative;
+    }
+
+    .scroll-jack-step {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+      width: 100%;
+      max-width: 800px;
+      padding: 0 2rem;
+      opacity: 0;
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+      pointer-events: none;
+      text-align: center;
+    }
+
+    .scroll-jack-step.active {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+      pointer-events: auto;
+    }
+
+    .scroll-jack-progress-container {
+      position: absolute;
+      bottom: 6vh;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 1rem;
+      z-index: 10;
+    }
+
+    .scroll-jack-dot {
+      width: 3rem;
+      height: 4px;
+      background: var(--line);
+      border-radius: 999px;
+      transition: background 0.4s ease, transform 0.4s ease;
+    }
+
+    .scroll-jack-dot.active {
+      background: linear-gradient(90deg, #8b7cf7, #f9a8d4);
+      transform: scaleY(1.5);
+      box-shadow: 0 0 10px rgba(139, 124, 247, 0.3);
+    }
+
+    /* ===== GLASSMORPHISM HEADER ===== */
+    .glass-header {
+      background: rgba(253, 251, 255, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(232, 228, 240, 0.6);
+    }
+
+    /* ===== CARD 3D TILT ===== */
+    .tilt-card {
+      transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+
+    /* ===== HERO IMAGE FLOAT ===== */
+    .hero-img-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    /* ===== STAGGER CHILDREN ===== */
+    .stagger-1 {
+      transition-delay: 0.05s;
+    }
+
+    .stagger-2 {
+      transition-delay: 0.1s;
+    }
+
+    .stagger-3 {
+      transition-delay: 0.15s;
+    }
+
+    .stagger-4 {
+      transition-delay: 0.2s;
+    }
+
+    .stagger-5 {
+      transition-delay: 0.25s;
+    }
+
+    .stagger-6 {
+      transition-delay: 0.3s;
+    }
+
+    /* ===== GLOW RING ===== */
+    .glow-ring {
+      position: relative;
+    }
+
+    .glow-ring::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: inherit;
+      background: linear-gradient(135deg, #8b7cf7, #f9a8d4, #fdba74, #6ee7b7, #8b7cf7);
+      background-size: 300% 300%;
+      animation: gradientMove 4s ease infinite;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 400ms ease;
+    }
+
+    .glow-ring:hover::before {
+      opacity: 1;
+    }
+
+    /* ===== FUTURISTIC HERO 3D ===== */
+    .hero-bg-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 150vh;
+      background-image:
+        linear-gradient(to right, rgba(139, 124, 247, 0.15) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(139, 124, 247, 0.15) 1px, transparent 1px);
+      background-size: 60px 60px;
+      transform-origin: top center;
+      transform: perspective(1000px) rotateX(60deg) translateY(-100px);
+      animation: gridMove 5s linear infinite;
+      z-index: 0;
+      pointer-events: none;
+      -webkit-mask-image: radial-gradient(ellipse at center 40%, black 20%, transparent 70%);
+      mask-image: radial-gradient(ellipse at center 40%, black 20%, transparent 70%);
+    }
+
+    @keyframes gridMove {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: 0 60px;
+      }
+    }
+
+    .hero-3d-card {
+      transform-style: preserve-3d;
+      transition: transform 0.1s ease-out;
+      position: relative;
+    }
+
+    .hero-glare {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      pointer-events: none;
+      z-index: 50;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .hero-3d-element {
+      transform: translateZ(30px);
+      display: inline-block;
+    }
+
+    .hero-3d-element-high {
+      transform: translateZ(60px);
+      display: inline-block;
+    }
+
+    /* ===== PREMIUM FLUID PLASMA BACKGROUND ===== */
+    .plasma-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 140%;
+      height: 140%;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      /* Soft fade at the edge to blend with space */
+      -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 70%);
+      mask-image: radial-gradient(circle at center, black 40%, transparent 70%);
+      overflow: hidden;
+    }
+
+    .plasma-core {
+      position: absolute;
+      inset: -20%;
+      background:
+        radial-gradient(circle at 50% 20%, #8b7cf7 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, #f9a8d4 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, #fdba74 0%, transparent 50%),
+        radial-gradient(circle at 20% 20%, #6ee7b7 0%, transparent 50%);
+      background-size: 150% 150%;
+      filter: blur(25px);
+      animation: plasmaMove 15s ease-in-out infinite alternate, spinPlasma 25s linear infinite;
+      opacity: 0.9;
+    }
+
+    @keyframes plasmaMove {
+      0% {
+        background-position: 0% 0%;
+      }
+
+      50% {
+        background-position: 100% 100%;
+      }
+
+      100% {
+        background-position: 0% 100%;
+      }
+    }
+
+    @keyframes spinPlasma {
+      0% {
+        transform: rotate(0deg) scale(1);
+      }
+
+      50% {
+        transform: rotate(180deg) scale(1.1);
+      }
+
+      100% {
+        transform: rotate(360deg) scale(1);
+      }
+    }
+
+    /* A sleek, sharp glass ring over the plasma for a futuristic high-tech touch */
+    .futuristic-glass-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 105%;
+      height: 105%;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 0 30px rgba(139, 124, 247, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.8);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 40%, transparent 60%, rgba(255, 255, 255, 0.1) 100%);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 5;
+      animation: pulseRing 4s ease-in-out infinite;
+    }
+
+    @keyframes pulseRing {
+
+      0%,
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.6);
+        border-color: rgba(255, 255, 255, 0.4);
+      }
+
+      50% {
+        transform: translate(-50%, -50%) scale(1.03);
+        box-shadow: 0 0 40px rgba(139, 124, 247, 0.7), inset 0 0 25px rgba(255, 255, 255, 0.9);
+        border-color: rgba(139, 124, 247, 0.8);
+      }
+    }
+
+    .text-glow {
+      text-shadow: 0 0 20px rgba(139, 124, 247, 0.4);
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(to bottom, var(--primary-light), var(--accent-rose));
+      border-radius: 999px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 767px) {
+      .blob {
+        display: none;
+      }
+
+      .hero-float-shape {
+        display: none;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .projects-grid-main {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
   </style>
 </head>
 
 <body>
-  <header class="sticky top-0 z-50 border-b border-line bg-white/90 backdrop-blur">
+  <header class="glass-header sticky top-0 z-50">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
       <a href="#top" class="text-sm font-extrabold tracking-tight text-ink sm:text-base">Ubaid Ullah Asim</a>
       <nav class="hidden items-center gap-8 md:flex">
         <a class="nav-link" href="#about">About</a>
         <a class="nav-link" href="#services">Services</a>
         <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#process">Process</a>
         <a class="nav-link" href="#experience">Experience</a>
         <a class="nav-link" href="#contact">Contact</a>
       </nav>
-      <a href="#contact"
-        class="hidden rounded-full border border-primary bg-primary px-5 py-2.5 text-sm font-semibold text-white md:inline-flex">Book
+      <a href="#contact" class="btn-primary hidden md:inline-flex">Book
         a Call</a>
       <button id="menuButton"
         class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line md:hidden"
@@ -317,71 +1345,97 @@
         <span class="block h-0.5 w-5 bg-ink"></span>
       </button>
     </div>
-    <div id="mobileMenu" class="menu-panel border-t border-line bg-white md:hidden">
+    <div id="mobileMenu" class="menu-panel border-t border-line bg-white/90 backdrop-blur md:hidden">
       <div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-4 sm:px-6">
         <a class="nav-link" href="#about">About</a>
         <a class="nav-link" href="#services">Services</a>
         <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#process">Process</a>
         <a class="nav-link" href="#experience">Experience</a>
         <a class="nav-link" href="#contact">Contact</a>
-        <a href="#contact"
-          class="inline-flex items-center justify-center rounded-full border border-primary bg-primary px-5 py-2.5 text-sm font-semibold text-white">Book
-          a Call</a>
+        <a href="#contact" class="btn-primary">Book a Call</a>
       </div>
     </div>
   </header>
 
   <main id="top">
-    <section class="mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 lg:px-8 lg:pb-28 lg:pt-20">
-      <div class="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+    <!-- HERO SECTION -->
+    <section class="relative mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 lg:px-8 lg:pb-28 lg:pt-20 overflow-hidden"
+      style="perspective: 1500px;">
+      <!-- Futuristic Grid Background -->
+      <div class="hero-bg-grid"></div>
+
+      <!-- Background blobs -->
+      <div class="blob blob-1" style="opacity: 0.6; filter: blur(80px) saturate(150%);"></div>
+      <div class="blob blob-2" style="opacity: 0.6; filter: blur(80px) saturate(150%);"></div>
+      <div class="blob blob-3" style="opacity: 0.6; filter: blur(80px) saturate(150%);"></div>
+
+      <!-- Glowing 3D Orbs (replacing 2D shapes) -->
+      <div class="hero-float-shape hero-shape-1"
+        style="background: radial-gradient(circle, var(--primary) 0%, transparent 70%); border:none; box-shadow: none; filter: blur(5px);">
+      </div>
+      <div class="hero-float-shape hero-shape-2"
+        style="background: radial-gradient(circle, var(--accent-rose) 0%, transparent 70%); border:none; box-shadow: none; filter: blur(5px);">
+      </div>
+      <div class="hero-float-shape hero-shape-3"
+        style="background: radial-gradient(circle, var(--accent-peach) 0%, transparent 70%); border:none; box-shadow: none; filter: blur(5px);">
+      </div>
+
+      <div class="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] relative z-10">
         <div class="reveal">
           <div
-            class="kicker mb-5 inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">
-            Open to AI &amp; SaaS Projects</div>
-          <h1 class="max-w-3xl text-4xl font-bold tracking-tight text-ink sm:text-5xl lg:text-6xl">
-            AI Strategist &amp; <span class="text-primary">Technical PM</span>
+            class="kicker mb-5 inline-flex items-center rounded-full border border-line bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-semibold text-primary shadow-[0_0_15px_rgba(139,124,247,0.3)]">
+            <span class="h-2 w-2 rounded-full bg-primary block mr-2"
+              style="animation: pulseDot 2s ease-in-out infinite;"></span>
+            Open to AI &amp; SaaS Projects
+          </div>
+          <h1 class="max-w-3xl text-4xl font-bold tracking-tight text-ink sm:text-5xl lg:text-7xl text-glow">
+            AI Strategist &amp; <span class="gradient-text">Technical PM</span>
           </h1>
-          <p class="mt-6 max-w-2xl text-lg leading-8 text-muted">
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-muted font-medium">
             I help founders build intelligent SaaS products and automate workflows from idea to launch.
           </p>
           <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#contact"
-              class="inline-flex items-center justify-center rounded-full border border-primary bg-primary px-6 py-3 text-sm font-semibold text-white">Start
-              a Project</a>
+            <a href="#contact" class="btn-primary shadow-[0_0_20px_rgba(139,124,247,0.5)]">Start a Project</a>
             <a href="#projects"
-              class="inline-flex items-center justify-center rounded-full border border-line bg-white px-6 py-3 text-sm font-semibold text-ink">View Projects</a>
+              class="btn-secondary bg-white/60 backdrop-blur shadow-sm hover:shadow-md border border-line">View
+              Projects</a>
           </div>
         </div>
 
-        <div class="reveal lg:justify-self-end">
-          <div class="card hero-shell rounded-[2rem] p-4 sm:p-5">
-            <div class="grid gap-4">
+        <div class="reveal lg:justify-self-end stagger-2" style="perspective: 1200px;">
+          <!-- 3D Interactive Card -->
+          <div
+            class="card hero-3d-card rounded-[2.5rem] p-4 sm:p-5 border-2 border-white/40 shadow-[0_30px_60px_rgba(139,124,247,0.15)] bg-white/40 backdrop-blur-2xl">
+            <div class="grid gap-4 hero-3d-content">
               <div
-                class="overflow-hidden rounded-[1.5rem] border border-line bg-white p-8 flex items-center justify-center relative">
+                class="overflow-hidden rounded-[2rem] border border-white/60 bg-white/30 p-12 flex items-center justify-center relative shadow-inner">
+                <!-- Premium Fluid Plasma Background -->
+                <div class="plasma-wrapper">
+                  <div class="plasma-core"></div>
+                </div>
+                <div class="futuristic-glass-ring"></div>
+
                 <img src="pp.jpeg" alt="Ubaid Ullah Asim portrait"
-                  class="w-56 h-56 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full object-cover shadow-soft border-2 border-line self-center">
+                  class="hero-img-float hero-3d-element-high w-56 h-56 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full object-cover shadow-[0_20px_40px_rgba(0,0,0,0.2)] border-4 border-white/80 self-center relative z-10">
+
                 <div
-                  class="absolute left-6 bottom-6 inline-flex items-center gap-3 rounded-full bg-white/95 border border-line px-3 py-1.5 text-sm font-semibold shadow-soft">
-                  <span class="h-2 w-2 rounded-full bg-primary block"></span>
+                  class="hero-3d-element absolute left-6 bottom-6 inline-flex items-center gap-3 rounded-full bg-white/95 border border-line px-4 py-2 text-sm font-semibold shadow-[0_10px_30px_rgba(139,124,247,0.2)] backdrop-blur-sm z-20">
+                  <span class="h-2 w-2 rounded-full bg-primary block"
+                    style="animation: pulseDot 2s ease-in-out infinite;"></span>
                   AI Strategist
                 </div>
               </div>
               <div class="flex flex-col gap-4">
-                <div class="card rounded-[1.5rem] p-5">
-                  <div class="text-xs font-semibold uppercase tracking-[0.22em] text-muted">Profile</div>
+                <div
+                  class="card rounded-[2rem] p-6 bg-white/70 backdrop-blur-md border border-white/50 hero-3d-element shadow-[0_10px_30px_rgba(0,0,0,0.05)]">
+                  <div class="text-xs font-semibold uppercase tracking-[0.25em] text-primary">Profile</div>
                   <div class="mt-3 text-2xl font-bold tracking-tight text-ink">Ubaid Ullah Asim</div>
-                  <div class="mt-1 text-sm font-semibold text-primary">AI Strategist &amp; Technical PM</div>
-                  <p class="mt-4 text-sm leading-6 text-muted">Based in Lahore, building premium AI-driven SaaS systems and clean technical delivery models.</p>
-                </div>
-                <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-                  <div class="card rounded-[1.5rem] p-5">
-                    <div class="text-sm font-semibold text-primary">6+ years</div>
-                    <p class="mt-2 text-sm leading-6 text-muted">Product engineering and delivery leadership.</p>
-                  </div>
-                  <div class="card rounded-[1.5rem] p-5">
-                    <div class="text-sm font-semibold text-primary">3+ years</div>
-                    <p class="mt-2 text-sm leading-6 text-muted">Applied AI and automation workflows.</p>
-                  </div>
+                  <div
+                    class="mt-1 text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent-rose">
+                    AI Strategist &amp; Technical PM</div>
+                  <p class="mt-4 text-sm leading-6 text-muted">Based in Lahore, building premium AI-driven SaaS systems
+                    and clean technical delivery models.</p>
                 </div>
               </div>
             </div>
@@ -389,46 +1443,51 @@
         </div>
       </div>
 
-      <div class="mt-10 grid gap-4 md:grid-cols-4 reveal">
-        <div class="card rounded-3xl p-5">
-          <div class="text-3xl font-bold tracking-tight text-ink">5+</div>
+      <!-- Stats with counting animation -->
+      <div class="mt-10 grid gap-4 md:grid-cols-4 relative z-10 reveal stagger-3">
+        <div class="card rounded-3xl p-5 tilt-card">
+          <div class="text-3xl font-bold tracking-tight text-ink stat-number" data-count="5" data-suffix="+">0</div>
           <div class="mt-1 text-sm text-muted">Years of technical delivery</div>
         </div>
-        <div class="card rounded-3xl p-5">
-          <div class="text-3xl font-bold tracking-tight text-ink">3+</div>
+        <div class="card rounded-3xl p-5 tilt-card">
+          <div class="text-3xl font-bold tracking-tight text-ink stat-number" data-count="3" data-suffix="+">0</div>
           <div class="mt-1 text-sm text-muted">Years focused on AI systems</div>
         </div>
-        <div class="card rounded-3xl p-5">
-          <div class="text-3xl font-bold tracking-tight text-ink">30+</div>
+        <div class="card rounded-3xl p-5 tilt-card">
+          <div class="text-3xl font-bold tracking-tight text-ink stat-number" data-count="30" data-suffix="+">0</div>
           <div class="mt-1 text-sm text-muted">Products shipped</div>
         </div>
-        <div class="card rounded-3xl p-5">
+        <div class="card rounded-3xl p-5 tilt-card">
           <div class="text-3xl font-bold tracking-tight text-ink">Remote</div>
           <div class="mt-1 text-sm text-muted">Worldwide availability</div>
         </div>
       </div>
     </section>
 
-    <section id="about" class="border-t border-line bg-white">
+    <!-- ABOUT SECTION -->
+    <div class="section-divider"></div>
+    <section id="about" class="section-lavender relative overflow-hidden">
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
         <div class="reveal max-w-2xl">
           <div
-            class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">
+            class="kicker inline-flex items-center rounded-full border border-line bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-semibold text-muted">
             About</div>
-          <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">A strategic operator who understands product, people, and systems.</h2>
-          <p class="mt-5 text-base leading-8 text-muted">I work at the intersection of AI strategy and execution to turn ideas into reliable, scalable products.</p>
+          <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">A strategic operator who understands
+            product, people, and systems.</h2>
+          <p class="mt-5 text-base leading-8 text-muted">I work at the intersection of AI strategy and execution to turn
+            ideas into reliable, scalable products.</p>
         </div>
 
         <div class="mt-12 grid gap-4 md:grid-cols-3">
-          <div class="card rounded-3xl p-6 reveal">
+          <div class="card rounded-3xl p-6 reveal tilt-card stagger-1">
             <div class="text-sm font-semibold text-primary">AI Strategy</div>
             <p class="mt-3 text-sm leading-6 text-muted">Practical roadmaps for core workflows.</p>
           </div>
-          <div class="card rounded-3xl p-6 reveal">
+          <div class="card rounded-3xl p-6 reveal tilt-card stagger-2">
             <div class="text-sm font-semibold text-primary">Technical PM</div>
             <p class="mt-3 text-sm leading-6 text-muted">Keeping product and engineering aligned.</p>
           </div>
-          <div class="card rounded-3xl p-6 reveal">
+          <div class="card rounded-3xl p-6 reveal tilt-card stagger-3">
             <div class="text-sm font-semibold text-primary">SaaS Delivery</div>
             <p class="mt-3 text-sm leading-6 text-muted">Polished, stable systems ready for scale.</p>
           </div>
@@ -436,41 +1495,113 @@
       </div>
     </section>
 
-    <section id="services" class="border-t border-line bg-white">
+    <!-- SERVICES SECTION -->
+    <div class="section-divider"></div>
+    <section id="services" class="section-rose relative overflow-hidden">
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
         <div class="reveal max-w-2xl">
           <div
-            class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">
+            class="kicker inline-flex items-center rounded-full border border-line bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-semibold text-muted">
             Services</div>
           <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Services I design and lead.</h2>
         </div>
 
-        <div class="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          <div class="card rounded-3xl p-6 reveal">
-            <div class="text-sm font-semibold text-primary">AI Strategy</div>
-            <p class="mt-3 text-sm leading-6 text-muted">Identifying value and defining execution roadmaps.</p>
-          </div>
-          <div class="card rounded-3xl p-6 reveal">
-            <div class="text-sm font-semibold text-primary">Project Management</div>
-            <p class="mt-3 text-sm leading-6 text-muted">Clean planning, priorities, and release cycles.</p>
-          </div>
-          <div class="card rounded-3xl p-6 reveal">
-            <div class="text-sm font-semibold text-primary">SaaS Product Delivery</div>
-            <p class="mt-3 text-sm leading-6 text-muted">Premium web and mobile user experiences.</p>
-          </div>
-          <div class="card rounded-3xl p-6 reveal">
-            <div class="text-sm font-semibold text-primary">Automation Systems</div>
-            <p class="mt-3 text-sm leading-6 text-muted">Streamlining operations and replacing manual work.</p>
+        <div class="marquee-container mt-12">
+          <div class="marquee-track">
+            <!-- Set 1 -->
+            <div class="marquee-set">
+              <div class="marquee-card-wrapper">
+                <div class="card gradient-border-card rounded-3xl p-6 h-full animate-float-slow">
+                  <div
+                    class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 text-2xl icon-bounce">
+                    🧠</div>
+                  <div class="text-sm font-bold text-primary tracking-wide">AI Strategy</div>
+                  <p class="mt-3 text-sm leading-6 text-muted">Identifying value and defining execution roadmaps.</p>
+                </div>
+              </div>
+              <div class="marquee-card-wrapper">
+                <div class="card gradient-border-card rounded-3xl p-6 h-full animate-float-slower">
+                  <div
+                    class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 text-2xl icon-bounce"
+                    style="animation-delay: 1s;">📋</div>
+                  <div class="text-sm font-bold text-primary tracking-wide">Project Management</div>
+                  <p class="mt-3 text-sm leading-6 text-muted">Clean planning, priorities, and release cycles.</p>
+                </div>
+              </div>
+              <div class="marquee-card-wrapper">
+                <div class="card gradient-border-card rounded-3xl p-6 h-full animate-float-slow"
+                  style="animation-delay: 1.5s;">
+                  <div
+                    class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 text-2xl icon-bounce"
+                    style="animation-delay: 2s;">🚀</div>
+                  <div class="text-sm font-bold text-primary tracking-wide">SaaS Product Delivery</div>
+                  <p class="mt-3 text-sm leading-6 text-muted">Premium web and mobile user experiences.</p>
+                </div>
+              </div>
+              <div class="marquee-card-wrapper">
+                <div class="card gradient-border-card rounded-3xl p-6 h-full animate-float-slower"
+                  style="animation-delay: 2.5s;">
+                  <div
+                    class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 text-2xl icon-bounce"
+                    style="animation-delay: 3s;">⚙️</div>
+                  <div class="text-sm font-bold text-primary tracking-wide">Automation Systems</div>
+                  <p class="mt-3 text-sm leading-6 text-muted">Streamlining operations and replacing manual work.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Set 2 -->
+            <div class="marquee-set" aria-hidden="true">
+              <div class="marquee-card-wrapper">
+                <div class="card gradient-border-card rounded-3xl p-6 h-full animate-float-slow">
+                  <div
+                    class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 text-2xl icon-bounce">
+                    🧠</div>
+                  <div class="text-sm font-bold text-primary tracking-wide">AI Strategy</div>
+                  <p class="mt-3 text-sm leading-6 text-muted">Identifying value and defining execution roadmaps.</p>
+                </div>
+              </div>
+              <div class="marquee-card-wrapper">
+                <div class="card gradient-border-card rounded-3xl p-6 h-full animate-float-slower">
+                  <div
+                    class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 text-2xl icon-bounce"
+                    style="animation-delay: 1s;">📋</div>
+                  <div class="text-sm font-bold text-primary tracking-wide">Project Management</div>
+                  <p class="mt-3 text-sm leading-6 text-muted">Clean planning, priorities, and release cycles.</p>
+                </div>
+              </div>
+              <div class="marquee-card-wrapper">
+                <div class="card gradient-border-card rounded-3xl p-6 h-full animate-float-slow"
+                  style="animation-delay: 1.5s;">
+                  <div
+                    class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 text-2xl icon-bounce"
+                    style="animation-delay: 2s;">🚀</div>
+                  <div class="text-sm font-bold text-primary tracking-wide">SaaS Product Delivery</div>
+                  <p class="mt-3 text-sm leading-6 text-muted">Premium web and mobile user experiences.</p>
+                </div>
+              </div>
+              <div class="marquee-card-wrapper">
+                <div class="card gradient-border-card rounded-3xl p-6 h-full animate-float-slower"
+                  style="animation-delay: 2.5s;">
+                  <div
+                    class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 text-2xl icon-bounce"
+                    style="animation-delay: 3s;">⚙️</div>
+                  <div class="text-sm font-bold text-primary tracking-wide">Automation Systems</div>
+                  <p class="mt-3 text-sm leading-6 text-muted">Streamlining operations and replacing manual work.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="tech" class="border-t border-line bg-white">
+    <!-- TECHNOLOGIES SECTION -->
+    <div class="section-divider"></div>
+    <section id="tech" class="section-mint relative overflow-hidden">
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
         <div class="reveal mx-auto max-w-2xl text-center">
           <div
-            class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">
+            class="kicker inline-flex items-center rounded-full border border-line bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-semibold text-muted">
             Technologies</div>
           <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">The Full Stack of Modern AI
             Development</h2>
@@ -478,53 +1609,124 @@
             delivery.</p>
         </div>
 
-        <div class="tech-grid mt-12 md:grid-cols-2 xl:grid-cols-4">
-          <div class="card tech-card rounded-3xl p-6 reveal">
-            <div class="text-sm font-semibold text-primary">AI &amp; Automation</div>
-            <div class="tech-badges">
-              <span class="chip">OpenAI APIs</span><span class="chip">Claude API</span><span
-                class="chip">LangChain</span><span class="chip">CrewAI</span><span class="chip">AutoGen</span><span
-                class="chip">Ollama</span><span class="chip">RAG Systems</span><span class="chip">Agentic AI</span><span
-                class="chip">n8n</span><span class="chip">MCP Workflows</span><span class="chip">Vector DBs</span><span
-                class="chip">Pinecone</span><span class="chip">ChromaDB</span>
+        <div class="marquee-container mt-12" style="animation-direction: reverse;">
+          <div class="marquee-track">
+            <!-- Set 1 -->
+            <div class="marquee-set">
+              <div class="marquee-card-wrapper">
+                <div class="card tech-card gradient-border-card rounded-3xl p-6 h-full animate-float-slow">
+                  <div class="text-sm font-bold text-primary tracking-wide">AI &amp; Automation</div>
+                  <div class="tech-badges mt-4">
+                    <span class="chip">OpenAI APIs</span><span class="chip">Claude API</span><span
+                      class="chip">LangChain</span><span class="chip">CrewAI</span><span
+                      class="chip">AutoGen</span><span class="chip">Ollama</span><span class="chip">RAG
+                      Systems</span><span class="chip">Agentic AI</span><span class="chip">n8n</span><span
+                      class="chip">MCP Workflows</span><span class="chip">Vector DBs</span><span
+                      class="chip">Pinecone</span><span class="chip">ChromaDB</span>
+                  </div>
+                </div>
+              </div>
+              <div class="marquee-card-wrapper">
+                <div class="card tech-card gradient-border-card rounded-3xl p-6 h-full animate-float-slower">
+                  <div class="text-sm font-bold text-primary tracking-wide">Backend</div>
+                  <div class="tech-badges mt-4">
+                    <span class="chip">NestJS</span><span class="chip">Node.js</span><span
+                      class="chip">Express.js</span><span class="chip">FastAPI</span><span
+                      class="chip">GraphQL</span><span class="chip">REST APIs</span><span
+                      class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span
+                      class="chip">Firebase</span><span class="chip">Supabase</span>
+                  </div>
+                </div>
+              </div>
+              <div class="marquee-card-wrapper">
+                <div class="card tech-card gradient-border-card rounded-3xl p-6 h-full animate-float-slow"
+                  style="animation-delay: 1s;">
+                  <div class="text-sm font-bold text-primary tracking-wide">Frontend &amp; Mobile</div>
+                  <div class="tech-badges mt-4">
+                    <span class="chip">Flutter</span><span class="chip">FlutterFlow</span><span
+                      class="chip">React.js</span><span class="chip">Next.js</span><span class="chip">Tailwind
+                      CSS</span><span class="chip">TypeScript</span>
+                  </div>
+                </div>
+              </div>
+              <div class="marquee-card-wrapper">
+                <div class="card tech-card gradient-border-card rounded-3xl p-6 h-full animate-float-slower"
+                  style="animation-delay: 1.5s;">
+                  <div class="text-sm font-bold text-primary tracking-wide">Cloud &amp; DevOps</div>
+                  <div class="tech-badges mt-4">
+                    <span class="chip">AWS</span><span class="chip">Docker</span><span class="chip">CI/CD</span><span
+                      class="chip">GitHub</span><span class="chip">Vercel</span><span class="chip">Cloud
+                      Deployments</span>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="card tech-card rounded-3xl p-6 reveal" style="transition-delay:0.1s;">
-            <div class="text-sm font-semibold text-primary">Backend</div>
-            <div class="tech-badges">
-              <span class="chip">NestJS</span><span class="chip">Node.js</span><span class="chip">Express.js</span><span
-                class="chip">FastAPI</span><span class="chip">GraphQL</span><span class="chip">REST APIs</span><span
-                class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">Firebase</span><span
-                class="chip">Supabase</span>
-            </div>
-          </div>
-          <div class="card tech-card rounded-3xl p-6 reveal" style="transition-delay:0.2s;">
-            <div class="text-sm font-semibold text-primary">Frontend &amp; Mobile</div>
-            <div class="tech-badges">
-              <span class="chip">Flutter</span><span class="chip">FlutterFlow</span><span
-                class="chip">React.js</span><span class="chip">Next.js</span><span class="chip">Tailwind CSS</span><span
-                class="chip">TypeScript</span>
-            </div>
-          </div>
-          <div class="card tech-card rounded-3xl p-6 reveal" style="transition-delay:0.3s;">
-            <div class="text-sm font-semibold text-primary">Cloud &amp; DevOps</div>
-            <div class="tech-badges">
-              <span class="chip">AWS</span><span class="chip">Docker</span><span class="chip">CI/CD</span><span
-                class="chip">GitHub</span><span class="chip">Vercel</span><span class="chip">Cloud Deployments</span>
+            <!-- Set 2 -->
+            <div class="marquee-set" aria-hidden="true">
+              <div class="marquee-card-wrapper">
+                <div class="card tech-card gradient-border-card rounded-3xl p-6 h-full animate-float-slow">
+                  <div class="text-sm font-bold text-primary tracking-wide">AI &amp; Automation</div>
+                  <div class="tech-badges mt-4">
+                    <span class="chip">OpenAI APIs</span><span class="chip">Claude API</span><span
+                      class="chip">LangChain</span><span class="chip">CrewAI</span><span
+                      class="chip">AutoGen</span><span class="chip">Ollama</span><span class="chip">RAG
+                      Systems</span><span class="chip">Agentic AI</span><span class="chip">n8n</span><span
+                      class="chip">MCP Workflows</span><span class="chip">Vector DBs</span><span
+                      class="chip">Pinecone</span><span class="chip">ChromaDB</span>
+                  </div>
+                </div>
+              </div>
+              <div class="marquee-card-wrapper">
+                <div class="card tech-card gradient-border-card rounded-3xl p-6 h-full animate-float-slower">
+                  <div class="text-sm font-bold text-primary tracking-wide">Backend</div>
+                  <div class="tech-badges mt-4">
+                    <span class="chip">NestJS</span><span class="chip">Node.js</span><span
+                      class="chip">Express.js</span><span class="chip">FastAPI</span><span
+                      class="chip">GraphQL</span><span class="chip">REST APIs</span><span
+                      class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span
+                      class="chip">Firebase</span><span class="chip">Supabase</span>
+                  </div>
+                </div>
+              </div>
+              <div class="marquee-card-wrapper">
+                <div class="card tech-card gradient-border-card rounded-3xl p-6 h-full animate-float-slow"
+                  style="animation-delay: 1s;">
+                  <div class="text-sm font-bold text-primary tracking-wide">Frontend &amp; Mobile</div>
+                  <div class="tech-badges mt-4">
+                    <span class="chip">Flutter</span><span class="chip">FlutterFlow</span><span
+                      class="chip">React.js</span><span class="chip">Next.js</span><span class="chip">Tailwind
+                      CSS</span><span class="chip">TypeScript</span>
+                  </div>
+                </div>
+              </div>
+              <div class="marquee-card-wrapper">
+                <div class="card tech-card gradient-border-card rounded-3xl p-6 h-full animate-float-slower"
+                  style="animation-delay: 1.5s;">
+                  <div class="text-sm font-bold text-primary tracking-wide">Cloud &amp; DevOps</div>
+                  <div class="tech-badges mt-4">
+                    <span class="chip">AWS</span><span class="chip">Docker</span><span class="chip">CI/CD</span><span
+                      class="chip">GitHub</span><span class="chip">Vercel</span><span class="chip">Cloud
+                      Deployments</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="border-t border-line bg-white">
+    <!-- PROJECTS SECTION -->
+    <div class="section-divider"></div>
+    <section id="projects" class="section-peach relative overflow-hidden">
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
         <div class="reveal mx-auto max-w-2xl text-center">
           <div
-            class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">
+            class="kicker inline-flex items-center rounded-full border border-line bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-semibold text-muted">
             Projects</div>
           <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Shipped Projects</h2>
-          <p class="mt-4 text-base leading-8 text-muted">30+ active products across AI, mobile, and web applications.</p>
+          <p class="mt-4 text-base leading-8 text-muted">30+ active products across AI, mobile, and web applications.
+          </p>
         </div>
 
         <div class="proj-filter mt-12 reveal" style="transition-delay:0.15s;">
@@ -544,17 +1746,110 @@
       </div>
     </section>
 
-    <section id="experience" class="border-t border-line bg-white">
+    <!-- SCROLL JACKING PROCESS SECTION -->
+    <div class="section-divider"></div>
+    <section id="process" class="scroll-jack-container">
+      <div class="scroll-jack-sticky">
+
+        <!-- Background decorative blobs -->
+        <div
+          class="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-gradient-to-br from-primary/10 to-accent-rose/10 blur-3xl">
+        </div>
+        <div
+          class="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-gradient-to-tr from-accent-peach/10 to-primary/10 blur-3xl">
+        </div>
+
+        <div class="scroll-jack-title">
+          <div
+            class="kicker inline-flex items-center rounded-full border border-line bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-semibold text-muted">
+            My Process</div>
+          <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">How I Deliver <span
+              class="gradient-text">Excellence</span></h2>
+        </div>
+
+        <div class="scroll-jack-content">
+          <!-- Step 1 -->
+          <div class="scroll-jack-step active">
+            <div
+              class="mx-auto w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center text-2xl font-bold mb-6">
+              01</div>
+            <h3 class="text-3xl font-bold tracking-tight text-ink">Discovery &amp; Strategy</h3>
+            <p class="mt-5 text-lg leading-8 text-muted max-w-2xl mx-auto">Every great product starts with deep
+              understanding. I analyze your vision, market, users, and technical landscape before writing a single line
+              of code.</p>
+            <div class="mt-8 flex flex-wrap justify-center gap-3">
+              <span class="chip">User Research</span><span class="chip">Market Analysis</span><span
+                class="chip">Technical Audit</span>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="scroll-jack-step">
+            <div
+              class="mx-auto w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center text-2xl font-bold mb-6">
+              02</div>
+            <h3 class="text-3xl font-bold tracking-tight text-ink">Architecture &amp; Planning</h3>
+            <p class="mt-5 text-lg leading-8 text-muted max-w-2xl mx-auto">Blueprint everything before building. I
+              design scalable architectures, create detailed roadmaps, and plan sprints that keep teams aligned and
+              shipping.</p>
+            <div class="mt-8 flex flex-wrap justify-center gap-3">
+              <span class="chip">System Design</span><span class="chip">Sprint Planning</span><span class="chip">Tech
+                Stack</span>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="scroll-jack-step">
+            <div
+              class="mx-auto w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center text-2xl font-bold mb-6">
+              03</div>
+            <h3 class="text-3xl font-bold tracking-tight text-ink">Build &amp; Iterate</h3>
+            <p class="mt-5 text-lg leading-8 text-muted max-w-2xl mx-auto">Agile execution with quality at every step. I
+              lead sprints, review code, and ensure every feature meets premium standards before it ships.</p>
+            <div class="mt-8 flex flex-wrap justify-center gap-3">
+              <span class="chip">Agile Sprints</span><span class="chip">Code Review</span><span class="chip">QA
+                Testing</span>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="scroll-jack-step">
+            <div
+              class="mx-auto w-16 h-16 rounded-2xl bg-primary/10 text-primary flex items-center justify-center text-2xl font-bold mb-6">
+              04</div>
+            <h3 class="text-3xl font-bold tracking-tight text-ink">Launch &amp; Scale</h3>
+            <p class="mt-5 text-lg leading-8 text-muted max-w-2xl mx-auto">Ship with confidence, then optimize. I handle
+              deployment, monitor performance, and build systems that scale gracefully as your user base grows.</p>
+            <div class="mt-8 flex flex-wrap justify-center gap-3">
+              <span class="chip">CI/CD Pipeline</span><span class="chip">Monitoring</span><span
+                class="chip">Scale</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-jack-progress-container">
+          <div class="scroll-jack-dot active"></div>
+          <div class="scroll-jack-dot"></div>
+          <div class="scroll-jack-dot"></div>
+          <div class="scroll-jack-dot"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <div class="section-divider"></div>
+    <section id="experience" class="section-rose relative overflow-hidden">
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
         <div class="reveal max-w-2xl">
           <div
-            class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">
+            class="kicker inline-flex items-center rounded-full border border-line bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-semibold text-muted">
             Experience</div>
           <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Professional Experience</h2>
         </div>
 
         <div class="mt-12 space-y-6">
-          <div class="timeline reveal">
+          <div class="timeline reveal stagger-1">
             <span class="timeline-dot"></span>
             <div class="card rounded-3xl p-6">
               <div class="flex flex-wrap items-start justify-between gap-3">
@@ -562,13 +1857,15 @@
                   <h3 class="text-xl font-bold text-ink">Co-Founder &amp; Technical Project Manager</h3>
                   <p class="mt-1 text-sm font-semibold text-primary">Devsinn Technologies</p>
                 </div>
-                <span class="chip">Current</span>
+                <span class="chip"
+                  style="border-color: rgba(139, 124, 247, 0.3); color: var(--primary); background: rgba(139, 124, 247, 0.06);">Current</span>
               </div>
-              <p class="mt-4 text-sm leading-7 text-muted">Leading delivery, roadmaps, and technical direction for AI/SaaS initiatives.</p>
+              <p class="mt-4 text-sm leading-7 text-muted">Leading delivery, roadmaps, and technical direction for
+                AI/SaaS initiatives.</p>
             </div>
           </div>
 
-          <div class="timeline reveal">
+          <div class="timeline reveal stagger-2">
             <span class="timeline-dot"></span>
             <div class="card rounded-3xl p-6">
               <div class="flex flex-wrap items-start justify-between gap-3">
@@ -578,11 +1875,12 @@
                 </div>
                 <span class="chip">Backend</span>
               </div>
-              <p class="mt-4 text-sm leading-7 text-muted">Architected APIs and scalable backend systems for product teams.</p>
+              <p class="mt-4 text-sm leading-7 text-muted">Architected APIs and scalable backend systems for product
+                teams.</p>
             </div>
           </div>
 
-          <div class="timeline reveal">
+          <div class="timeline reveal stagger-3">
             <span class="timeline-dot"></span>
             <div class="card rounded-3xl p-6">
               <div class="flex flex-wrap items-start justify-between gap-3">
@@ -592,53 +1890,70 @@
                 </div>
                 <span class="chip">Engineering</span>
               </div>
-              <p class="mt-4 text-sm leading-7 text-muted">Developed enterprise software with a focus on reliability.</p>
+              <p class="mt-4 text-sm leading-7 text-muted">Developed enterprise software with a focus on reliability.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="border-t border-line bg-white">
+    <!-- CTA SECTION -->
+    <div class="section-divider"></div>
+    <section class="relative overflow-hidden">
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
-        <div class="reveal rounded-[2rem] border border-line bg-white px-6 py-10 text-center shadow-soft sm:px-10">
+        <div
+          class="reveal-scale rounded-[2rem] border border-line bg-white/80 backdrop-blur px-6 py-10 text-center shadow-soft sm:px-10 relative overflow-hidden">
+          <!-- Background decoration -->
           <div
-            class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">
-            Let’s Build Together</div>
-          <h2 class="mx-auto mt-5 max-w-3xl text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">Ready to launch your next AI or SaaS product?</h2>
-          <p class="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted">If you need an AI strategist, technical PM, or execution layer to ship products, get in-touch.</p>
-          <div class="mt-8 flex flex-wrap justify-center gap-3">
-            <a href="#contact"
-              class="inline-flex items-center justify-center rounded-full border border-primary bg-primary px-6 py-3 text-sm font-semibold text-white">Book
-              a Call</a>
-            <a href="#experience"
-              class="inline-flex items-center justify-center rounded-full border border-line bg-white px-6 py-3 text-sm font-semibold text-ink">Review
-              Experience</a>
+            class="absolute -top-20 -left-20 w-60 h-60 rounded-full bg-gradient-to-br from-primary/8 to-accent-rose/8 blur-3xl">
+          </div>
+          <div
+            class="absolute -bottom-20 -right-20 w-60 h-60 rounded-full bg-gradient-to-br from-accent-peach/8 to-accent-mint/8 blur-3xl">
+          </div>
+
+          <div class="relative z-10">
+            <div
+              class="kicker inline-flex items-center rounded-full border border-line bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-semibold text-muted">
+              Let's Build Together</div>
+            <h2 class="mx-auto mt-5 max-w-3xl text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">Ready
+              to
+              launch your next <span class="gradient-text">AI or SaaS</span> product?</h2>
+            <p class="mx-auto mt-5 max-w-2xl text-base leading-8 text-muted">If you need an AI strategist, technical PM,
+              or execution layer to ship products, get in-touch.</p>
+            <div class="mt-8 flex flex-wrap justify-center gap-3">
+              <a href="#contact" class="btn-primary">Book a Call</a>
+              <a href="#experience" class="btn-secondary">Review Experience</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="border-t border-line bg-white">
+    <!-- CONTACT SECTION -->
+    <div class="section-divider"></div>
+    <section id="contact" class="section-lavender relative overflow-hidden">
       <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
         <div class="reveal max-w-2xl">
           <div
-            class="kicker inline-flex items-center rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-muted">
+            class="kicker inline-flex items-center rounded-full border border-line bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-semibold text-muted">
             Contact</div>
-          <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Let’s discuss your project.</h2>
+          <h2 class="mt-5 text-3xl font-bold tracking-tight text-ink sm:text-4xl">Let's discuss your project.</h2>
         </div>
 
         <div class="mt-12 grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-          <div class="reveal">
+          <div class="reveal-left">
             <div class="card rounded-[1.75rem] p-6 sm:p-8">
               <h3 class="text-2xl font-bold tracking-tight text-ink">Ubaid Ullah Asim</h3>
               <p class="mt-2 text-sm font-semibold text-primary">AI Strategist &amp; Technical PM</p>
-              <p class="mt-5 text-sm leading-7 text-muted">Available for remote consulting, strategy, and product delivery partnerships.</p>
+              <p class="mt-5 text-sm leading-7 text-muted">Available for remote consulting, strategy, and product
+                delivery partnerships.</p>
 
               <div class="mt-8 space-y-4">
                 <div class="flex items-start gap-4">
                   <div
-                    class="flex h-11 w-11 items-center justify-center rounded-2xl border border-line bg-white text-primary font-bold">
+                    class="flex h-11 w-11 items-center justify-center rounded-2xl border border-line bg-white text-primary font-bold"
+                    style="background: rgba(139, 124, 247, 0.06);">
                     01</div>
                   <div>
                     <div class="text-sm font-semibold text-ink">Company</div>
@@ -647,7 +1962,8 @@
                 </div>
                 <div class="flex items-start gap-4">
                   <div
-                    class="flex h-11 w-11 items-center justify-center rounded-2xl border border-line bg-white text-primary font-bold">
+                    class="flex h-11 w-11 items-center justify-center rounded-2xl border border-line bg-white text-primary font-bold"
+                    style="background: rgba(139, 124, 247, 0.06);">
                     02</div>
                   <div>
                     <div class="text-sm font-semibold text-ink">Location</div>
@@ -656,7 +1972,8 @@
                 </div>
                 <div class="flex items-start gap-4">
                   <div
-                    class="flex h-11 w-11 items-center justify-center rounded-2xl border border-line bg-white text-primary font-bold">
+                    class="flex h-11 w-11 items-center justify-center rounded-2xl border border-line bg-white text-primary font-bold"
+                    style="background: rgba(139, 124, 247, 0.06);">
                     03</div>
                   <div>
                     <div class="text-sm font-semibold text-ink">LinkedIn</div>
@@ -668,7 +1985,7 @@
             </div>
           </div>
 
-          <div class="reveal">
+          <div class="reveal-right">
             <form class="card rounded-[1.75rem] p-6 sm:p-8" onsubmit="handleSubmit(event)">
               <div class="grid gap-4 sm:grid-cols-2">
                 <div>
@@ -691,10 +2008,9 @@
                   placeholder="Share your goals, timeline, and outcome."></textarea>
               </div>
               <div class="mt-6 flex flex-wrap gap-3">
-                <button type="submit"
-                  class="inline-flex items-center justify-center rounded-full border border-primary bg-primary px-6 py-3 text-sm font-semibold text-white">Send Message</button>
+                <button type="submit" class="btn-primary">Send Message</button>
                 <a href="https://www.linkedin.com/in/ubaid-ullah-asim" target="_blank" rel="noreferrer"
-                  class="inline-flex items-center justify-center rounded-full border border-line bg-white px-6 py-3 text-sm font-semibold text-ink">Connect on LinkedIn</a>
+                  class="btn-secondary">Connect on LinkedIn</a>
               </div>
               <div id="successMessage"
                 class="mt-6 hidden rounded-2xl border border-primary/20 bg-primary/5 px-4 py-3 text-sm font-semibold text-primary">
@@ -706,7 +2022,7 @@
     </section>
   </main>
 
-  <footer class="border-t border-line bg-white">
+  <footer class="border-t border-line" style="background: var(--bg);">
     <div
       class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-sm text-muted sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
       <div class="font-semibold text-ink">Ubaid Ullah Asim</div>
@@ -715,38 +2031,39 @@
   </footer>
 
   <script>
+    // ===== PROJECTS DATA =====
     const PROJECTS = [
       // AI / Featured
-      { id: "chatsupplies", name: "ChatSupplies", tag: "AI Chatbot Platform", desc: "AI-powered customer support chatbot platform with website and PDF training, RAG architecture, and real-time business workflow automation.", emoji: "&#128172;", color: "#3b82f6", link: "https://chatsupplies.com", stacks: ["RAG", "OpenAI", "NestJS", "Next.js", "MongoDB", "AI"], cats: ["featured", "ai", "web"] },
-      { id: "drafidox", name: "Drafidox", tag: "AI Documentation System", desc: "AI-powered documentation and workflow automation system transforming operational processes into intelligent, scalable documentation pipelines.", emoji: "&#128196;", color: "#8b5cf6", link: "https://drafidox.com", stacks: ["AI Workflows", "Process Automation", "NestJS", "MongoDB"], cats: ["featured", "ai", "web"] },
-      { id: "smartlogomaker", name: "Smart Logo Maker", tag: "AI Branding Platform", desc: "AI-powered branding and logo generation platform delivering instant, high-quality logo creation with a seamless customization workflow.", emoji: "&#10024;", color: "#06b6d4", link: "https://smart-logomaker.com", stacks: ["AI Generation", "Next.js", "Tailwind", "AWS"], cats: ["featured", "ai", "web"] },
+      { id: "chatsupplies", name: "ChatSupplies", tag: "AI Chatbot Platform", desc: "AI-powered customer support chatbot platform with website and PDF training, RAG architecture, and real-time business workflow automation.", emoji: "&#128172;", color: "#8b7cf7", link: "https://chatsupplies.com", stacks: ["RAG", "OpenAI", "NestJS", "Next.js", "MongoDB", "AI"], cats: ["featured", "ai", "web"] },
+      { id: "drafidox", name: "Drafidox", tag: "AI Documentation System", desc: "AI-powered documentation and workflow automation system transforming operational processes into intelligent, scalable documentation pipelines.", emoji: "&#128196;", color: "#a78bfa", link: "https://drafidox.com", stacks: ["AI Workflows", "Process Automation", "NestJS", "MongoDB"], cats: ["featured", "ai", "web"] },
+      { id: "smartlogomaker", name: "Smart Logo Maker", tag: "AI Branding Platform", desc: "AI-powered branding and logo generation platform delivering instant, high-quality logo creation with a seamless customization workflow.", emoji: "&#10024;", color: "#f9a8d4", link: "https://smart-logomaker.com", stacks: ["AI Generation", "Next.js", "Tailwind", "AWS"], cats: ["featured", "ai", "web"] },
       // Mobile
-      { id: "salamly", name: "Salamly", tag: "Mobile App", desc: "Islamic app for Quran reading, Islamic quotes and social networking — community-driven spiritual platform.", emoji: "&#127774;", color: "#22c55e", link: "https://play.google.com/store/apps/details?id=com.salamgram.salamgram", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
-      { id: "wirdbook", name: "Wird Book", tag: "Mobile App", desc: "Compilation of litanies based on Prophetic traditions as recommended by Imam Abulhasan Al-Shadhili. Available on iOS and Android.", emoji: "&#128213;", color: "#8b5cf6", link: "https://play.google.com/store/apps/details?id=wirdbook.eito", stacks: ["Flutter", "Firebase", "REST API"], cats: ["mobile"] },
-      { id: "fams", name: "FAMS Mobile", tag: "Fleet Management", desc: "Complete GPS fleet management solution for real-time tracking, cost control, security, and optimized fleet operations.", emoji: "&#128663;", color: "#3b82f6", link: "https://play.google.com/store/apps/details?id=com.falkenherz.fams", stacks: ["Flutter", "Firebase", "GPS", "REST API"], cats: ["mobile"] },
-      { id: "mood", name: "Mood Social", tag: "Social / Events", desc: "Find events based on your interests and go together with others. Create your own event or join one near you today.", emoji: "&#127881;", color: "#ec4899", link: "https://apps.apple.com/ca/app/mood-social-events-friends/id1403003910", stacks: ["Flutter", "Firebase", "Node.js"], cats: ["mobile"] },
-      { id: "instacalm", name: "InstaCalm Anxiety", tag: "Health & Wellness", desc: "InstaCalm employs 30+ Cognitive Behavioural Hypnotherapy Sessions for instant anxiety relief. Available iOS &amp; Android.", emoji: "&#129504;", color: "#06b6d4", link: "https://play.google.com/store/apps/details?id=com.instacalm.instacalm_anxiety_treatment1", stacks: ["Flutter", "Firebase", "REST API"], cats: ["mobile"] },
-      { id: "weteachs", name: "WeTeachs", tag: "EdTech Platform", desc: "Platform that connects Experts and Students, offering flexible learning, personalized profiles, and a vibrant community hub.", emoji: "&#127891;", color: "#f59e0b", link: "https://play.google.com/store/apps/details?id=com.weteachappneww.app", stacks: ["Flutter", "FlutterFlow", "Firebase", "Node.js"], cats: ["mobile"] },
-      { id: "sendsorta", name: "Sendsorta", tag: "Parenting App", desc: "Supportive app empowering parents of children with special needs through personalized guidance and expert-led resources.", emoji: "&#128153;", color: "#8b5cf6", link: "https://play.google.com/store/apps/details?id=com.embeddedtech.sendsorta", stacks: ["Flutter", "FlutterFlow", "Firebase", "Node.js"], cats: ["mobile"] },
-      { id: "circleup", name: "CircleUp", tag: "Social Networking", desc: "Community for 20s &amp; 30s who choose real connection, shared experiences, and belonging over scrolling.", emoji: "&#127759;", color: "#6366f1", link: "https://play.google.com/store/apps/details?id=branded.mc57e8347a78d4b36b00540b68e03cf09.circleup", stacks: ["Flutter", "FlutterFlow", "Firebase", "Node.js"], cats: ["mobile"] },
-      { id: "funky", name: "Funky", tag: "Social Media App", desc: "Multifaceted social media application offering modes for creators, kids, and advertisers to engage and earn.", emoji: "&#127926;", color: "#ec4899", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
-      { id: "roshi", name: "Roshi Career", tag: "Career / LinkedIn-like", desc: "Specialized career app tailored for recruiters and job seekers featuring a built-in CV generator for professional profiles.", emoji: "&#128188;", color: "#3b82f6", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
-      { id: "ohready", name: "ohReady Admin", tag: "Food Delivery", desc: "Order food from your mobile phone in your town. ohReady delivers food to your doorstep.", emoji: "&#127829;", color: "#f59e0b", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
-      { id: "fittech", name: "Fittech", tag: "Fitness App", desc: "Fitness app designed for gyms and Spanish speakers, facilitating daily fitness tracking.", emoji: "&#128170;", color: "#22c55e", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
-      { id: "pricepro", name: "PricePro", tag: "Restaurant Management", desc: "Application to manage menus of different restaurant branches. Copy/move items across branches and set different rates.", emoji: "&#128179;", color: "#06b6d4", link: "https://play.google.com/store/apps/details?id=com.mycompany.price", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
-      { id: "mycash", name: "MyCash", tag: "Fintech", desc: "No-interest loan application providing easy and compassionate financial assistance to users in need.", emoji: "&#128176;", color: "#22c55e", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
-      { id: "ekcabfare", name: "EkCabFare", tag: "Transport", desc: "Displays and compares fares between Uber, Careem, and Ola cabs using real-time pricing data.", emoji: "&#128661;", color: "#f59e0b", link: "", stacks: ["Flutter", "Firebase", "Scraping", "Node.js"], cats: ["mobile"] },
-      { id: "airhome", name: "AirHomeRestaurant", tag: "Food App", desc: "Specialized restaurant application with dual interface for sellers and buyers, akin to FoodPanda.", emoji: "&#127858;", color: "#ec4899", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "salamly", name: "Salamly", tag: "Mobile App", desc: "Islamic app for Quran reading, Islamic quotes and social networking — community-driven spiritual platform.", emoji: "&#127774;", color: "#6ee7b7", link: "https://play.google.com/store/apps/details?id=com.salamgram.salamgram", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "wirdbook", name: "Wird Book", tag: "Mobile App", desc: "Compilation of litanies based on Prophetic traditions as recommended by Imam Abulhasan Al-Shadhili. Available on iOS and Android.", emoji: "&#128213;", color: "#c4b5fd", link: "https://play.google.com/store/apps/details?id=wirdbook.eito", stacks: ["Flutter", "Firebase", "REST API"], cats: ["mobile"] },
+      { id: "fams", name: "FAMS Mobile", tag: "Fleet Management", desc: "Complete GPS fleet management solution for real-time tracking, cost control, security, and optimized fleet operations.", emoji: "&#128663;", color: "#93c5fd", link: "https://play.google.com/store/apps/details?id=com.falkenherz.fams", stacks: ["Flutter", "Firebase", "GPS", "REST API"], cats: ["mobile"] },
+      { id: "mood", name: "Mood Social", tag: "Social / Events", desc: "Find events based on your interests and go together with others. Create your own event or join one near you today.", emoji: "&#127881;", color: "#f9a8d4", link: "https://apps.apple.com/ca/app/mood-social-events-friends/id1403003910", stacks: ["Flutter", "Firebase", "Node.js"], cats: ["mobile"] },
+      { id: "instacalm", name: "InstaCalm Anxiety", tag: "Health & Wellness", desc: "InstaCalm employs 30+ Cognitive Behavioural Hypnotherapy Sessions for instant anxiety relief. Available iOS &amp; Android.", emoji: "&#129504;", color: "#a5f3fc", link: "https://play.google.com/store/apps/details?id=com.instacalm.instacalm_anxiety_treatment1", stacks: ["Flutter", "Firebase", "REST API"], cats: ["mobile"] },
+      { id: "weteachs", name: "WeTeachs", tag: "EdTech Platform", desc: "Platform that connects Experts and Students, offering flexible learning, personalized profiles, and a vibrant community hub.", emoji: "&#127891;", color: "#fcd34d", link: "https://play.google.com/store/apps/details?id=com.weteachappneww.app", stacks: ["Flutter", "FlutterFlow", "Firebase", "Node.js"], cats: ["mobile"] },
+      { id: "sendsorta", name: "Sendsorta", tag: "Parenting App", desc: "Supportive app empowering parents of children with special needs through personalized guidance and expert-led resources.", emoji: "&#128153;", color: "#c4b5fd", link: "https://play.google.com/store/apps/details?id=com.embeddedtech.sendsorta", stacks: ["Flutter", "FlutterFlow", "Firebase", "Node.js"], cats: ["mobile"] },
+      { id: "circleup", name: "CircleUp", tag: "Social Networking", desc: "Community for 20s &amp; 30s who choose real connection, shared experiences, and belonging over scrolling.", emoji: "&#127759;", color: "#a5b4fc", link: "https://play.google.com/store/apps/details?id=branded.mc57e8347a78d4b36b00540b68e03cf09.circleup", stacks: ["Flutter", "FlutterFlow", "Firebase", "Node.js"], cats: ["mobile"] },
+      { id: "funky", name: "Funky", tag: "Social Media App", desc: "Multifaceted social media application offering modes for creators, kids, and advertisers to engage and earn.", emoji: "&#127926;", color: "#f9a8d4", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "roshi", name: "Roshi Career", tag: "Career / LinkedIn-like", desc: "Specialized career app tailored for recruiters and job seekers featuring a built-in CV generator for professional profiles.", emoji: "&#128188;", color: "#93c5fd", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "ohready", name: "ohReady Admin", tag: "Food Delivery", desc: "Order food from your mobile phone in your town. ohReady delivers food to your doorstep.", emoji: "&#127829;", color: "#fdba74", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "fittech", name: "Fittech", tag: "Fitness App", desc: "Fitness app designed for gyms and Spanish speakers, facilitating daily fitness tracking.", emoji: "&#128170;", color: "#6ee7b7", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "pricepro", name: "PricePro", tag: "Restaurant Management", desc: "Application to manage menus of different restaurant branches. Copy/move items across branches and set different rates.", emoji: "&#128179;", color: "#a5f3fc", link: "https://play.google.com/store/apps/details?id=com.mycompany.price", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "mycash", name: "MyCash", tag: "Fintech", desc: "No-interest loan application providing easy and compassionate financial assistance to users in need.", emoji: "&#128176;", color: "#6ee7b7", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "ekcabfare", name: "EkCabFare", tag: "Transport", desc: "Displays and compares fares between Uber, Careem, and Ola cabs using real-time pricing data.", emoji: "&#128661;", color: "#fcd34d", link: "", stacks: ["Flutter", "Firebase", "Scraping", "Node.js"], cats: ["mobile"] },
+      { id: "airhome", name: "AirHomeRestaurant", tag: "Food App", desc: "Specialized restaurant application with dual interface for sellers and buyers, akin to FoodPanda.", emoji: "&#127858;", color: "#f9a8d4", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
       // Web
-      { id: "certainli", name: "Certainli.se", tag: "Compliance Platform", desc: "Product compliance platform with extensive expertise in product development and regulatory requirements.", emoji: "&#9989;", color: "#3b82f6", link: "https://certainli.se/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "Docker", "AWS"], cats: ["web"] },
-      { id: "wyzepay", name: "WyzePay", tag: "Sports FinTech", desc: "Empowers sports clubs to engage fans and drive revenue through tokenized wallets, in-app payments, and gamified loyalty.", emoji: "&#9917;", color: "#22c55e", link: "https://wyzepay.com/", stacks: ["React", "Next.js", "Node.js", "Express", "MongoDB"], cats: ["web"] },
-      { id: "jiffy", name: "Jiffy", tag: "Legal Services", desc: "Secure, same-day delivery and expert handling of legal documents across the UAE with real-time tracking and attestation.", emoji: "&#9878;&#65039;", color: "#f59e0b", link: "https://jiffy.ae/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "AWS"], cats: ["web"] },
-      { id: "rx101", name: "Rx101 Savers Card", tag: "Healthcare", desc: "Helps CHM members save on prescriptions and healthcare needs with convenient and affordable medication options.", emoji: "&#128138;", color: "#ec4899", link: "https://rx101.org/", stacks: ["React", "Next.js", "Node.js", "Express", "MongoDB"], cats: ["web"] },
-      { id: "alttext", name: "AltText AI", tag: "AI / SEO Tool", desc: "AI-powered alt text platform making website images visible to search engines, accessibility tools, and AI assistants.", emoji: "&#128065;&#65039;", color: "#8b5cf6", link: "https://alttext.ai/", stacks: ["React", "Next.js", "AI", "Node.js", "AWS"], cats: ["web", "ai"] },
-      { id: "circleupweb", name: "CircleUp", tag: "Career Platform", desc: "Launch your career from college with AI-powered access to global opportunities.", emoji: "&#127759;", color: "#6366f1", link: "https://www.joincircleup.com/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "Tailwind"], cats: ["web"] },
-      { id: "weteachsweb", name: "WeTeachs Web", tag: "EdTech", desc: "Connects learners and experts globally, enabling personalized learning, teaching, and growth all in one platform.", emoji: "&#127891;", color: "#f59e0b", link: "https://www.weteachs.com/", stacks: ["React", "Next.js", "Node.js", "MongoDB"], cats: ["web"] },
-      { id: "hpappen", name: "Hp Appen", tag: "EdTech / MCQ", desc: "Swedish-based MCQ website offering a streamlined and comprehensive approach to mastering multiple-choice questions.", emoji: "&#128218;", color: "#06b6d4", link: "https://www.hpappen.se/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "Docker", "AWS"], cats: ["web"] },
-      { id: "hpappenprod", name: "Hp Appen App", tag: "EdTech / Production", desc: "Production application for Hpappen — streamlined MCQ practice with advanced features and performance tracking.", emoji: "&#128202;", color: "#3b82f6", link: "https://app.hpappen.se/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "AWS"], cats: ["web"] },
+      { id: "certainli", name: "Certainli.se", tag: "Compliance Platform", desc: "Product compliance platform with extensive expertise in product development and regulatory requirements.", emoji: "&#9989;", color: "#93c5fd", link: "https://certainli.se/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "Docker", "AWS"], cats: ["web"] },
+      { id: "wyzepay", name: "WyzePay", tag: "Sports FinTech", desc: "Empowers sports clubs to engage fans and drive revenue through tokenized wallets, in-app payments, and gamified loyalty.", emoji: "&#9917;", color: "#6ee7b7", link: "https://wyzepay.com/", stacks: ["React", "Next.js", "Node.js", "Express", "MongoDB"], cats: ["web"] },
+      { id: "jiffy", name: "Jiffy", tag: "Legal Services", desc: "Secure, same-day delivery and expert handling of legal documents across the UAE with real-time tracking and attestation.", emoji: "&#9878;&#65039;", color: "#fcd34d", link: "https://jiffy.ae/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "AWS"], cats: ["web"] },
+      { id: "rx101", name: "Rx101 Savers Card", tag: "Healthcare", desc: "Helps CHM members save on prescriptions and healthcare needs with convenient and affordable medication options.", emoji: "&#128138;", color: "#f9a8d4", link: "https://rx101.org/", stacks: ["React", "Next.js", "Node.js", "Express", "MongoDB"], cats: ["web"] },
+      { id: "alttext", name: "AltText AI", tag: "AI / SEO Tool", desc: "AI-powered alt text platform making website images visible to search engines, accessibility tools, and AI assistants.", emoji: "&#128065;&#65039;", color: "#c4b5fd", link: "https://alttext.ai/", stacks: ["React", "Next.js", "AI", "Node.js", "AWS"], cats: ["web", "ai"] },
+      { id: "circleupweb", name: "CircleUp", tag: "Career Platform", desc: "Launch your career from college with AI-powered access to global opportunities.", emoji: "&#127759;", color: "#a5b4fc", link: "https://www.joincircleup.com/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "Tailwind"], cats: ["web"] },
+      { id: "weteachsweb", name: "WeTeachs Web", tag: "EdTech", desc: "Connects learners and experts globally, enabling personalized learning, teaching, and growth all in one platform.", emoji: "&#127891;", color: "#fcd34d", link: "https://www.weteachs.com/", stacks: ["React", "Next.js", "Node.js", "MongoDB"], cats: ["web"] },
+      { id: "hpappen", name: "Hp Appen", tag: "EdTech / MCQ", desc: "Swedish-based MCQ website offering a streamlined and comprehensive approach to mastering multiple-choice questions.", emoji: "&#128218;", color: "#a5f3fc", link: "https://www.hpappen.se/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "Docker", "AWS"], cats: ["web"] },
+      { id: "hpappenprod", name: "Hp Appen App", tag: "EdTech / Production", desc: "Production application for Hpappen — streamlined MCQ practice with advanced features and performance tracking.", emoji: "&#128202;", color: "#93c5fd", link: "https://app.hpappen.se/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "AWS"], cats: ["web"] },
     ];
 
     const projectsGrid = document.getElementById('projectsGrid');
@@ -778,9 +2095,9 @@
       const limit = 4;
       const projectsToRender = showAll ? filteredProjects : filteredProjects.slice(0, limit);
 
-      projectsToRender.forEach((project) => {
+      projectsToRender.forEach((project, index) => {
         const article = document.createElement('article');
-        article.className = 'card project-card rounded-[1.75rem] p-6 reveal';
+        article.className = `card project-card rounded-[1.75rem] p-6 reveal tilt-card stagger-${Math.min(index % 4 + 1, 6)}`;
         article.dataset.cats = project.cats.join(' ');
 
         const head = document.createElement('div');
@@ -788,7 +2105,6 @@
 
         const icon = document.createElement('div');
         icon.className = 'project-icon';
-        // Use a colored square with initials instead of emoji
         icon.style.background = project.color;
         icon.style.borderColor = project.color;
         icon.style.color = '#fff';
@@ -841,7 +2157,7 @@
           });
 
         if (!project.link) {
-          link.style.opacity = '0.65';
+          link.style.opacity = '0.5';
           link.style.pointerEvents = 'none';
         }
 
@@ -879,7 +2195,7 @@
     window.filterProjects = filterProjects;
     window.handleViewAll = handleViewAll;
 
-
+    // ===== MOBILE MENU =====
     const menuButton = document.getElementById('menuButton');
     const mobileMenu = document.getElementById('mobileMenu');
 
@@ -891,6 +2207,7 @@
       link.addEventListener('click', () => mobileMenu.classList.remove('open'));
     });
 
+    // ===== INTERSECTION OBSERVER (REVEAL ANIMATIONS) =====
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -901,12 +2218,177 @@
 
     renderProjects();
 
-    document.querySelectorAll('.reveal').forEach((node) => observer.observe(node));
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach((node) => observer.observe(node));
 
+    // ===== COUNTING ANIMATION FOR STATS =====
+    function animateCounters() {
+      const statNumbers = document.querySelectorAll('.stat-number[data-count]');
+      statNumbers.forEach(el => {
+        const target = parseInt(el.dataset.count, 10);
+        const suffix = el.dataset.suffix || '';
+        const duration = 1800;
+        const startTime = performance.now();
+
+        function updateCount(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          // Ease-out cubic
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = Math.round(eased * target);
+          el.textContent = current + suffix;
+          if (progress < 1) {
+            requestAnimationFrame(updateCount);
+          }
+        }
+
+        requestAnimationFrame(updateCount);
+      });
+    }
+
+    // Trigger counter when stats come into view
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const statsSection = document.querySelector('.stat-number');
+    if (statsSection) {
+      statsObserver.observe(statsSection.closest('.grid'));
+    }
+
+    // ===== 3D TILT EFFECT ON CARDS =====
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -4;
+        const rotateY = ((x - centerX) / centerX) * 4;
+        card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) scale(1)';
+      });
+    });
+
+    // ===== SCROLL JACKING LOGIC =====
+    const scrollContainer = document.querySelector('.scroll-jack-container');
+    const scrollSteps = document.querySelectorAll('.scroll-jack-step');
+    const scrollDots = document.querySelectorAll('.scroll-jack-dot');
+
+    if (scrollContainer && scrollSteps.length > 0) {
+      window.addEventListener('scroll', () => {
+        const rect = scrollContainer.getBoundingClientRect();
+        let progress = 0;
+
+        if (rect.top <= 0) {
+          const maxScroll = rect.height - window.innerHeight;
+          const currentScroll = -rect.top;
+          progress = Math.max(0, Math.min(1, currentScroll / maxScroll));
+        }
+
+        let activeIndex = Math.floor(progress * scrollSteps.length);
+        if (activeIndex >= scrollSteps.length) activeIndex = scrollSteps.length - 1;
+
+        scrollSteps.forEach((step, index) => {
+          if (index === activeIndex) {
+            step.classList.add('active');
+          } else {
+            step.classList.remove('active');
+          }
+        });
+
+        scrollDots.forEach((dot, index) => {
+          if (index === activeIndex) {
+            dot.classList.add('active');
+          } else {
+            dot.classList.remove('active');
+          }
+        });
+      }, { passive: true });
+    }
+
+    // ===== SMOOTH HEADER SHADOW ON SCROLL =====
+    const header = document.querySelector('.glass-header');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+      if (currentScroll > 50) {
+        header.style.boxShadow = '0 8px 32px rgba(139, 124, 247, 0.08)';
+      } else {
+        header.style.boxShadow = 'none';
+      }
+      lastScroll = currentScroll;
+    }, { passive: true });
+
+    // ===== FORM SUBMIT =====
     function handleSubmit(event) {
       event.preventDefault();
-      document.getElementById('successMessage').classList.remove('hidden');
+      const msg = document.getElementById('successMessage');
+      msg.classList.remove('hidden');
+      msg.style.animation = 'fadeInUp 500ms ease';
       event.target.reset();
+    }
+
+    // ===== ACTIVE NAV HIGHLIGHT =====
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(link => {
+            link.style.color = '';
+            if (link.getAttribute('href') === '#' + id) {
+              link.style.color = 'var(--primary)';
+            }
+          });
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
+
+    sections.forEach(section => navObserver.observe(section));
+
+    // ===== 3D HERO CARD TILT WITH GLARE =====
+    const heroCard = document.querySelector('.hero-3d-card');
+    if (heroCard) {
+      const glare = document.createElement('div');
+      glare.classList.add('hero-glare');
+      heroCard.appendChild(glare);
+
+      heroCard.addEventListener('mousemove', (e) => {
+        const rect = heroCard.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -12; // Max 12 deg
+        const rotateY = ((x - centerX) / centerX) * 12;
+
+        heroCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+
+        // Glare effect
+        const px = (x / rect.width) * 100;
+        const py = (y / rect.height) * 100;
+        glare.style.background = `radial-gradient(circle at ${px}% ${py}%, rgba(255,255,255,0.6) 0%, transparent 60%)`;
+        glare.style.opacity = '1';
+      });
+
+      heroCard.addEventListener('mouseleave', () => {
+        heroCard.style.transform = 'rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        glare.style.opacity = '0';
+      });
     }
   </script>
 </body>
