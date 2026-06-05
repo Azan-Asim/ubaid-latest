@@ -19,17 +19,17 @@
       theme: {
         extend: {
           colors: {
-            primary: '#8b7cf7',
-            'primary-dark': '#7059f0',
-            ink: '#2d2946',
-            muted: '#7e7b97',
-            line: '#e8e4f0',
-            soft: '#f8f5ff'
+            primary: '#02A6BA',
+            'primary-dark': '#028A9B',
+            ink: '#023047',
+            muted: '#3D6478',
+            line: '#B8D4DE',
+            soft: '#EDF5F8'
           },
           boxShadow: {
-            soft: '0 16px 50px rgba(139, 124, 247, 0.08)',
-            glow: '0 0 40px rgba(139, 124, 247, 0.15)',
-            'card-hover': '0 24px 60px rgba(139, 124, 247, 0.14)',
+            soft: '0 16px 50px rgba(2, 166, 186, 0.08)',
+            glow: '0 0 40px rgba(2, 166, 186, 0.15)',
+            'card-hover': '0 24px 60px rgba(2, 166, 186, 0.14)',
           },
           fontFamily: {
             sans: ['Manrope', 'system-ui', 'sans-serif']
@@ -41,16 +41,16 @@
   <style>
     :root {
       color-scheme: light;
-      --bg: #fdfbff;
-      --text: #2d2946;
-      --muted: #7e7b97;
-      --line: #e8e4f0;
-      --primary: #8b7cf7;
-      --primary-light: #c4b5fd;
-      --primary-ultra-light: #ede9fe;
-      --accent-rose: #f9a8d4;
-      --accent-peach: #fdba74;
-      --accent-mint: #6ee7b7;
+      --bg: #F0F7FA;
+      --text: #023047;
+      --muted: #3D6478;
+      --line: #B8D4DE;
+      --primary: #02A6BA;
+      --primary-light: #5CC8D5;
+      --primary-ultra-light: #D6F0F4;
+      --accent-rose: #04D9C4;
+      --accent-peach: #02A6BA;
+      --accent-mint: #04D9C4;
     }
 
     * {
@@ -174,11 +174,11 @@
 
       0%,
       100% {
-        box-shadow: 0 0 0 0 rgba(139, 124, 247, 0.25);
+        box-shadow: 0 0 0 0 rgba(2, 166, 186, 0.25);
       }
 
       50% {
-        box-shadow: 0 0 20px 6px rgba(139, 124, 247, 0.12);
+        box-shadow: 0 0 20px 6px rgba(2, 166, 186, 0.12);
       }
     }
 
@@ -292,11 +292,11 @@
 
       0%,
       100% {
-        border-color: rgba(139, 124, 247, 0.15);
+        border-color: rgba(2, 166, 186, 0.15);
       }
 
       50% {
-        border-color: rgba(139, 124, 247, 0.35);
+        border-color: rgba(2, 166, 186, 0.35);
       }
     }
 
@@ -383,7 +383,7 @@
       right: -2px;
       bottom: -2px;
       left: -2px;
-      background: linear-gradient(135deg, var(--primary), var(--accent-rose), var(--accent-peach), var(--primary));
+      background: linear-gradient(135deg, #023047, #02A6BA, #04D9C4, #02A6BA);
       background-size: 300% 300%;
       z-index: -1;
       border-radius: inherit;
@@ -441,12 +441,26 @@
 
     /* ===== GRADIENT TEXT ===== */
     .gradient-text {
-      background: linear-gradient(135deg, #8b7cf7, #f9a8d4, #fdba74, #8b7cf7);
+      background: linear-gradient(135deg, #023047, #02A6BA, #04D9C4, #02A6BA);
       background-size: 300% 300%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       animation: gradientMove 6s ease infinite;
+    }
+
+    .hero-glare {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 2.5rem 6rem 2.5rem 6rem;
+      pointer-events: none;
+      z-index: 50;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      mix-blend-mode: overlay;
     }
 
     /* ===== COMPONENTS ===== */
@@ -455,14 +469,14 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--line);
-      box-shadow: 0 8px 32px rgba(139, 124, 247, 0.06);
+      box-shadow: 0 8px 32px rgba(2, 48, 71, 0.06);
       transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1),
         box-shadow 400ms cubic-bezier(0.23, 1, 0.32, 1),
         border-color 400ms ease;
     }
 
     .card:hover {
-      border-color: rgba(139, 124, 247, 0.25);
+      border-color: rgba(2, 166, 186, 0.25);
     }
 
     .chip {
@@ -525,16 +539,16 @@
     .proj-filter-btn:hover {
       transform: translateY(-2px);
       color: var(--text);
-      border-color: rgba(139, 124, 247, 0.3);
-      box-shadow: 0 12px 30px rgba(139, 124, 247, 0.1);
-      background: rgba(139, 124, 247, 0.04);
+      border-color: rgba(2, 166, 186, 0.3);
+      box-shadow: 0 12px 30px rgba(2, 166, 186, 0.1);
+      background: rgba(2, 166, 186, 0.04);
     }
 
     .proj-filter-btn.active {
-      background: linear-gradient(135deg, #8b7cf7, #a78bfa);
+      background: linear-gradient(135deg, #023047, #02A6BA);
       color: #fff;
       border-color: transparent;
-      box-shadow: 0 14px 32px rgba(139, 124, 247, 0.25);
+      box-shadow: 0 14px 32px rgba(2, 48, 71, 0.25);
     }
 
     .projects-grid-main {
@@ -555,8 +569,8 @@
 
     .project-card:hover {
       transform: translateY(-8px) scale(1.01);
-      box-shadow: 0 24px 60px rgba(139, 124, 247, 0.14);
-      border-color: rgba(139, 124, 247, 0.2);
+      box-shadow: 0 24px 60px rgba(2, 166, 186, 0.14);
+      border-color: rgba(2, 166, 186, 0.2);
     }
 
     .project-head {
@@ -570,8 +584,8 @@
       width: 3rem;
       height: 3rem;
       border-radius: 1rem;
-      border: 1px solid rgba(139, 124, 247, 0.15);
-      background: rgba(139, 124, 247, 0.08);
+      border: 1px solid rgba(2, 166, 186, 0.15);
+      background: rgba(2, 166, 186, 0.08);
       color: var(--primary);
       display: grid;
       place-items: center;
@@ -581,7 +595,7 @@
 
     .project-card:hover .project-icon {
       transform: scale(1.08) rotate(3deg);
-      box-shadow: 0 4px 16px rgba(139, 124, 247, 0.2);
+      box-shadow: 0 4px 16px rgba(2, 166, 186, 0.2);
     }
 
     .project-stacks {
@@ -596,7 +610,7 @@
       justify-content: center;
       border-radius: 999px;
       border: 1px solid transparent;
-      background: linear-gradient(135deg, #8b7cf7, #a78bfa);
+      background: linear-gradient(135deg, #023047, #02A6BA);
       color: #fff;
       padding: 0.7rem 1rem;
       font-size: 0.9rem;
@@ -624,7 +638,7 @@
 
     .project-cta:hover {
       transform: translateY(-2px);
-      box-shadow: 0 14px 28px rgba(139, 124, 247, 0.25);
+      box-shadow: 0 14px 28px rgba(2, 48, 71, 0.25);
     }
 
     .kicker::before {
@@ -653,7 +667,7 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: linear-gradient(90deg, var(--primary), var(--accent-rose));
+      background: linear-gradient(90deg, #02A6BA, #04D9C4);
       border-radius: 999px;
       transition: width 300ms ease;
     }
@@ -667,7 +681,7 @@
     }
 
     .button-primary {
-      background: linear-gradient(135deg, #8b7cf7, #a78bfa);
+      background: linear-gradient(135deg, #023047, #02A6BA);
       color: #fff;
       border: 1px solid transparent;
       position: relative;
@@ -774,7 +788,7 @@
       top: 0.3rem;
       bottom: 0.3rem;
       width: 2px;
-      background: linear-gradient(to bottom, var(--primary), var(--accent-rose), var(--accent-peach));
+      background: linear-gradient(to bottom, #023047, #02A6BA, #04D9C4);
       border-radius: 999px;
     }
 
@@ -787,7 +801,7 @@
       border-radius: 999px;
       background: #fff;
       border: 2px solid var(--primary);
-      box-shadow: 0 0 0 4px rgba(139, 124, 247, 0.1);
+      box-shadow: 0 0 0 4px rgba(2, 166, 186, 0.1);
       animation: pulseGlow 3s ease-in-out infinite;
     }
 
@@ -817,7 +831,7 @@
     .blob-1 {
       width: 400px;
       height: 400px;
-      background: linear-gradient(135deg, rgba(139, 124, 247, 0.4), rgba(196, 181, 253, 0.3));
+      background: linear-gradient(135deg, rgba(2, 166, 186, 0.4), rgba(92, 200, 213, 0.3));
       top: -100px;
       right: -100px;
       animation: blobFloat1 18s ease-in-out infinite;
@@ -826,7 +840,7 @@
     .blob-2 {
       width: 350px;
       height: 350px;
-      background: linear-gradient(135deg, rgba(249, 168, 212, 0.35), rgba(253, 186, 116, 0.25));
+      background: linear-gradient(135deg, rgba(4, 217, 196, 0.35), rgba(2, 166, 186, 0.25));
       bottom: -80px;
       left: -80px;
       animation: blobFloat2 22s ease-in-out infinite;
@@ -835,7 +849,7 @@
     .blob-3 {
       width: 250px;
       height: 250px;
-      background: linear-gradient(135deg, rgba(110, 231, 183, 0.3), rgba(139, 124, 247, 0.2));
+      background: linear-gradient(135deg, rgba(4, 217, 196, 0.3), rgba(2, 48, 71, 0.2));
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -852,7 +866,7 @@
     .hero-shape-1 {
       width: 60px;
       height: 60px;
-      border: 2px solid rgba(139, 124, 247, 0.2);
+      border: 2px solid rgba(2, 166, 186, 0.2);
       border-radius: 16px;
       top: 15%;
       left: 5%;
@@ -863,7 +877,7 @@
     .hero-shape-2 {
       width: 40px;
       height: 40px;
-      background: rgba(249, 168, 212, 0.15);
+      background: rgba(4, 217, 196, 0.15);
       border-radius: 50%;
       top: 25%;
       right: 10%;
@@ -873,7 +887,7 @@
     .hero-shape-3 {
       width: 24px;
       height: 24px;
-      background: rgba(253, 186, 116, 0.2);
+      background: rgba(2, 166, 186, 0.2);
       border-radius: 6px;
       bottom: 25%;
       left: 8%;
@@ -884,7 +898,7 @@
     .hero-shape-4 {
       width: 50px;
       height: 50px;
-      border: 2px solid rgba(110, 231, 183, 0.2);
+      border: 2px solid rgba(4, 217, 196, 0.2);
       border-radius: 50%;
       bottom: 15%;
       right: 5%;
@@ -894,7 +908,7 @@
     .hero-shape-5 {
       width: 16px;
       height: 16px;
-      background: rgba(139, 124, 247, 0.25);
+      background: rgba(2, 166, 186, 0.25);
       border-radius: 50%;
       top: 60%;
       left: 15%;
@@ -913,7 +927,7 @@
       justify-content: center;
       border-radius: 999px;
       border: 1px solid transparent;
-      background: linear-gradient(135deg, #8b7cf7, #a78bfa);
+      background: linear-gradient(135deg, #023047, #02A6BA);
       color: #fff;
       padding: 0.75rem 1.5rem;
       font-size: 0.9rem;
@@ -938,7 +952,7 @@
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 16px 40px rgba(139, 124, 247, 0.3);
+      box-shadow: 0 16px 40px rgba(2, 48, 71, 0.3);
     }
 
     .btn-primary:hover::before {
@@ -964,32 +978,32 @@
 
     .btn-secondary:hover {
       transform: translateY(-2px);
-      border-color: rgba(139, 124, 247, 0.3);
-      box-shadow: 0 12px 30px rgba(139, 124, 247, 0.08);
+      border-color: rgba(2, 166, 186, 0.3);
+      box-shadow: 0 12px 30px rgba(2, 166, 186, 0.08);
       background: #fff;
     }
 
     /* ===== SECTION DIVIDERS ===== */
     .section-divider {
       height: 1px;
-      background: linear-gradient(90deg, transparent, var(--line), rgba(139, 124, 247, 0.2), var(--line), transparent);
+      background: linear-gradient(90deg, transparent, var(--line), rgba(2, 166, 186, 0.2), var(--line), transparent);
     }
 
     /* ===== SECTION SOFT BACKGROUNDS ===== */
     .section-lavender {
-      background: linear-gradient(180deg, #f8f5ff 0%, #fdfbff 100%);
+      background: linear-gradient(180deg, #E8F4F8 0%, #F0F7FA 100%);
     }
 
     .section-rose {
-      background: linear-gradient(180deg, #fdf2f8 0%, #fdfbff 100%);
+      background: linear-gradient(180deg, #E0F2F4 0%, #F0F7FA 100%);
     }
 
     .section-mint {
-      background: linear-gradient(180deg, #f0fdf4 0%, #fdfbff 100%);
+      background: linear-gradient(180deg, #DFF5F2 0%, #F0F7FA 100%);
     }
 
     .section-peach {
-      background: linear-gradient(180deg, #fff7ed 0%, #fdfbff 100%);
+      background: linear-gradient(180deg, #E5F0F3 0%, #F0F7FA 100%);
     }
 
     /* ===== SCROLL JACKING CSS ===== */
@@ -1007,7 +1021,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(180deg, #f8f5ff 0%, #fdfbff 100%);
+      background: linear-gradient(180deg, #E8F4F8 0%, #F0F7FA 100%);
     }
 
     .scroll-jack-title {
@@ -1064,17 +1078,17 @@
     }
 
     .scroll-jack-dot.active {
-      background: linear-gradient(90deg, #8b7cf7, #f9a8d4);
+      background: linear-gradient(90deg, #023047, #02A6BA);
       transform: scaleY(1.5);
-      box-shadow: 0 0 10px rgba(139, 124, 247, 0.3);
+      box-shadow: 0 0 10px rgba(2, 166, 186, 0.3);
     }
 
     /* ===== GLASSMORPHISM HEADER ===== */
     .glass-header {
-      background: rgba(253, 251, 255, 0.75);
+      background: rgba(240, 247, 250, 0.75);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(232, 228, 240, 0.6);
+      border-bottom: 1px solid rgba(184, 212, 222, 0.6);
     }
 
     /* ===== CARD 3D TILT ===== */
@@ -1124,7 +1138,7 @@
       position: absolute;
       inset: -3px;
       border-radius: inherit;
-      background: linear-gradient(135deg, #8b7cf7, #f9a8d4, #fdba74, #6ee7b7, #8b7cf7);
+      background: linear-gradient(135deg, #023047, #02A6BA, #04D9C4, #02A6BA, #023047);
       background-size: 300% 300%;
       animation: gradientMove 4s ease infinite;
       z-index: -1;
@@ -1138,22 +1152,7 @@
 
     /* ===== FUTURISTIC HERO 3D ===== */
     .hero-bg-grid {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 150vh;
-      background-image:
-        linear-gradient(to right, rgba(139, 124, 247, 0.15) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(139, 124, 247, 0.15) 1px, transparent 1px);
-      background-size: 60px 60px;
-      transform-origin: top center;
-      transform: perspective(1000px) rotateX(60deg) translateY(-100px);
-      animation: gridMove 5s linear infinite;
-      z-index: 0;
-      pointer-events: none;
-      -webkit-mask-image: radial-gradient(ellipse at center 40%, black 20%, transparent 70%);
-      mask-image: radial-gradient(ellipse at center 40%, black 20%, transparent 70%);
+      display: none;
     }
 
     @keyframes gridMove {
@@ -1197,99 +1196,61 @@
 
     /* ===== PREMIUM FLUID PLASMA BACKGROUND ===== */
     .plasma-wrapper {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 140%;
-      height: 140%;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
-      /* Soft fade at the edge to blend with space */
-      -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 70%);
-      mask-image: radial-gradient(circle at center, black 40%, transparent 70%);
-      overflow: hidden;
+      display: none;
     }
 
     .plasma-core {
-      position: absolute;
-      inset: -20%;
-      background:
-        radial-gradient(circle at 50% 20%, #8b7cf7 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, #f9a8d4 0%, transparent 50%),
-        radial-gradient(circle at 20% 80%, #fdba74 0%, transparent 50%),
-        radial-gradient(circle at 20% 20%, #6ee7b7 0%, transparent 50%);
-      background-size: 150% 150%;
-      filter: blur(25px);
-      animation: plasmaMove 15s ease-in-out infinite alternate, spinPlasma 25s linear infinite;
-      opacity: 0.9;
+      display: none;
     }
 
-    @keyframes plasmaMove {
-      0% {
-        background-position: 0% 0%;
-      }
-
-      50% {
-        background-position: 100% 100%;
-      }
-
-      100% {
-        background-position: 0% 100%;
-      }
-    }
-
-    @keyframes spinPlasma {
-      0% {
-        transform: rotate(0deg) scale(1);
-      }
-
-      50% {
-        transform: rotate(180deg) scale(1.1);
-      }
-
-      100% {
-        transform: rotate(360deg) scale(1);
-      }
-    }
-
-    /* A sleek, sharp glass ring over the plasma for a futuristic high-tech touch */
+    /* Classic professional frame for hero image */
     .futuristic-glass-ring {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 105%;
-      height: 105%;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      box-shadow: 0 0 30px rgba(139, 124, 247, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.8);
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 40%, transparent 60%, rgba(255, 255, 255, 0.1) 100%);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 5;
-      animation: pulseRing 4s ease-in-out infinite;
+      display: none;
     }
 
-    @keyframes pulseRing {
+    .hero-classic-frame {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
 
-      0%,
-      100% {
-        transform: translate(-50%, -50%) scale(1);
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.6);
-        border-color: rgba(255, 255, 255, 0.4);
-      }
+    .hero-classic-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 2rem;
+      border: 2px solid rgba(2, 166, 186, 0.2);
+      background: linear-gradient(145deg, rgba(2, 48, 71, 0.03) 0%, rgba(2, 166, 186, 0.06) 50%, rgba(4, 217, 196, 0.03) 100%);
+    }
 
-      50% {
-        transform: translate(-50%, -50%) scale(1.03);
-        box-shadow: 0 0 40px rgba(139, 124, 247, 0.7), inset 0 0 25px rgba(255, 255, 255, 0.9);
-        border-color: rgba(139, 124, 247, 0.8);
-      }
+    .hero-classic-frame::after {
+      content: '';
+      position: absolute;
+      inset: 8px;
+      border-radius: 1.6rem;
+      border: 1px solid rgba(2, 166, 186, 0.12);
+    }
+
+    .hero-img-frame {
+      position: relative;
+      border-radius: 50%;
+      padding: 6px;
+      background: linear-gradient(145deg, #023047, #02A6BA, #04D9C4);
+      box-shadow:
+        0 20px 50px rgba(2, 48, 71, 0.2),
+        0 0 0 1px rgba(2, 166, 186, 0.1),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-img-frame img {
+      border-radius: 50%;
+      border: 4px solid #fff;
     }
 
     .text-glow {
-      text-shadow: 0 0 20px rgba(139, 124, 247, 0.4);
+      text-shadow: 0 0 20px rgba(2, 166, 186, 0.3);
     }
 
     /* ===== SCROLLBAR ===== */
@@ -1302,7 +1263,7 @@
     }
 
     ::-webkit-scrollbar-thumb {
-      background: linear-gradient(to bottom, var(--primary-light), var(--accent-rose));
+      background: linear-gradient(to bottom, #02A6BA, #04D9C4);
       border-radius: 999px;
     }
 
@@ -1360,84 +1321,97 @@
 
   <main id="top">
     <!-- HERO SECTION -->
-    <section class="relative mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 lg:px-8 lg:pb-28 lg:pt-20 overflow-hidden"
-      style="perspective: 1500px;">
-      <!-- Futuristic Grid Background -->
-      <div class="hero-bg-grid"></div>
+    <section class="relative pt-16 pb-20 lg:pt-28 lg:pb-32 overflow-hidden">
+      <!-- Modern Styled Half Background (Slanted Diagonal Cut) -->
+      <div class="absolute top-0 right-0 w-[55vw] h-full bg-ink z-0 hidden lg:block"
+        style="clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%);"></div>
 
-      <!-- Background blobs -->
-      <div class="blob blob-1" style="opacity: 0.6; filter: blur(80px) saturate(150%);"></div>
-      <div class="blob blob-2" style="opacity: 0.6; filter: blur(80px) saturate(150%);"></div>
-      <div class="blob blob-3" style="opacity: 0.6; filter: blur(80px) saturate(150%);"></div>
-
-      <!-- Glowing 3D Orbs (replacing 2D shapes) -->
-      <div class="hero-float-shape hero-shape-1"
-        style="background: radial-gradient(circle, var(--primary) 0%, transparent 70%); border:none; box-shadow: none; filter: blur(5px);">
-      </div>
-      <div class="hero-float-shape hero-shape-2"
-        style="background: radial-gradient(circle, var(--accent-rose) 0%, transparent 70%); border:none; box-shadow: none; filter: blur(5px);">
-      </div>
-      <div class="hero-float-shape hero-shape-3"
-        style="background: radial-gradient(circle, var(--accent-peach) 0%, transparent 70%); border:none; box-shadow: none; filter: blur(5px);">
-      </div>
-
-      <div class="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] relative z-10">
-        <div class="reveal">
-          <div
-            class="kicker mb-5 inline-flex items-center rounded-full border border-line bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-semibold text-primary shadow-[0_0_15px_rgba(139,124,247,0.3)]">
-            <span class="h-2 w-2 rounded-full bg-primary block mr-2"
-              style="animation: pulseDot 2s ease-in-out infinite;"></span>
-            Open to AI &amp; SaaS Projects
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+          <div class="reveal">
+            <div
+              class="kicker mb-5 inline-flex items-center rounded-full border border-line bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-semibold text-primary shadow-[0_0_15px_rgba(2,166,186,0.3)]">
+              <span class="h-2 w-2 rounded-full bg-primary block mr-2"
+                style="animation: pulseDot 2s ease-in-out infinite;"></span>
+              Open to AI &amp; SaaS Projects
+            </div>
+            <h1 class="max-w-3xl text-4xl font-bold tracking-tight text-ink sm:text-5xl lg:text-7xl text-glow">
+              AI Strategist &amp; <span class="gradient-text">Technical PM</span>
+            </h1>
+            <p class="mt-6 max-w-2xl text-lg leading-8 text-muted font-medium">
+              I help founders build intelligent SaaS products and automate workflows from idea to launch.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="#contact" class="btn-primary shadow-[0_0_20px_rgba(2,48,71,0.3)]">Start a Project</a>
+              <a href="#projects"
+                class="btn-secondary bg-white/60 backdrop-blur shadow-sm hover:shadow-md border border-line">View
+                Projects</a>
+            </div>
           </div>
-          <h1 class="max-w-3xl text-4xl font-bold tracking-tight text-ink sm:text-5xl lg:text-7xl text-glow">
-            AI Strategist &amp; <span class="gradient-text">Technical PM</span>
-          </h1>
-          <p class="mt-6 max-w-2xl text-lg leading-8 text-muted font-medium">
-            I help founders build intelligent SaaS products and automate workflows from idea to launch.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="#contact" class="btn-primary shadow-[0_0_20px_rgba(139,124,247,0.5)]">Start a Project</a>
-            <a href="#projects"
-              class="btn-secondary bg-white/60 backdrop-blur shadow-sm hover:shadow-md border border-line">View
-              Projects</a>
-          </div>
-        </div>
 
-        <div class="reveal lg:justify-self-end stagger-2" style="perspective: 1200px;">
-          <!-- 3D Interactive Card -->
           <div
-            class="card hero-3d-card rounded-[2.5rem] p-4 sm:p-5 border-2 border-white/40 shadow-[0_30px_60px_rgba(139,124,247,0.15)] bg-white/40 backdrop-blur-2xl">
-            <div class="grid gap-4 hero-3d-content">
-              <div
-                class="overflow-hidden rounded-[2rem] border border-white/60 bg-white/30 p-12 flex items-center justify-center relative shadow-inner">
-                <!-- Premium Fluid Plasma Background -->
-                <div class="plasma-wrapper">
-                  <div class="plasma-core"></div>
-                </div>
-                <div class="futuristic-glass-ring"></div>
+            class="reveal lg:justify-self-end relative w-full flex justify-center lg:justify-end mt-16 lg:mt-0 stagger-2" style="perspective: 1200px;">
 
-                <img src="pp.jpeg" alt="Ubaid Ullah Asim portrait"
-                  class="hero-img-float hero-3d-element-high w-56 h-56 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full object-cover shadow-[0_20px_40px_rgba(0,0,0,0.2)] border-4 border-white/80 self-center relative z-10">
+            <!-- Dotted Pattern -->
+            <div class="absolute top-1/3 -right-12 w-28 h-28 opacity-20 z-0 hidden lg:block"
+              style="background-image: radial-gradient(white 2.5px, transparent 2.5px); background-size: 18px 18px;">
+            </div>
+            <div class="absolute top-1/3 -right-8 w-28 h-28 opacity-20 z-0 lg:hidden"
+              style="background-image: radial-gradient(#02A6BA 2px, transparent 2px); background-size: 16px 16px;">
+            </div>
 
-                <div
-                  class="hero-3d-element absolute left-6 bottom-6 inline-flex items-center gap-3 rounded-full bg-white/95 border border-line px-4 py-2 text-sm font-semibold shadow-[0_10px_30px_rgba(139,124,247,0.2)] backdrop-blur-sm z-20">
-                  <span class="h-2 w-2 rounded-full bg-primary block"
-                    style="animation: pulseDot 2s ease-in-out infinite;"></span>
-                  AI Strategist
+            <!-- Ultra-Premium 3D Avatar Portrait Frame -->
+            <div class="hero-3d-card relative z-10 group inline-block mt-8 lg:mt-0 cursor-pointer" style="transform-style: preserve-3d; transition: transform 0.1s ease-out;">
+              
+              <!-- 1. Luxury Spotlight Glow -->
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-gradient-to-tr from-primary/30 to-[#04D9C4]/10 blur-[80px] rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-1000 z-0 pointer-events-none" style="transform: translateZ(-80px);"></div>
+              
+              <!-- 2. Outer Ambient Glass Ring (Asymmetric & Tilted) -->
+              <div class="absolute -inset-6 lg:-inset-8 border border-white/20 bg-white/5 backdrop-blur-2xl rounded-[3rem] rounded-tr-[7rem] rounded-bl-[7rem] shadow-[0_8px_32px_rgba(0,0,0,0.1)] transition-transform duration-1000 z-0" style="transform: translateZ(-40px) rotateZ(3deg);">
+                  <!-- Subtle inner glow for glass -->
+                  <div class="absolute inset-0 rounded-[3rem] rounded-tr-[7rem] rounded-bl-[7rem] shadow-[inset_0_0_30px_rgba(255,255,255,0.1)]"></div>
+              </div>
+
+              <!-- 3. Inner Frosted Glass Ring (Counter Tilted) -->
+              <div class="absolute -inset-2 lg:-inset-3 border border-white/30 bg-gradient-to-br from-white/10 to-transparent backdrop-blur-xl rounded-[2.5rem] rounded-tr-[6rem] rounded-bl-[6rem] shadow-[0_15px_40px_rgba(2,48,71,0.2)] transition-transform duration-1000 z-0" style="transform: translateZ(-20px) rotateZ(-2deg);"></div>
+
+              <!-- 4. Main Image Container (Gradient Border & Depth) -->
+              <div class="relative p-[2px] rounded-[2.5rem] rounded-tr-[6rem] rounded-bl-[6rem] bg-gradient-to-br from-white/80 via-white/20 to-primary/50 shadow-[0_20px_50px_rgba(0,0,0,0.4)] z-10 transition-all duration-700" style="transform: translateZ(20px);">
+                
+                <!-- Inner Image Mask -->
+                <div class="hero-image-mask relative overflow-hidden rounded-[calc(2.5rem-2px)] rounded-tr-[calc(6rem-2px)] rounded-bl-[calc(6rem-2px)] bg-ink">
+                  
+                  <!-- The Image -->
+                  <img src="pp.jpeg" alt="Ubaid Ullah Asim portrait"
+                    class="relative w-[280px] h-[340px] sm:w-[320px] sm:h-[400px] lg:w-[400px] lg:h-[480px] object-cover transition-transform duration-1000 group-hover:scale-[1.05]">
+                    
+                  <!-- Glass Overlay Gradient (Apple-style subtle sheen) -->
+                  <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/20 pointer-events-none mix-blend-overlay"></div>
                 </div>
               </div>
-              <div class="flex flex-col gap-4">
-                <div
-                  class="card rounded-[2rem] p-6 bg-white/70 backdrop-blur-md border border-white/50 hero-3d-element shadow-[0_10px_30px_rgba(0,0,0,0.05)]">
-                  <div class="text-xs font-semibold uppercase tracking-[0.25em] text-primary">Profile</div>
-                  <div class="mt-3 text-2xl font-bold tracking-tight text-ink">Ubaid Ullah Asim</div>
-                  <div
-                    class="mt-1 text-sm font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent-rose">
-                    AI Strategist &amp; Technical PM</div>
-                  <p class="mt-4 text-sm leading-6 text-muted">Based in Lahore, building premium AI-driven SaaS systems
-                    and clean technical delivery models.</p>
+                
+              <!-- 5. Overlapping Glass Badges (Intersecting the frame in 3D) -->
+              
+              <!-- Floating Badge 1 (Specialty) -->
+              <div class="absolute -left-6 sm:-left-16 bottom-20 bg-white/85 backdrop-blur-2xl border border-white/60 px-5 py-4 rounded-2xl shadow-[0_20px_40px_rgba(2,48,71,0.12)] flex items-center gap-4 z-30 transition-transform duration-700 group-hover:scale-105" style="transform: translateZ(80px);">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center text-primary font-bold shadow-inner border border-primary/20">
+                  <svg class="w-6 h-6 drop-shadow-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <div>
+                  <p class="text-[10px] font-bold uppercase tracking-[0.15em] text-primary/70 mb-0.5">Specialty</p>
+                  <p class="text-sm font-bold text-ink tracking-tight">AI Strategist</p>
                 </div>
               </div>
+
+              <!-- Floating Badge 2 (Experience) -->
+              <div class="absolute -right-4 sm:-right-10 top-16 bg-white/85 backdrop-blur-2xl border border-white/60 px-5 py-4 rounded-2xl shadow-[0_20px_40px_rgba(2,48,71,0.12)] flex items-center gap-4 z-30 transition-transform duration-700 group-hover:scale-105" style="transform: translateZ(60px);">
+                 <div class="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-br from-ink to-primary drop-shadow-sm">5+</div>
+                 <div>
+                   <p class="text-[10px] font-bold uppercase tracking-[0.15em] text-primary/70 mb-0.5">Years</p>
+                   <p class="text-sm font-bold text-ink tracking-tight">Experience</p>
+                 </div>
+              </div>
+
             </div>
           </div>
         </div>
@@ -1858,7 +1832,7 @@
                   <p class="mt-1 text-sm font-semibold text-primary">Devsinn Technologies</p>
                 </div>
                 <span class="chip"
-                  style="border-color: rgba(139, 124, 247, 0.3); color: var(--primary); background: rgba(139, 124, 247, 0.06);">Current</span>
+                  style="border-color: rgba(2, 166, 186, 0.3); color: var(--primary); background: rgba(2, 166, 186, 0.06);">Current</span>
               </div>
               <p class="mt-4 text-sm leading-7 text-muted">Leading delivery, roadmaps, and technical direction for
                 AI/SaaS initiatives.</p>
@@ -1953,7 +1927,7 @@
                 <div class="flex items-start gap-4">
                   <div
                     class="flex h-11 w-11 items-center justify-center rounded-2xl border border-line bg-white text-primary font-bold"
-                    style="background: rgba(139, 124, 247, 0.06);">
+                    style="background: rgba(2, 166, 186, 0.06);">
                     01</div>
                   <div>
                     <div class="text-sm font-semibold text-ink">Company</div>
@@ -1963,7 +1937,7 @@
                 <div class="flex items-start gap-4">
                   <div
                     class="flex h-11 w-11 items-center justify-center rounded-2xl border border-line bg-white text-primary font-bold"
-                    style="background: rgba(139, 124, 247, 0.06);">
+                    style="background: rgba(2, 166, 186, 0.06);">
                     02</div>
                   <div>
                     <div class="text-sm font-semibold text-ink">Location</div>
@@ -1973,7 +1947,7 @@
                 <div class="flex items-start gap-4">
                   <div
                     class="flex h-11 w-11 items-center justify-center rounded-2xl border border-line bg-white text-primary font-bold"
-                    style="background: rgba(139, 124, 247, 0.06);">
+                    style="background: rgba(2, 166, 186, 0.06);">
                     03</div>
                   <div>
                     <div class="text-sm font-semibold text-ink">LinkedIn</div>
@@ -2034,36 +2008,36 @@
     // ===== PROJECTS DATA =====
     const PROJECTS = [
       // AI / Featured
-      { id: "chatsupplies", name: "ChatSupplies", tag: "AI Chatbot Platform", desc: "AI-powered customer support chatbot platform with website and PDF training, RAG architecture, and real-time business workflow automation.", emoji: "&#128172;", color: "#8b7cf7", link: "https://chatsupplies.com", stacks: ["RAG", "OpenAI", "NestJS", "Next.js", "MongoDB", "AI"], cats: ["featured", "ai", "web"] },
-      { id: "drafidox", name: "Drafidox", tag: "AI Documentation System", desc: "AI-powered documentation and workflow automation system transforming operational processes into intelligent, scalable documentation pipelines.", emoji: "&#128196;", color: "#a78bfa", link: "https://drafidox.com", stacks: ["AI Workflows", "Process Automation", "NestJS", "MongoDB"], cats: ["featured", "ai", "web"] },
-      { id: "smartlogomaker", name: "Smart Logo Maker", tag: "AI Branding Platform", desc: "AI-powered branding and logo generation platform delivering instant, high-quality logo creation with a seamless customization workflow.", emoji: "&#10024;", color: "#f9a8d4", link: "https://smart-logomaker.com", stacks: ["AI Generation", "Next.js", "Tailwind", "AWS"], cats: ["featured", "ai", "web"] },
+      { id: "chatsupplies", name: "ChatSupplies", tag: "AI Chatbot Platform", desc: "AI-powered customer support chatbot platform with website and PDF training, RAG architecture, and real-time business workflow automation.", emoji: "&#128172;", color: "#023047", link: "https://chatsupplies.com", stacks: ["RAG", "OpenAI", "NestJS", "Next.js", "MongoDB", "AI"], cats: ["featured", "ai", "web"] },
+      { id: "drafidox", name: "Drafidox", tag: "AI Documentation System", desc: "AI-powered documentation and workflow automation system transforming operational processes into intelligent, scalable documentation pipelines.", emoji: "&#128196;", color: "#02A6BA", link: "https://drafidox.com", stacks: ["AI Workflows", "Process Automation", "NestJS", "MongoDB"], cats: ["featured", "ai", "web"] },
+      { id: "smartlogomaker", name: "Smart Logo Maker", tag: "AI Branding Platform", desc: "AI-powered branding and logo generation platform delivering instant, high-quality logo creation with a seamless customization workflow.", emoji: "&#10024;", color: "#04D9C4", link: "https://smart-logomaker.com", stacks: ["AI Generation", "Next.js", "Tailwind", "AWS"], cats: ["featured", "ai", "web"] },
       // Mobile
-      { id: "salamly", name: "Salamly", tag: "Mobile App", desc: "Islamic app for Quran reading, Islamic quotes and social networking — community-driven spiritual platform.", emoji: "&#127774;", color: "#6ee7b7", link: "https://play.google.com/store/apps/details?id=com.salamgram.salamgram", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
-      { id: "wirdbook", name: "Wird Book", tag: "Mobile App", desc: "Compilation of litanies based on Prophetic traditions as recommended by Imam Abulhasan Al-Shadhili. Available on iOS and Android.", emoji: "&#128213;", color: "#c4b5fd", link: "https://play.google.com/store/apps/details?id=wirdbook.eito", stacks: ["Flutter", "Firebase", "REST API"], cats: ["mobile"] },
-      { id: "fams", name: "FAMS Mobile", tag: "Fleet Management", desc: "Complete GPS fleet management solution for real-time tracking, cost control, security, and optimized fleet operations.", emoji: "&#128663;", color: "#93c5fd", link: "https://play.google.com/store/apps/details?id=com.falkenherz.fams", stacks: ["Flutter", "Firebase", "GPS", "REST API"], cats: ["mobile"] },
-      { id: "mood", name: "Mood Social", tag: "Social / Events", desc: "Find events based on your interests and go together with others. Create your own event or join one near you today.", emoji: "&#127881;", color: "#f9a8d4", link: "https://apps.apple.com/ca/app/mood-social-events-friends/id1403003910", stacks: ["Flutter", "Firebase", "Node.js"], cats: ["mobile"] },
-      { id: "instacalm", name: "InstaCalm Anxiety", tag: "Health & Wellness", desc: "InstaCalm employs 30+ Cognitive Behavioural Hypnotherapy Sessions for instant anxiety relief. Available iOS &amp; Android.", emoji: "&#129504;", color: "#a5f3fc", link: "https://play.google.com/store/apps/details?id=com.instacalm.instacalm_anxiety_treatment1", stacks: ["Flutter", "Firebase", "REST API"], cats: ["mobile"] },
-      { id: "weteachs", name: "WeTeachs", tag: "EdTech Platform", desc: "Platform that connects Experts and Students, offering flexible learning, personalized profiles, and a vibrant community hub.", emoji: "&#127891;", color: "#fcd34d", link: "https://play.google.com/store/apps/details?id=com.weteachappneww.app", stacks: ["Flutter", "FlutterFlow", "Firebase", "Node.js"], cats: ["mobile"] },
-      { id: "sendsorta", name: "Sendsorta", tag: "Parenting App", desc: "Supportive app empowering parents of children with special needs through personalized guidance and expert-led resources.", emoji: "&#128153;", color: "#c4b5fd", link: "https://play.google.com/store/apps/details?id=com.embeddedtech.sendsorta", stacks: ["Flutter", "FlutterFlow", "Firebase", "Node.js"], cats: ["mobile"] },
-      { id: "circleup", name: "CircleUp", tag: "Social Networking", desc: "Community for 20s &amp; 30s who choose real connection, shared experiences, and belonging over scrolling.", emoji: "&#127759;", color: "#a5b4fc", link: "https://play.google.com/store/apps/details?id=branded.mc57e8347a78d4b36b00540b68e03cf09.circleup", stacks: ["Flutter", "FlutterFlow", "Firebase", "Node.js"], cats: ["mobile"] },
-      { id: "funky", name: "Funky", tag: "Social Media App", desc: "Multifaceted social media application offering modes for creators, kids, and advertisers to engage and earn.", emoji: "&#127926;", color: "#f9a8d4", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
-      { id: "roshi", name: "Roshi Career", tag: "Career / LinkedIn-like", desc: "Specialized career app tailored for recruiters and job seekers featuring a built-in CV generator for professional profiles.", emoji: "&#128188;", color: "#93c5fd", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
-      { id: "ohready", name: "ohReady Admin", tag: "Food Delivery", desc: "Order food from your mobile phone in your town. ohReady delivers food to your doorstep.", emoji: "&#127829;", color: "#fdba74", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
-      { id: "fittech", name: "Fittech", tag: "Fitness App", desc: "Fitness app designed for gyms and Spanish speakers, facilitating daily fitness tracking.", emoji: "&#128170;", color: "#6ee7b7", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
-      { id: "pricepro", name: "PricePro", tag: "Restaurant Management", desc: "Application to manage menus of different restaurant branches. Copy/move items across branches and set different rates.", emoji: "&#128179;", color: "#a5f3fc", link: "https://play.google.com/store/apps/details?id=com.mycompany.price", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
-      { id: "mycash", name: "MyCash", tag: "Fintech", desc: "No-interest loan application providing easy and compassionate financial assistance to users in need.", emoji: "&#128176;", color: "#6ee7b7", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
-      { id: "ekcabfare", name: "EkCabFare", tag: "Transport", desc: "Displays and compares fares between Uber, Careem, and Ola cabs using real-time pricing data.", emoji: "&#128661;", color: "#fcd34d", link: "", stacks: ["Flutter", "Firebase", "Scraping", "Node.js"], cats: ["mobile"] },
-      { id: "airhome", name: "AirHomeRestaurant", tag: "Food App", desc: "Specialized restaurant application with dual interface for sellers and buyers, akin to FoodPanda.", emoji: "&#127858;", color: "#f9a8d4", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "salamly", name: "Salamly", tag: "Mobile App", desc: "Islamic app for Quran reading, Islamic quotes and social networking — community-driven spiritual platform.", emoji: "&#127774;", color: "#028A9B", link: "https://play.google.com/store/apps/details?id=com.salamgram.salamgram", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "wirdbook", name: "Wird Book", tag: "Mobile App", desc: "Compilation of litanies based on Prophetic traditions as recommended by Imam Abulhasan Al-Shadhili. Available on iOS and Android.", emoji: "&#128213;", color: "#5CC8D5", link: "https://play.google.com/store/apps/details?id=wirdbook.eito", stacks: ["Flutter", "Firebase", "REST API"], cats: ["mobile"] },
+      { id: "fams", name: "FAMS Mobile", tag: "Fleet Management", desc: "Complete GPS fleet management solution for real-time tracking, cost control, security, and optimized fleet operations.", emoji: "&#128663;", color: "#02A6BA", link: "https://play.google.com/store/apps/details?id=com.falkenherz.fams", stacks: ["Flutter", "Firebase", "GPS", "REST API"], cats: ["mobile"] },
+      { id: "mood", name: "Mood Social", tag: "Social / Events", desc: "Find events based on your interests and go together with others. Create your own event or join one near you today.", emoji: "&#127881;", color: "#04D9C4", link: "https://apps.apple.com/ca/app/mood-social-events-friends/id1403003910", stacks: ["Flutter", "Firebase", "Node.js"], cats: ["mobile"] },
+      { id: "instacalm", name: "InstaCalm Anxiety", tag: "Health & Wellness", desc: "InstaCalm employs 30+ Cognitive Behavioural Hypnotherapy Sessions for instant anxiety relief. Available iOS &amp; Android.", emoji: "&#129504;", color: "#023047", link: "https://play.google.com/store/apps/details?id=com.instacalm.instacalm_anxiety_treatment1", stacks: ["Flutter", "Firebase", "REST API"], cats: ["mobile"] },
+      { id: "weteachs", name: "WeTeachs", tag: "EdTech Platform", desc: "Platform that connects Experts and Students, offering flexible learning, personalized profiles, and a vibrant community hub.", emoji: "&#127891;", color: "#028A9B", link: "https://play.google.com/store/apps/details?id=com.weteachappneww.app", stacks: ["Flutter", "FlutterFlow", "Firebase", "Node.js"], cats: ["mobile"] },
+      { id: "sendsorta", name: "Sendsorta", tag: "Parenting App", desc: "Supportive app empowering parents of children with special needs through personalized guidance and expert-led resources.", emoji: "&#128153;", color: "#5CC8D5", link: "https://play.google.com/store/apps/details?id=com.embeddedtech.sendsorta", stacks: ["Flutter", "FlutterFlow", "Firebase", "Node.js"], cats: ["mobile"] },
+      { id: "circleup", name: "CircleUp", tag: "Social Networking", desc: "Community for 20s &amp; 30s who choose real connection, shared experiences, and belonging over scrolling.", emoji: "&#127759;", color: "#02A6BA", link: "https://play.google.com/store/apps/details?id=branded.mc57e8347a78d4b36b00540b68e03cf09.circleup", stacks: ["Flutter", "FlutterFlow", "Firebase", "Node.js"], cats: ["mobile"] },
+      { id: "funky", name: "Funky", tag: "Social Media App", desc: "Multifaceted social media application offering modes for creators, kids, and advertisers to engage and earn.", emoji: "&#127926;", color: "#04D9C4", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "roshi", name: "Roshi Career", tag: "Career / LinkedIn-like", desc: "Specialized career app tailored for recruiters and job seekers featuring a built-in CV generator for professional profiles.", emoji: "&#128188;", color: "#023047", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "ohready", name: "ohReady Admin", tag: "Food Delivery", desc: "Order food from your mobile phone in your town. ohReady delivers food to your doorstep.", emoji: "&#127829;", color: "#028A9B", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "fittech", name: "Fittech", tag: "Fitness App", desc: "Fitness app designed for gyms and Spanish speakers, facilitating daily fitness tracking.", emoji: "&#128170;", color: "#02A6BA", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "pricepro", name: "PricePro", tag: "Restaurant Management", desc: "Application to manage menus of different restaurant branches. Copy/move items across branches and set different rates.", emoji: "&#128179;", color: "#5CC8D5", link: "https://play.google.com/store/apps/details?id=com.mycompany.price", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "mycash", name: "MyCash", tag: "Fintech", desc: "No-interest loan application providing easy and compassionate financial assistance to users in need.", emoji: "&#128176;", color: "#04D9C4", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "ekcabfare", name: "EkCabFare", tag: "Transport", desc: "Displays and compares fares between Uber, Careem, and Ola cabs using real-time pricing data.", emoji: "&#128661;", color: "#023047", link: "", stacks: ["Flutter", "Firebase", "Scraping", "Node.js"], cats: ["mobile"] },
+      { id: "airhome", name: "AirHomeRestaurant", tag: "Food App", desc: "Specialized restaurant application with dual interface for sellers and buyers, akin to FoodPanda.", emoji: "&#127858;", color: "#02A6BA", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
       // Web
-      { id: "certainli", name: "Certainli.se", tag: "Compliance Platform", desc: "Product compliance platform with extensive expertise in product development and regulatory requirements.", emoji: "&#9989;", color: "#93c5fd", link: "https://certainli.se/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "Docker", "AWS"], cats: ["web"] },
-      { id: "wyzepay", name: "WyzePay", tag: "Sports FinTech", desc: "Empowers sports clubs to engage fans and drive revenue through tokenized wallets, in-app payments, and gamified loyalty.", emoji: "&#9917;", color: "#6ee7b7", link: "https://wyzepay.com/", stacks: ["React", "Next.js", "Node.js", "Express", "MongoDB"], cats: ["web"] },
-      { id: "jiffy", name: "Jiffy", tag: "Legal Services", desc: "Secure, same-day delivery and expert handling of legal documents across the UAE with real-time tracking and attestation.", emoji: "&#9878;&#65039;", color: "#fcd34d", link: "https://jiffy.ae/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "AWS"], cats: ["web"] },
-      { id: "rx101", name: "Rx101 Savers Card", tag: "Healthcare", desc: "Helps CHM members save on prescriptions and healthcare needs with convenient and affordable medication options.", emoji: "&#128138;", color: "#f9a8d4", link: "https://rx101.org/", stacks: ["React", "Next.js", "Node.js", "Express", "MongoDB"], cats: ["web"] },
-      { id: "alttext", name: "AltText AI", tag: "AI / SEO Tool", desc: "AI-powered alt text platform making website images visible to search engines, accessibility tools, and AI assistants.", emoji: "&#128065;&#65039;", color: "#c4b5fd", link: "https://alttext.ai/", stacks: ["React", "Next.js", "AI", "Node.js", "AWS"], cats: ["web", "ai"] },
-      { id: "circleupweb", name: "CircleUp", tag: "Career Platform", desc: "Launch your career from college with AI-powered access to global opportunities.", emoji: "&#127759;", color: "#a5b4fc", link: "https://www.joincircleup.com/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "Tailwind"], cats: ["web"] },
-      { id: "weteachsweb", name: "WeTeachs Web", tag: "EdTech", desc: "Connects learners and experts globally, enabling personalized learning, teaching, and growth all in one platform.", emoji: "&#127891;", color: "#fcd34d", link: "https://www.weteachs.com/", stacks: ["React", "Next.js", "Node.js", "MongoDB"], cats: ["web"] },
-      { id: "hpappen", name: "Hp Appen", tag: "EdTech / MCQ", desc: "Swedish-based MCQ website offering a streamlined and comprehensive approach to mastering multiple-choice questions.", emoji: "&#128218;", color: "#a5f3fc", link: "https://www.hpappen.se/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "Docker", "AWS"], cats: ["web"] },
-      { id: "hpappenprod", name: "Hp Appen App", tag: "EdTech / Production", desc: "Production application for Hpappen — streamlined MCQ practice with advanced features and performance tracking.", emoji: "&#128202;", color: "#93c5fd", link: "https://app.hpappen.se/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "AWS"], cats: ["web"] },
+      { id: "certainli", name: "Certainli.se", tag: "Compliance Platform", desc: "Product compliance platform with extensive expertise in product development and regulatory requirements.", emoji: "&#9989;", color: "#028A9B", link: "https://certainli.se/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "Docker", "AWS"], cats: ["web"] },
+      { id: "wyzepay", name: "WyzePay", tag: "Sports FinTech", desc: "Empowers sports clubs to engage fans and drive revenue through tokenized wallets, in-app payments, and gamified loyalty.", emoji: "&#9917;", color: "#5CC8D5", link: "https://wyzepay.com/", stacks: ["React", "Next.js", "Node.js", "Express", "MongoDB"], cats: ["web"] },
+      { id: "jiffy", name: "Jiffy", tag: "Legal Services", desc: "Secure, same-day delivery and expert handling of legal documents across the UAE with real-time tracking and attestation.", emoji: "&#9878;&#65039;", color: "#04D9C4", link: "https://jiffy.ae/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "AWS"], cats: ["web"] },
+      { id: "rx101", name: "Rx101 Savers Card", tag: "Healthcare", desc: "Helps CHM members save on prescriptions and healthcare needs with convenient and affordable medication options.", emoji: "&#128138;", color: "#023047", link: "https://rx101.org/", stacks: ["React", "Next.js", "Node.js", "Express", "MongoDB"], cats: ["web"] },
+      { id: "alttext", name: "AltText AI", tag: "AI / SEO Tool", desc: "AI-powered alt text platform making website images visible to search engines, accessibility tools, and AI assistants.", emoji: "&#128065;&#65039;", color: "#02A6BA", link: "https://alttext.ai/", stacks: ["React", "Next.js", "AI", "Node.js", "AWS"], cats: ["web", "ai"] },
+      { id: "circleupweb", name: "CircleUp", tag: "Career Platform", desc: "Launch your career from college with AI-powered access to global opportunities.", emoji: "&#127759;", color: "#028A9B", link: "https://www.joincircleup.com/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "Tailwind"], cats: ["web"] },
+      { id: "weteachsweb", name: "WeTeachs Web", tag: "EdTech", desc: "Connects learners and experts globally, enabling personalized learning, teaching, and growth all in one platform.", emoji: "&#127891;", color: "#5CC8D5", link: "https://www.weteachs.com/", stacks: ["React", "Next.js", "Node.js", "MongoDB"], cats: ["web"] },
+      { id: "hpappen", name: "Hp Appen", tag: "EdTech / MCQ", desc: "Swedish-based MCQ website offering a streamlined and comprehensive approach to mastering multiple-choice questions.", emoji: "&#128218;", color: "#04D9C4", link: "https://www.hpappen.se/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "Docker", "AWS"], cats: ["web"] },
+      { id: "hpappenprod", name: "Hp Appen App", tag: "EdTech / Production", desc: "Production application for Hpappen — streamlined MCQ practice with advanced features and performance tracking.", emoji: "&#128202;", color: "#023047", link: "https://app.hpappen.se/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "AWS"], cats: ["web"] },
     ];
 
     const projectsGrid = document.getElementById('projectsGrid');
@@ -2322,7 +2296,7 @@
     window.addEventListener('scroll', () => {
       const currentScroll = window.scrollY;
       if (currentScroll > 50) {
-        header.style.boxShadow = '0 8px 32px rgba(139, 124, 247, 0.08)';
+        header.style.boxShadow = '0 8px 32px rgba(2, 166, 186, 0.08)';
       } else {
         header.style.boxShadow = 'none';
       }
@@ -2360,10 +2334,11 @@
 
     // ===== 3D HERO CARD TILT WITH GLARE =====
     const heroCard = document.querySelector('.hero-3d-card');
-    if (heroCard) {
+    const imageMask = document.querySelector('.hero-image-mask');
+    if (heroCard && imageMask) {
       const glare = document.createElement('div');
       glare.classList.add('hero-glare');
-      heroCard.appendChild(glare);
+      imageMask.appendChild(glare);
 
       heroCard.addEventListener('mousemove', (e) => {
         const rect = heroCard.getBoundingClientRect();
