@@ -11,7 +11,8 @@
   <meta name="robots" content="index, follow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -74,7 +75,13 @@
       position: relative;
     }
 
-    h1, h2, h3, h4, h5, h6, .font-syne {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .font-syne {
       font-family: Syne, "Syne Fallback", sans-serif !important;
       font-weight: 600 !important;
     }
@@ -576,12 +583,7 @@
       inset: 0;
       z-index: 0;
       pointer-events: none;
-      background:
-        linear-gradient(90deg, rgba(2, 166, 186, 0.06) 1px, transparent 1px),
-        linear-gradient(rgba(2, 166, 186, 0.045) 1px, transparent 1px);
-      background-size: 72px 72px;
-      mask-image: radial-gradient(ellipse at center, black 0%, transparent 72%);
-      -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 72%);
+      /* Background lines removed as requested */
     }
 
     .experience-lab::after {
@@ -1021,6 +1023,14 @@
       border: 1px solid rgba(2, 166, 186, 0.12);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
+      max-width: 100%;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .proj-filter::-webkit-scrollbar {
+      display: none;
     }
 
     .proj-filter-btn {
@@ -1037,6 +1047,8 @@
       transition: all 400ms cubic-bezier(0.23, 1, 0.32, 1);
       position: relative;
       z-index: 1;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .proj-filter-btn:hover {
@@ -1202,6 +1214,14 @@
       position: relative;
       transition: all 500ms cubic-bezier(0.25, 1, 0.3, 1);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+    }
+
+    .project-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 4px;
     }
 
     .project-card:hover .project-icon {
@@ -1595,7 +1615,7 @@
       border: 1px solid rgba(255, 255, 255, 0.8);
       border-radius: 1.5rem;
       padding: 2.5rem;
-      box-shadow: 
+      box-shadow:
         0 20px 40px rgba(2, 48, 71, 0.05),
         inset 0 1px 0 rgba(255, 255, 255, 0.9);
       transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
@@ -1637,7 +1657,7 @@
 
     .exp-item:hover .exp-card {
       transform: translateY(-10px) scale(1.02);
-      box-shadow: 
+      box-shadow:
         0 30px 60px rgba(2, 166, 186, 0.15),
         inset 0 1px 0 rgba(255, 255, 255, 0.9);
       background: rgba(255, 255, 255, 0.8);
@@ -2597,6 +2617,7 @@
         gap: 1.5rem;
       }
     }
+
     /* =====================================================
        PREMIUM REDESIGN LAYER — UNIQUE PORTFOLIO EXPERIENCE
        ===================================================== */
@@ -2623,10 +2644,23 @@
     }
 
     @keyframes meshBG {
-      0%, 100% { background-position: 0% 50%; }
-      25% { background-position: 50% 0%; }
-      50% { background-position: 100% 50%; }
-      75% { background-position: 50% 100%; }
+
+      0%,
+      100% {
+        background-position: 0% 50%;
+      }
+
+      25% {
+        background-position: 50% 0%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      75% {
+        background-position: 50% 100%;
+      }
     }
 
     /* -- Scroll progress indicator -- */
@@ -2727,8 +2761,13 @@
 
     /* -- Holographic card shine on hover -- */
     @keyframes holoShine {
-      0% { transform: translateX(-100%) rotate(25deg); }
-      100% { transform: translateX(200%) rotate(25deg); }
+      0% {
+        transform: translateX(-100%) rotate(25deg);
+      }
+
+      100% {
+        transform: translateX(200%) rotate(25deg);
+      }
     }
 
     .card::after {
@@ -2738,14 +2777,12 @@
       left: -50% !important;
       width: 40% !important;
       height: 200% !important;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.08),
-        rgba(2, 166, 186, 0.06),
-        rgba(255, 255, 255, 0.12),
-        transparent
-      ) !important;
+      background: linear-gradient(90deg,
+          transparent,
+          rgba(255, 255, 255, 0.08),
+          rgba(2, 166, 186, 0.06),
+          rgba(255, 255, 255, 0.12),
+          transparent) !important;
       transform: translateX(-100%) rotate(25deg) !important;
       transition: none !important;
       pointer-events: none !important;
@@ -2786,14 +2823,19 @@
     }
 
     @keyframes textShimmer {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 600% 50%; }
+      0% {
+        background-position: 0% 50%;
+      }
+
+      100% {
+        background-position: 600% 50%;
+      }
     }
 
     /* -- Enhanced section dividers with neon glow -- */
     .section-divider {
       height: 2px !important;
-      background: linear-gradient(90deg, transparent 2%, rgba(2,166,186,0.08) 15%, rgba(2,166,186,0.3) 35%, rgba(4,217,196,0.5) 50%, rgba(2,166,186,0.3) 65%, rgba(2,166,186,0.08) 85%, transparent 98%) !important;
+      background: linear-gradient(90deg, transparent 2%, rgba(2, 166, 186, 0.08) 15%, rgba(2, 166, 186, 0.3) 35%, rgba(4, 217, 196, 0.5) 50%, rgba(2, 166, 186, 0.3) 65%, rgba(2, 166, 186, 0.08) 85%, transparent 98%) !important;
       position: relative !important;
     }
 
@@ -2804,7 +2846,7 @@
       left: 20%;
       right: 20%;
       height: 6px;
-      background: linear-gradient(90deg, transparent, rgba(2,166,186,0.2), rgba(4,217,196,0.35), rgba(2,166,186,0.2), transparent);
+      background: linear-gradient(90deg, transparent, rgba(2, 166, 186, 0.2), rgba(4, 217, 196, 0.35), rgba(2, 166, 186, 0.2), transparent);
       filter: blur(4px);
       pointer-events: none;
     }
@@ -2883,8 +2925,15 @@
     }
 
     @keyframes btnGradient {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
+
+      0%,
+      100% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
     }
 
     .btn-primary:hover {
@@ -2911,7 +2960,7 @@
     .command-card {
       background:
         linear-gradient(145deg, rgba(255, 255, 255, 0.8), rgba(229, 247, 250, 0.5)),
-        radial-gradient(circle at 10% 0%, rgba(255,255,255,0.95), transparent 40%) !important;
+        radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.95), transparent 40%) !important;
       border: 1px solid rgba(2, 166, 186, 0.08) !important;
       box-shadow:
         0 20px 60px rgba(2, 48, 71, 0.06),
@@ -2926,18 +2975,18 @@
         0 40px 80px rgba(2, 48, 71, 0.12),
         0 0 50px rgba(2, 166, 186, 0.1),
         0 0 100px rgba(4, 217, 196, 0.05),
-        inset 0 1px 0 rgba(255,255,255,0.95) !important;
+        inset 0 1px 0 rgba(255, 255, 255, 0.95) !important;
     }
 
     /* -- Premium command icon with neon ring -- */
     .command-icon {
       position: relative !important;
       border: 1px solid rgba(2, 166, 186, 0.25) !important;
-      background: radial-gradient(circle at 35% 25%, rgba(255,255,255,0.98), rgba(4,217,196,0.15)) !important;
+      background: radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.98), rgba(4, 217, 196, 0.15)) !important;
       box-shadow:
         0 16px 32px rgba(2, 166, 186, 0.12),
         0 0 20px rgba(2, 166, 186, 0.06),
-        inset 0 1px 0 rgba(255,255,255,0.9) !important;
+        inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
     }
 
     /* -- Tech bento cards with premium glass -- */
@@ -3059,8 +3108,15 @@
     }
 
     @keyframes kickerPulse {
-      0%, 100% { box-shadow: 0 4px 16px rgba(2, 48, 71, 0.06), 0 0 0 0 rgba(2, 166, 186, 0.1); }
-      50% { box-shadow: 0 4px 16px rgba(2, 48, 71, 0.06), 0 0 20px 4px rgba(2, 166, 186, 0.08); }
+
+      0%,
+      100% {
+        box-shadow: 0 4px 16px rgba(2, 48, 71, 0.06), 0 0 0 0 rgba(2, 166, 186, 0.1);
+      }
+
+      50% {
+        box-shadow: 0 4px 16px rgba(2, 48, 71, 0.06), 0 0 20px 4px rgba(2, 166, 186, 0.08);
+      }
     }
 
     /* -- Timeline enhanced -- */
@@ -3103,18 +3159,23 @@
 
     /* -- Premium floating particles (CSS-only) -- */
     @keyframes particleFloat {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translate(0, 0) scale(1);
         opacity: 0.4;
       }
+
       25% {
         transform: translate(20px, -30px) scale(1.2);
         opacity: 0.7;
       }
+
       50% {
         transform: translate(-15px, -60px) scale(0.8);
         opacity: 0.3;
       }
+
       75% {
         transform: translate(10px, -40px) scale(1.1);
         opacity: 0.6;
@@ -3122,12 +3183,29 @@
     }
 
     /* -- Enhanced stagger delays -- */
-    .stagger-1 { transition-delay: 0.08s !important; }
-    .stagger-2 { transition-delay: 0.16s !important; }
-    .stagger-3 { transition-delay: 0.24s !important; }
-    .stagger-4 { transition-delay: 0.32s !important; }
-    .stagger-5 { transition-delay: 0.40s !important; }
-    .stagger-6 { transition-delay: 0.48s !important; }
+    .stagger-1 {
+      transition-delay: 0.08s !important;
+    }
+
+    .stagger-2 {
+      transition-delay: 0.16s !important;
+    }
+
+    .stagger-3 {
+      transition-delay: 0.24s !important;
+    }
+
+    .stagger-4 {
+      transition-delay: 0.32s !important;
+    }
+
+    .stagger-5 {
+      transition-delay: 0.40s !important;
+    }
+
+    .stagger-6 {
+      transition-delay: 0.48s !important;
+    }
 
     /* -- Premium text glow -- */
     .text-glow {
@@ -3198,29 +3276,29 @@
     /* -- Premium section backgrounds -- */
     .section-lavender {
       background:
-        radial-gradient(ellipse 90% 60% at 20% 80%, rgba(2,166,186,0.07) 0%, transparent 70%),
-        radial-gradient(ellipse 70% 45% at 80% 20%, rgba(4,217,196,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 90% 60% at 20% 80%, rgba(2, 166, 186, 0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 70% 45% at 80% 20%, rgba(4, 217, 196, 0.06) 0%, transparent 70%),
         linear-gradient(180deg, #E6F3F8 0%, #F0F7FA 100%) !important;
     }
 
     .section-rose {
       background:
-        radial-gradient(ellipse 80% 55% at 75% 70%, rgba(2,166,186,0.06) 0%, transparent 70%),
-        radial-gradient(ellipse 55% 45% at 15% 30%, rgba(4,217,196,0.05) 0%, transparent 70%),
+        radial-gradient(ellipse 80% 55% at 75% 70%, rgba(2, 166, 186, 0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 55% 45% at 15% 30%, rgba(4, 217, 196, 0.05) 0%, transparent 70%),
         linear-gradient(180deg, #DEF0F3 0%, #F0F7FA 100%) !important;
     }
 
     .section-mint {
       background:
-        radial-gradient(ellipse 70% 55% at 30% 60%, rgba(4,217,196,0.07) 0%, transparent 70%),
-        radial-gradient(ellipse 55% 45% at 85% 25%, rgba(2,166,186,0.05) 0%, transparent 70%),
+        radial-gradient(ellipse 70% 55% at 30% 60%, rgba(4, 217, 196, 0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 55% 45% at 85% 25%, rgba(2, 166, 186, 0.05) 0%, transparent 70%),
         linear-gradient(180deg, #DCF4F0 0%, #F0F7FA 100%) !important;
     }
 
     .section-peach {
       background:
-        radial-gradient(ellipse 80% 50% at 60% 75%, rgba(2,48,71,0.05) 0%, transparent 70%),
-        radial-gradient(ellipse 55% 45% at 20% 20%, rgba(2,166,186,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 80% 50% at 60% 75%, rgba(2, 48, 71, 0.05) 0%, transparent 70%),
+        radial-gradient(ellipse 55% 45% at 20% 20%, rgba(2, 166, 186, 0.06) 0%, transparent 70%),
         linear-gradient(180deg, #E3EFF2 0%, #F0F7FA 100%) !important;
     }
 
@@ -3233,7 +3311,10 @@
 
     /* -- Print-safe: remove animations -- */
     @media print {
-      *, *::before, *::after {
+
+      *,
+      *::before,
+      *::after {
         animation: none !important;
         transition: none !important;
       }
@@ -3241,7 +3322,10 @@
 
     /* -- Reduced motion preference -- */
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+
+      *,
+      *::before,
+      *::after {
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
       }
@@ -3250,10 +3334,13 @@
 </head>
 
 <body>
-  <!-- Floating Background Blobs -->
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-  <div class="blob blob-3"></div>
+  <!-- Floating Background Blobs Container to prevent layout overflow -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none"
+    style="z-index: 0; top: 0; left: 0; right: 0; bottom: 0;">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
 
   <header class="glass-header sticky top-0 z-50">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
@@ -3271,7 +3358,10 @@
       <button id="menuButton"
         class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line md:hidden"
         type="button" aria-label="Open menu">
-        <span class="block h-0.5 w-5 bg-ink"></span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-ink" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
       </button>
     </div>
     <div id="mobileMenu" class="menu-panel border-t border-line bg-white/90 backdrop-blur md:hidden">
@@ -3292,9 +3382,13 @@
     <section class="relative pt-16 pb-20 lg:pt-28 lg:pb-32 overflow-hidden">
       <!-- Aesthetic Background like Reference 2 & 3 -->
       <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div class="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-gradient-to-br from-primary/10 to-[#04D9C4]/20 mix-blend-multiply filter blur-[120px] animate-[blobFloat1_15s_infinite]"></div>
-        <div class="absolute top-[10%] -right-[10%] w-[50%] h-[60%] rounded-full bg-gradient-to-bl from-[#02A6BA]/10 to-primary/10 mix-blend-multiply filter blur-[100px] animate-[blobFloat2_18s_infinite]"></div>
-        
+        <div
+          class="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] rounded-full bg-gradient-to-br from-primary/10 to-[#04D9C4]/20 mix-blend-multiply filter blur-[120px] animate-[blobFloat1_15s_infinite]">
+        </div>
+        <div
+          class="absolute top-[10%] -right-[10%] w-[50%] h-[60%] rounded-full bg-gradient-to-bl from-[#02A6BA]/10 to-primary/10 mix-blend-multiply filter blur-[100px] animate-[blobFloat2_18s_infinite]">
+        </div>
+
         <!-- Abstract grid pattern -->
         <svg class="absolute top-0 left-0 w-full h-full opacity-[0.04] text-ink" width="100%" height="100%">
           <defs>
@@ -3306,7 +3400,8 @@
         </svg>
 
         <!-- Curved lines -->
-        <svg class="absolute left-[-10%] top-1/2 -translate-y-1/2 h-[120%] w-auto opacity-[0.03]" viewBox="0 0 200 800" fill="none" stroke="currentColor" stroke-width="2">
+        <svg class="absolute left-[-10%] top-1/2 -translate-y-1/2 h-[120%] w-auto opacity-[0.03]" viewBox="0 0 200 800"
+          fill="none" stroke="currentColor" stroke-width="2">
           <path d="M-50 0 C 100 200, 100 600, -50 800" />
           <path d="M-30 0 C 120 200, 120 600, -30 800" />
           <path d="M-10 0 C 140 200, 140 600, -10 800" />
@@ -3322,17 +3417,22 @@
                 style="animation: pulseDot 2s ease-in-out infinite;"></span>
               Open to AI &amp; SaaS Projects
             </div>
-            <h1 class="max-w-3xl text-5xl font-extrabold tracking-tight text-ink sm:text-6xl lg:text-[4.5rem] leading-[1.15] mb-6">
-              AI Strategist <br/> <span class="font-light text-muted text-4xl sm:text-5xl lg:text-[4rem] opacity-80">&amp;</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#04D9C4]">Technical PM</span>
+            <h1
+              class="max-w-3xl text-4xl font-extrabold tracking-tight text-ink sm:text-5xl md:text-6xl lg:text-[4.5rem] leading-[1.15] mb-6">
+              AI Strategist <br /> <span
+                class="font-light text-muted text-3xl sm:text-4xl lg:text-[4rem] opacity-80">&amp;</span> <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#04D9C4]">Technical PM</span>
             </h1>
             <p class="max-w-2xl text-lg leading-relaxed text-muted/90 font-medium mb-10">
               I help founders build intelligent SaaS products and automate workflows from idea to launch.
             </p>
             <div class="flex flex-wrap items-center gap-4">
-              <a href="#contact" class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-ink to-[#028A9B] px-8 py-4 text-sm font-bold text-white transition-all hover:scale-105 hover:shadow-[0_10px_30px_rgba(2,48,71,0.3)]">
+              <a href="#contact"
+                class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-ink to-[#028A9B] px-8 py-4 text-sm font-bold text-white transition-all hover:scale-105 hover:shadow-[0_10px_30px_rgba(2,48,71,0.3)]">
                 Start a Project
               </a>
-              <a href="#projects" class="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-bold text-ink border border-line transition-all hover:bg-[#F0F7FA] hover:scale-105 hover:shadow-sm">
+              <a href="#projects"
+                class="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-bold text-ink border border-line transition-all hover:bg-[#F0F7FA] hover:scale-105 hover:shadow-sm">
                 View Projects
               </a>
             </div>
@@ -3340,21 +3440,29 @@
 
           <div class="reveal relative w-full flex justify-center lg:justify-end mt-16 lg:mt-0 stagger-2">
             <!-- Aesthetic Image Container (Larger) -->
-            <div class="relative w-[380px] h-[380px] sm:w-[460px] sm:h-[460px] lg:w-[540px] lg:h-[540px] flex items-center justify-center group">
-              
+            <div
+              class="relative w-[280px] h-[280px] min-[400px]:w-[340px] min-[400px]:h-[340px] sm:w-[460px] sm:h-[460px] lg:w-[540px] lg:h-[540px] flex items-center justify-center group">
+
               <!-- Outer decorative ring -->
-              <div class="absolute inset-0 rounded-full border-[1px] border-primary/30 scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-110"></div>
-              
+              <div
+                class="absolute inset-0 rounded-full border-[1px] border-primary/30 scale-105 transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-110">
+              </div>
+
               <!-- Dashed spinning ring -->
-              <div class="absolute inset-[15px] rounded-full border-[2px] border-dashed border-primary/50 animate-[spinSlow_30s_linear_infinite]"></div>
+              <div
+                class="absolute inset-[15px] rounded-full border-[2px] border-dashed border-primary/50 animate-[spinSlow_30s_linear_infinite]">
+              </div>
 
               <!-- Thick Inner Circle Background -->
-              <div class="absolute inset-[25px] rounded-full bg-gradient-to-br from-ink to-[#028A9B] shadow-[0_20px_60px_rgba(2,48,71,0.4)] overflow-hidden transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:shadow-[0_30px_80px_rgba(4,217,196,0.3)] group-hover:inset-[20px] border-[5px] border-white/90">
+              <div
+                class="absolute inset-[25px] rounded-full bg-gradient-to-br from-ink to-[#028A9B] shadow-[0_20px_60px_rgba(2,48,71,0.4)] overflow-hidden transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:shadow-[0_30px_80px_rgba(4,217,196,0.3)] group-hover:inset-[20px] border-[5px] border-white/90">
                 <!-- Abstract inner pattern -->
-                <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')]"></div>
-                <img src="pp.jpeg" alt="Ubaid Ullah Asim portrait" 
-                     class="w-full h-full object-cover object-top transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-110 relative z-10"
-                     style="mask-image: linear-gradient(to bottom, black 85%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);">
+                <div
+                  class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')]">
+                </div>
+                <img src="pp.jpeg" alt="Ubaid Ullah Asim portrait"
+                  class="w-full h-full object-cover object-top transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-110 relative z-10"
+                  style="mask-image: linear-gradient(to bottom, black 85%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);">
               </div>
 
             </div>
@@ -3912,7 +4020,8 @@
         </div>
 
         <!-- Filter Tabs -->
-        <div class="flex justify-center mb-12 reveal" style="transition-delay:0.15s;">
+        <div class="flex justify-start sm:justify-center mb-12 reveal w-full overflow-hidden"
+          style="transition-delay:0.15s;">
           <div class="proj-filter">
             <button class="proj-filter-btn active" onclick="filterProjects('all', this)">All Projects</button>
             <button class="proj-filter-btn" onclick="filterProjects('featured', this)">Featured</button>
@@ -4031,18 +4140,22 @@
     <!-- EXPERIENCE SECTION -->
     <div class="section-divider"></div>
     <section id="experience" class="section-rose relative overflow-hidden py-24">
-      <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMiwxNjYsMTg2LDAuMSkiLz48L3N2Zz4=')] opacity-50 z-0"></div>
-      
+      <div
+        class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMiwxNjYsMTg2LDAuMSkiLz48L3N2Zz4=')] opacity-50 z-0">
+      </div>
+
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="reveal max-w-3xl mx-auto text-center mb-20">
-          <div class="kicker inline-flex items-center rounded-full border border-line bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-semibold text-muted mx-auto">
+          <div
+            class="kicker inline-flex items-center rounded-full border border-line bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-semibold text-muted mx-auto">
             Experience</div>
           <h2 class="mt-5 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl">Professional Experience</h2>
-          <p class="mt-4 text-lg text-muted">A timeline of my career, building scalable systems and leading technical initiatives.</p>
+          <p class="mt-4 text-lg text-muted">A timeline of my career, building scalable systems and leading technical
+            initiatives.</p>
         </div>
 
         <div class="exp-container">
-          
+
           <!-- Item 1 -->
           <div class="exp-item reveal">
             <div class="exp-content">
@@ -4051,10 +4164,15 @@
                   <div class="exp-date">Sep 2024 - Present</div>
                   <h3 class="exp-title">Technical Project Manager</h3>
                   <div class="exp-company">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                      </path>
+                    </svg>
                     Devsinn Technologies
                   </div>
-                  <p class="exp-desc">Managing project roadmaps, lifecycles, and driving team collaboration and software development initiatives.</p>
+                  <p class="exp-desc">Managing project roadmaps, lifecycles, and driving team collaboration and software
+                    development initiatives.</p>
                   <div class="exp-tech">
                     <span class="exp-tech-tag">Communication</span>
                     <span class="exp-tech-tag">Software Development</span>
@@ -4077,10 +4195,14 @@
                   <div class="exp-date">Jun 2022 - Sep 2024</div>
                   <h3 class="exp-title">Sr. Backend Developer</h3>
                   <div class="exp-company">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    </svg>
                     Devsinn Technologies
                   </div>
-                  <p class="exp-desc">Designed and optimized high-performance backend systems, GraphQL APIs, and database architectures.</p>
+                  <p class="exp-desc">Designed and optimized high-performance backend systems, GraphQL APIs, and
+                    database architectures.</p>
                   <div class="exp-tech">
                     <span class="exp-tech-tag">GraphQL</span>
                     <span class="exp-tech-tag">Software Development</span>
@@ -4103,10 +4225,14 @@
                   <div class="exp-date">Sep 2023 - Sep 2024</div>
                   <h3 class="exp-title">Senior Software Engineer</h3>
                   <div class="exp-company">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    </svg>
                     Securehops
                   </div>
-                  <p class="exp-desc">Built enterprise-level integrations, microservices, and reliable cloud-scale applications.</p>
+                  <p class="exp-desc">Built enterprise-level integrations, microservices, and reliable cloud-scale
+                    applications.</p>
                   <div class="exp-tech">
                     <span class="exp-tech-tag">GraphQL</span>
                     <span class="exp-tech-tag">Software Development</span>
@@ -4128,10 +4254,15 @@
                   <div class="exp-date">Aug 2022 - Sep 2023</div>
                   <h3 class="exp-title">Project Manager / Project Coordinator</h3>
                   <div class="exp-company">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                      </path>
+                    </svg>
                     Consultancy Outfit
                   </div>
-                  <p class="exp-desc">Coordinated delivery cycles, aligned cross-functional teams, and ensured client requirements were met.</p>
+                  <p class="exp-desc">Coordinated delivery cycles, aligned cross-functional teams, and ensured client
+                    requirements were met.</p>
                   <div class="exp-tech">
                     <span class="exp-tech-tag">Communication</span>
                     <span class="exp-tech-tag">Software Development</span>
@@ -4153,10 +4284,15 @@
                   <div class="exp-date">Mar 2022 - Aug 2022</div>
                   <h3 class="exp-title">Corporate Coordinator</h3>
                   <div class="exp-company">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                      </path>
+                    </svg>
                     Phoenix Batteries
                   </div>
-                  <p class="exp-desc">Streamlined operational workflows and managed corporate communications and customer service channels.</p>
+                  <p class="exp-desc">Streamlined operational workflows and managed corporate communications and
+                    customer service channels.</p>
                   <div class="exp-tech">
                     <span class="exp-tech-tag">Communication</span>
                     <span class="exp-tech-tag">Customer Service</span>
@@ -4177,10 +4313,14 @@
                   <div class="exp-date">Apr 2020 - Mar 2022</div>
                   <h3 class="exp-title">Mobile Application Developer</h3>
                   <div class="exp-company">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    </svg>
                     Devsinn Technologies
                   </div>
-                  <p class="exp-desc">Developed feature-rich mobile applications, implementing offline support and REST API integrations.</p>
+                  <p class="exp-desc">Developed feature-rich mobile applications, implementing offline support and REST
+                    API integrations.</p>
                   <div class="exp-tech">
                     <span class="exp-tech-tag">Firebase</span>
                     <span class="exp-tech-tag">REST APIs</span>
@@ -4202,10 +4342,14 @@
                   <div class="exp-date">Feb 2021 - May 2021</div>
                   <h3 class="exp-title">Mobile Application Developer</h3>
                   <div class="exp-company">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    </svg>
                     EwigLife
                   </div>
-                  <p class="exp-desc">Developed responsive layouts for mobile applications and participated in Agile ceremonies during internship.</p>
+                  <p class="exp-desc">Developed responsive layouts for mobile applications and participated in Agile
+                    ceremonies during internship.</p>
                   <div class="exp-tech">
                     <span class="exp-tech-tag">Communication</span>
                     <span class="exp-tech-tag">Responsiveness</span>
@@ -4221,10 +4365,14 @@
 
         </div>
       </div>
-      
+
       <!-- Decorative background blur blobs for section -->
-      <div class="absolute top-10 left-10 w-64 h-64 bg-primary/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blobFloat1 z-0 pointer-events-none"></div>
-      <div class="absolute bottom-10 right-10 w-[400px] h-[400px] bg-[#04D9C4]/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blobFloat2 z-0 pointer-events-none"></div>
+      <div
+        class="absolute top-10 left-10 w-64 h-64 bg-primary/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blobFloat1 z-0 pointer-events-none">
+      </div>
+      <div
+        class="absolute bottom-10 right-10 w-[400px] h-[400px] bg-[#04D9C4]/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blobFloat2 z-0 pointer-events-none">
+      </div>
     </section>
 
     <!-- CTA SECTION -->
@@ -4663,37 +4811,51 @@
 
     <!-- CONTACT SECTION -->
     <div class="section-divider"></div>
-    <section id="contact" class="relative overflow-hidden pt-24 pb-2">
+    <section id="contact" class="relative overflow-hidden pt-24 pb-4 mb-0">
       <!-- Abstract Animated Background Orbs -->
       <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
-        <div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-[#04D9C4] mix-blend-multiply filter blur-[120px] opacity-10 animate-pulse"></div>
-        <div class="absolute bottom-[10%] -right-[10%] w-[60%] h-[60%] rounded-full bg-[#02A6BA] mix-blend-multiply filter blur-[150px] opacity-10" style="animation: pulseDot 8s infinite alternate;"></div>
+        <div
+          class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-[#04D9C4] mix-blend-multiply filter blur-[120px] opacity-10 animate-pulse">
+        </div>
+        <div
+          class="absolute bottom-[10%] -right-[10%] w-[60%] h-[60%] rounded-full bg-[#02A6BA] mix-blend-multiply filter blur-[150px] opacity-10"
+          style="animation: pulseDot 8s infinite alternate;"></div>
       </div>
 
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <div class="reveal max-w-3xl text-center mx-auto mb-16">
-          <div class="kicker inline-flex items-center rounded-full border border-line bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-semibold text-primary mb-6 shadow-sm">
+          <div
+            class="kicker inline-flex items-center rounded-full border border-line bg-white/80 backdrop-blur-sm px-4 py-2 text-sm font-semibold text-primary mb-6 shadow-sm">
             Contact
           </div>
-          <h2 class="mt-6 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl lg:text-6xl">Let's discuss your project.</h2>
+          <h2 class="mt-6 text-4xl font-extrabold tracking-tight text-ink sm:text-5xl lg:text-6xl">Let's discuss your
+            project.</h2>
         </div>
 
-        <div class="grid lg:grid-cols-[1fr_1.2fr] gap-0 rounded-[2.5rem] overflow-hidden border border-[#02A6BA]/20 bg-[#011a27] shadow-[0_30px_60px_rgba(2,48,71,0.2)] reveal-scale relative">
-          
+        <div
+          class="grid lg:grid-cols-[1fr_1.2fr] gap-0 rounded-[2.5rem] overflow-hidden border border-[#02A6BA]/20 bg-[#011a27] shadow-[0_30px_60px_rgba(2,48,71,0.2)] reveal-scale relative">
+
           <!-- LEFT SIDE: Profile & Info -->
-          <div class="p-10 sm:p-14 relative overflow-hidden bg-gradient-to-br from-white/10 to-transparent lg:border-r border-white/10">
+          <div
+            class="p-10 sm:p-14 relative overflow-hidden bg-gradient-to-br from-white/10 to-transparent lg:border-r border-white/10">
             <!-- decorative overlay -->
-            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiLz48L3N2Zz4=')] z-0"></div>
-            
+            <div
+              class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiLz48L3N2Zz4=')] z-0">
+            </div>
+
             <div class="relative z-10">
               <h3 class="text-4xl font-black tracking-tight text-white mb-2">Ubaid Ullah Asim</h3>
-              <p class="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#04D9C4] to-[#02A6BA]">AI Strategist &amp; Technical PM</p>
-              <p class="mt-6 text-white/70 text-lg leading-relaxed">Available for remote consulting, strategy, and product delivery partnerships.</p>
+              <p class="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#04D9C4] to-[#02A6BA]">AI
+                Strategist &amp; Technical PM</p>
+              <p class="mt-6 text-white/70 text-lg leading-relaxed">Available for remote consulting, strategy, and
+                product delivery partnerships.</p>
 
               <div class="mt-12 space-y-8">
                 <!-- item 1 -->
                 <div class="flex items-center gap-6 group cursor-default">
-                  <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#04D9C4] font-bold text-xl shadow-[inset_0_0_15px_rgba(4,217,196,0.1)] transition-all duration-500 group-hover:bg-[#04D9C4]/20 group-hover:scale-110 group-hover:rotate-6 group-hover:border-[#04D9C4]/50 group-hover:shadow-[0_0_20px_rgba(4,217,196,0.4)]">01</div>
+                  <div
+                    class="flex-shrink-0 w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#04D9C4] font-bold text-xl shadow-[inset_0_0_15px_rgba(4,217,196,0.1)] transition-all duration-500 group-hover:bg-[#04D9C4]/20 group-hover:scale-110 group-hover:rotate-6 group-hover:border-[#04D9C4]/50 group-hover:shadow-[0_0_20px_rgba(4,217,196,0.4)]">
+                    01</div>
                   <div>
                     <div class="text-sm font-bold text-white uppercase tracking-wider mb-1">Company</div>
                     <div class="text-lg text-white/80 font-medium">Devsinn Technologies</div>
@@ -4701,7 +4863,9 @@
                 </div>
                 <!-- item 2 -->
                 <div class="flex items-center gap-6 group cursor-default">
-                  <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#02A6BA] font-bold text-xl shadow-[inset_0_0_15px_rgba(2,166,186,0.1)] transition-all duration-500 group-hover:bg-[#02A6BA]/20 group-hover:scale-110 group-hover:-rotate-6 group-hover:border-[#02A6BA]/50 group-hover:shadow-[0_0_20px_rgba(2,166,186,0.4)]">02</div>
+                  <div
+                    class="flex-shrink-0 w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#02A6BA] font-bold text-xl shadow-[inset_0_0_15px_rgba(2,166,186,0.1)] transition-all duration-500 group-hover:bg-[#02A6BA]/20 group-hover:scale-110 group-hover:-rotate-6 group-hover:border-[#02A6BA]/50 group-hover:shadow-[0_0_20px_rgba(2,166,186,0.4)]">
+                    02</div>
                   <div>
                     <div class="text-sm font-bold text-white uppercase tracking-wider mb-1">Location</div>
                     <div class="text-lg text-white/80 font-medium">Lahore, Pakistan</div>
@@ -4709,79 +4873,443 @@
                 </div>
                 <!-- item 3 -->
                 <div class="flex items-center gap-6 group">
-                  <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#8B7CF7] font-bold text-xl shadow-[inset_0_0_15px_rgba(139,124,247,0.1)] transition-all duration-500 group-hover:bg-[#8B7CF7]/20 group-hover:scale-110 group-hover:rotate-6 group-hover:border-[#8B7CF7]/50 group-hover:shadow-[0_0_20px_rgba(139,124,247,0.4)]">03</div>
+                  <div
+                    class="flex-shrink-0 w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#8B7CF7] font-bold text-xl shadow-[inset_0_0_15px_rgba(139,124,247,0.1)] transition-all duration-500 group-hover:bg-[#8B7CF7]/20 group-hover:scale-110 group-hover:rotate-6 group-hover:border-[#8B7CF7]/50 group-hover:shadow-[0_0_20px_rgba(139,124,247,0.4)]">
+                    03</div>
                   <div>
                     <div class="text-sm font-bold text-white uppercase tracking-wider mb-1">LinkedIn</div>
-                    <a href="https://www.linkedin.com/in/ubaid-ullah-asim" target="_blank" rel="noreferrer" class="text-lg text-white/80 hover:text-[#8B7CF7] font-medium transition-colors">linkedin.com/in/ubaid-ullah-asim</a>
+                    <a href="https://www.linkedin.com/in/ubaid-ullah-asim" target="_blank" rel="noreferrer"
+                      class="text-lg text-white/80 hover:text-[#8B7CF7] font-medium transition-colors">linkedin.com/in/ubaid-ullah-asim</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- RIGHT SIDE: Form -->
+          <!-- RIGHT SIDE: Premium Form -->
           <div class="p-10 sm:p-14 relative bg-[#011a27]/60 backdrop-blur-md">
-            <form onsubmit="handleSubmit(event)" class="relative z-10 flex flex-col h-full justify-between">
-              <div class="space-y-8">
-                <div class="grid gap-8 sm:grid-cols-2">
-                  <div class="relative group">
-                    <input type="text" name="name" id="name" required class="w-full bg-transparent border-b border-white/20 px-0 py-2 text-white placeholder-transparent focus:outline-none focus:border-[#04D9C4] transition-colors peer" placeholder="Name">
-                    <label for="name" class="absolute left-0 -top-4 text-[0.65rem] font-bold uppercase tracking-widest text-[#04D9C4] transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:text-white/40 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-[0.65rem] peer-focus:text-[#04D9C4]">Name</label>
+            <style>
+              /* ===== PREMIUM CONTACT FORM INPUTS ===== */
+              .cf-field {
+                position: relative;
+              }
+
+              .cf-field .cf-icon {
+                position: absolute;
+                left: 16px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 18px;
+                height: 18px;
+                color: rgba(255, 255, 255, 0.3);
+                transition: color 0.4s ease, transform 0.4s ease;
+                z-index: 2;
+                pointer-events: none;
+              }
+
+              .cf-field:focus-within .cf-icon {
+                color: #04D9C4;
+                transform: translateY(-50%) scale(1.15);
+              }
+
+              .cf-input {
+                width: 100%;
+                background: rgba(255, 255, 255, 0.04);
+                border: 1.5px solid rgba(255, 255, 255, 0.1);
+                border-radius: 14px;
+                padding: 18px 18px 18px 48px;
+                color: #fff;
+                font-size: 0.95rem;
+                font-weight: 500;
+                letter-spacing: 0.01em;
+                outline: none;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+              }
+
+              .cf-input::placeholder {
+                color: transparent;
+              }
+
+              .cf-input:hover {
+                border-color: rgba(255, 255, 255, 0.2);
+                background: rgba(255, 255, 255, 0.06);
+              }
+
+              .cf-input:focus {
+                border-color: #04D9C4;
+                background: rgba(4, 217, 196, 0.06);
+                box-shadow: 0 0 0 3px rgba(4, 217, 196, 0.12), 0 0 20px rgba(4, 217, 196, 0.08), inset 0 0 12px rgba(4, 217, 196, 0.04);
+              }
+
+              .cf-label {
+                position: absolute;
+                left: 48px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: rgba(255, 255, 255, 0.35);
+                pointer-events: none;
+                transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+                letter-spacing: 0.02em;
+              }
+
+              .cf-input:focus~.cf-label,
+              .cf-input:not(:placeholder-shown)~.cf-label {
+                top: -10px;
+                left: 14px;
+                transform: translateY(0);
+                font-size: 0.65rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                color: #04D9C4;
+                background: #011a27;
+                padding: 2px 8px;
+                border-radius: 6px;
+              }
+
+              /* Textarea label */
+              .cf-field--textarea .cf-label {
+                top: 20px;
+                transform: none;
+              }
+
+              .cf-field--textarea .cf-icon {
+                top: 20px;
+                transform: none;
+              }
+
+              .cf-field--textarea:focus-within .cf-icon {
+                transform: scale(1.15);
+              }
+
+              .cf-field--textarea .cf-input:focus~.cf-label,
+              .cf-field--textarea .cf-input:not(:placeholder-shown)~.cf-label {
+                top: -10px;
+                transform: translateY(0);
+              }
+
+              /* Select field */
+              .cf-select {
+                width: 100%;
+                background: rgba(255, 255, 255, 0.04);
+                border: 1.5px solid rgba(255, 255, 255, 0.1);
+                border-radius: 14px;
+                padding: 18px 42px 18px 48px;
+                color: #fff;
+                font-size: 0.95rem;
+                font-weight: 500;
+                outline: none;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                cursor: pointer;
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px);
+              }
+
+              .cf-select:hover {
+                border-color: rgba(255, 255, 255, 0.2);
+                background: rgba(255, 255, 255, 0.06);
+              }
+
+              .cf-select:focus {
+                border-color: #04D9C4;
+                background: rgba(4, 217, 196, 0.06);
+                box-shadow: 0 0 0 3px rgba(4, 217, 196, 0.12), 0 0 20px rgba(4, 217, 196, 0.08), inset 0 0 12px rgba(4, 217, 196, 0.04);
+              }
+
+              .cf-select option {
+                background: #011a27;
+                color: #fff;
+                padding: 10px;
+              }
+
+              .cf-select-label {
+                position: absolute;
+                left: 14px;
+                top: -10px;
+                font-size: 0.65rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 0.12em;
+                color: #04D9C4;
+                background: #011a27;
+                padding: 2px 8px;
+                border-radius: 6px;
+                pointer-events: none;
+                z-index: 2;
+              }
+
+              .cf-chevron {
+                position: absolute;
+                right: 16px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 18px;
+                height: 18px;
+                color: rgba(255, 255, 255, 0.3);
+                pointer-events: none;
+                transition: color 0.4s ease, transform 0.4s ease;
+              }
+
+              .cf-field:focus-within .cf-chevron {
+                color: #04D9C4;
+                transform: translateY(-50%) rotate(180deg);
+              }
+
+              .cf-textarea {
+                resize: none;
+                min-height: 120px;
+                border-radius: 14px;
+                line-height: 1.6;
+              }
+
+              /* Submit button premium */
+              .cf-submit-btn {
+                position: relative;
+                overflow: hidden;
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                border: none;
+                border-radius: 60px;
+                padding: 16px 36px;
+                background: linear-gradient(135deg, #04D9C4, #02A6BA);
+                color: #011a27;
+                font-size: 0.75rem;
+                font-weight: 900;
+                text-transform: uppercase;
+                letter-spacing: 0.15em;
+                cursor: pointer;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+              }
+
+              .cf-submit-btn::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), transparent 60%);
+                opacity: 0;
+                transition: opacity 0.4s ease;
+              }
+
+              .cf-submit-btn:hover {
+                transform: translateY(-2px) scale(1.03);
+                box-shadow: 0 8px 30px rgba(4, 217, 196, 0.45), 0 0 60px rgba(4, 217, 196, 0.15);
+              }
+
+              .cf-submit-btn:hover::before {
+                opacity: 1;
+              }
+
+              .cf-submit-btn:active {
+                transform: translateY(0) scale(0.98);
+              }
+
+              .cf-submit-btn .cf-btn-icon {
+                width: 18px;
+                height: 18px;
+                transition: transform 0.4s ease;
+              }
+
+              .cf-submit-btn:hover .cf-btn-icon {
+                transform: translateX(4px);
+              }
+
+              /* Success message premium */
+              .cf-success {
+                display: none;
+                align-items: center;
+                gap: 12px;
+                margin-top: 20px;
+                padding: 16px 20px;
+                border-radius: 14px;
+                border: 1.5px solid rgba(4, 217, 196, 0.3);
+                background: rgba(4, 217, 196, 0.08);
+                backdrop-filter: blur(12px);
+                color: #04D9C4;
+                font-size: 0.88rem;
+                font-weight: 600;
+                animation: cfSuccessIn 0.5s ease forwards;
+              }
+
+              .cf-success.show {
+                display: flex;
+              }
+
+              @keyframes cfSuccessIn {
+                from {
+                  opacity: 0;
+                  transform: translateY(10px);
+                }
+
+                to {
+                  opacity: 1;
+                  transform: translateY(0);
+                }
+              }
+
+              .cf-success-icon {
+                flex-shrink: 0;
+                width: 28px;
+                height: 28px;
+                border-radius: 50%;
+                background: rgba(4, 217, 196, 0.15);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+
+              /* Error message */
+              .cf-error {
+                display: none;
+                align-items: center;
+                gap: 12px;
+                margin-top: 20px;
+                padding: 16px 20px;
+                border-radius: 14px;
+                border: 1.5px solid rgba(239, 68, 68, 0.3);
+                background: rgba(239, 68, 68, 0.08);
+                backdrop-filter: blur(12px);
+                color: #f87171;
+                font-size: 0.88rem;
+                font-weight: 600;
+                animation: cfSuccessIn 0.5s ease forwards;
+              }
+
+              .cf-error.show {
+                display: flex;
+              }
+            </style>
+
+            <form id="contactForm" onsubmit="handleSubmit(event)"
+              class="relative z-10 flex flex-col h-full justify-between">
+              <div class="space-y-6">
+                <div class="grid gap-6 sm:grid-cols-2">
+                  <!-- Name Field -->
+                  <div class="cf-field">
+                    <svg class="cf-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                      stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                    </svg>
+                    <input type="text" name="from_name" id="name" required class="cf-input" placeholder="Name"
+                      autocomplete="name">
+                    <label for="name" class="cf-label">Your Name</label>
                   </div>
-                  <div class="relative group">
-                    <input type="email" name="email" id="email" required class="w-full bg-transparent border-b border-white/20 px-0 py-2 text-white placeholder-transparent focus:outline-none focus:border-[#04D9C4] transition-colors peer" placeholder="Email">
-                    <label for="email" class="absolute left-0 -top-4 text-[0.65rem] font-bold uppercase tracking-widest text-[#04D9C4] transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:text-white/40 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-[0.65rem] peer-focus:text-[#04D9C4]">Email</label>
+                  <!-- Email Field -->
+                  <div class="cf-field">
+                    <svg class="cf-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                      stroke-width="2" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                    </svg>
+                    <input type="email" name="reply_to" id="email" required class="cf-input" placeholder="Email"
+                      autocomplete="email">
+                    <label for="email" class="cf-label">Email Address</label>
                   </div>
                 </div>
-                
-                <div class="relative group mt-8">
-                  <select name="subject" id="subject" required class="w-full bg-transparent border-b border-white/20 px-0 py-2 text-white focus:outline-none focus:border-[#04D9C4] transition-colors peer appearance-none cursor-pointer">
-                    <option value="" disabled selected class="bg-[#011a27] text-white/50">Select a service</option>
-                    <option value="AI Strategy & Consulting" class="bg-[#011a27] text-white py-2">AI Strategy & Consulting</option>
-                    <option value="AI Automation & Workflows" class="bg-[#011a27] text-white py-2">AI Automation & Workflows</option>
-                    <option value="Custom AI/LLM Solutions" class="bg-[#011a27] text-white py-2">Custom AI/LLM Solutions</option>
-                    <option value="Technical Project Management" class="bg-[#011a27] text-white py-2">Technical Project Management</option>
-                    <option value="Full-Stack Web & Mobile App" class="bg-[#011a27] text-white py-2">Full-Stack Web & Mobile App</option>
-                    <option value="Other / General Inquiry" class="bg-[#011a27] text-white py-2">Other / General Inquiry</option>
+
+                <!-- Subject / Service Field -->
+                <div class="cf-field">
+                  <svg class="cf-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+                  </svg>
+                  <select name="subject" id="subject" required class="cf-select" style="padding-left:48px;">
+                    <option value="" disabled selected>Select a service</option>
+                    <option value="AI Strategy & Consulting">AI Strategy & Consulting</option>
+                    <option value="AI Automation & Workflows">AI Automation & Workflows</option>
+                    <option value="Custom AI/LLM Solutions">Custom AI/LLM Solutions</option>
+                    <option value="Technical Project Management">Technical Project Management</option>
+                    <option value="Full-Stack Web & Mobile App">Full-Stack Web & Mobile App</option>
+                    <option value="Other / General Inquiry">Other / General Inquiry</option>
                   </select>
-                  <label for="subject" class="absolute left-0 -top-4 text-[0.65rem] font-bold uppercase tracking-widest text-[#04D9C4] transition-all">Project type</label>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="absolute right-0 top-1/2 -translate-y-1/2 h-4 w-4 text-white/40 pointer-events-none peer-focus:text-[#04D9C4] transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  <span class="cf-select-label">Project Type</span>
+                  <svg class="cf-chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="2.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                   </svg>
                 </div>
 
-                <div class="relative group mt-8">
-                  <textarea name="message" id="message" required class="w-full bg-transparent border-b border-white/20 px-0 py-2 text-white placeholder-transparent focus:outline-none focus:border-[#04D9C4] transition-colors peer resize-none min-h-[100px]" placeholder="Message"></textarea>
-                  <label for="message" class="absolute left-0 -top-4 text-[0.65rem] font-bold uppercase tracking-widest text-[#04D9C4] transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:text-white/40 peer-placeholder-shown:top-2 peer-focus:-top-4 peer-focus:text-[0.65rem] peer-focus:text-[#04D9C4]">Message</label>
+                <!-- Message Field -->
+                <div class="cf-field cf-field--textarea">
+                  <svg class="cf-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 0 1 1.037-.443 48.282 48.282 0 0 0 5.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+                  </svg>
+                  <textarea name="message" id="message" required class="cf-input cf-textarea" placeholder="Message"
+                    rows="4"></textarea>
+                  <label for="message" class="cf-label">Your Message</label>
                 </div>
               </div>
 
-              <div class="mt-12 flex flex-col sm:flex-row items-center gap-6">
-                <button type="submit" class="w-full sm:w-auto relative overflow-hidden rounded-full bg-gradient-to-r from-[#04D9C4] to-[#02A6BA] px-10 py-4 text-xs font-black uppercase tracking-widest text-[#011a27] transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(4,217,196,0.5)]">
+              <!-- Hidden field for to_name -->
+              <input type="hidden" name="to_name" value="Ubaid Ullah Asim">
+
+              <div class="mt-10 flex flex-col sm:flex-row items-center gap-6">
+                <button type="submit" class="cf-submit-btn w-full sm:w-auto justify-center">
                   <span class="relative z-10">Send Message</span>
+                  <svg class="cf-btn-icon relative z-10" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+                  </svg>
                 </button>
-                <a href="https://www.linkedin.com/in/ubaid-ullah-asim" target="_blank" rel="noreferrer" class="w-full sm:w-auto flex justify-center group relative items-center gap-3 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:text-[#04D9C4]">
+                <a href="https://www.linkedin.com/in/ubaid-ullah-asim" target="_blank" rel="noreferrer"
+                  class="w-full sm:w-auto flex justify-center group relative items-center gap-3 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:text-[#04D9C4]">
                   Connect on LinkedIn
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-2"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
                 </a>
               </div>
-              
-              <div id="successMessage" class="mt-6 hidden rounded-xl border border-[#04D9C4]/30 bg-[#04D9C4]/10 px-5 py-4 text-sm font-semibold text-[#04D9C4] backdrop-blur-md">
-                Message ready. In a live deployment, this would be wired to your email or CRM endpoint.
+
+              <div id="successMessage" class="cf-success">
+                <div class="cf-success-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <span>Message sent successfully! I'll get back to you soon.</span>
+              </div>
+              <div id="errorMessage" class="cf-error">
+                <span>⚠️ Failed to send. Please try again or email directly.</span>
               </div>
             </form>
           </div>
         </div>
       </div>
-      
-      <div class="mt-8 text-center text-sm font-medium text-ink/70">
+
+      <div class="mt-8 text-center text-sm font-medium text-ink/70 mb-0 pb-0">
         <div class="font-bold text-ink text-base tracking-wide mb-1">Ubaid Ullah Asim</div>
-        <div>AI Strategist &amp; Technical Project Manager · Lahore, Pakistan</div>
+        <div class="mb-0">AI Strategist &amp; Technical Project Manager · Lahore, Pakistan</div>
       </div>
     </section>
   </main>
 
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "UU0GtczKax9SWHiWB",
+        });
+      })();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script>
     // ===== PROJECTS DATA =====
     const PROJECTS = [
@@ -4802,7 +5330,7 @@
       { id: "roshi", name: "Roshi Career", tag: "Career / LinkedIn-like", desc: "Specialized career app tailored for recruiters and job seekers featuring a built-in CV generator for professional profiles.", emoji: "&#128188;", color: "#023047", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
       { id: "ohready", name: "ohReady Admin", tag: "Food Delivery", desc: "Order food from your mobile phone in your town. ohReady delivers food to your doorstep.", emoji: "&#127829;", color: "#028A9B", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
       { id: "fittech", name: "Fittech", tag: "Fitness App", desc: "Fitness app designed for gyms and Spanish speakers, facilitating daily fitness tracking.", emoji: "&#128170;", color: "#02A6BA", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
-      { id: "pricepro", name: "PricePro", tag: "Restaurant Management", desc: "Application to manage menus of different restaurant branches. Copy/move items across branches and set different rates.", emoji: "&#128179;", color: "#5CC8D5", link: "https://play.google.com/store/apps/details?id=com.mycompany.price", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
+      { id: "pricepro", name: "PricePro", tag: "Restaurant Management", desc: "Application to manage menus of different restaurant branches. Copy/move items across branches and set different rates.", emoji: "&#128179;", color: "#5CC8D5", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
       { id: "mycash", name: "MyCash", tag: "Fintech", desc: "No-interest loan application providing easy and compassionate financial assistance to users in need.", emoji: "&#128176;", color: "#04D9C4", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
       { id: "ekcabfare", name: "EkCabFare", tag: "Transport", desc: "Displays and compares fares between Uber, Careem, and Ola cabs using real-time pricing data.", emoji: "&#128661;", color: "#023047", link: "", stacks: ["Flutter", "Firebase", "Scraping", "Node.js"], cats: ["mobile"] },
       { id: "airhome", name: "AirHomeRestaurant", tag: "Food App", desc: "Specialized restaurant application with dual interface for sellers and buyers, akin to FoodPanda.", emoji: "&#127858;", color: "#02A6BA", link: "", stacks: ["Flutter", "Firebase", "Node.js", "MongoDB"], cats: ["mobile"] },
@@ -4810,13 +5338,34 @@
       { id: "certainli", name: "Certainli.se", tag: "Compliance Platform", desc: "Product compliance platform with extensive expertise in product development and regulatory requirements.", emoji: "&#9989;", color: "#028A9B", link: "https://certainli.se/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "Docker", "AWS"], cats: ["web"] },
       { id: "wyzepay", name: "WyzePay", tag: "Sports FinTech", desc: "Empowers sports clubs to engage fans and drive revenue through tokenized wallets, in-app payments, and gamified loyalty.", emoji: "&#9917;", color: "#5CC8D5", link: "https://wyzepay.com/", stacks: ["React", "Next.js", "Node.js", "Express", "MongoDB"], cats: ["web"] },
       { id: "jiffy", name: "Jiffy", tag: "Legal Services", desc: "Secure, same-day delivery and expert handling of legal documents across the UAE with real-time tracking and attestation.", emoji: "&#9878;&#65039;", color: "#04D9C4", link: "https://jiffy.ae/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "AWS"], cats: ["web"] },
-      { id: "rx101", name: "Rx101 Savers Card", tag: "Healthcare", desc: "Helps CHM members save on prescriptions and healthcare needs with convenient and affordable medication options.", emoji: "&#128138;", color: "#023047", link: "https://rx101.org/", stacks: ["React", "Next.js", "Node.js", "Express", "MongoDB"], cats: ["web"] },
+      { id: "rx101", name: "Rx101 Savers Card", tag: "Healthcare", desc: "Helps CHM members save on prescriptions and healthcare needs with convenient and affordable medication options.", emoji: "&#128138;", color: "#023047", link: "", stacks: ["React", "Next.js", "Node.js", "Express", "MongoDB"], cats: ["web"] },
       { id: "alttext", name: "AltText AI", tag: "AI / SEO Tool", desc: "AI-powered alt text platform making website images visible to search engines, accessibility tools, and AI assistants.", emoji: "&#128065;&#65039;", color: "#02A6BA", link: "https://alttext.ai/", stacks: ["React", "Next.js", "AI", "Node.js", "AWS"], cats: ["web", "ai"] },
       { id: "circleupweb", name: "CircleUp", tag: "Career Platform", desc: "Launch your career from college with AI-powered access to global opportunities.", emoji: "&#127759;", color: "#028A9B", link: "https://www.joincircleup.com/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "Tailwind"], cats: ["web"] },
       { id: "weteachsweb", name: "WeTeachs Web", tag: "EdTech", desc: "Connects learners and experts globally, enabling personalized learning, teaching, and growth all in one platform.", emoji: "&#127891;", color: "#5CC8D5", link: "https://www.weteachs.com/", stacks: ["React", "Next.js", "Node.js", "MongoDB"], cats: ["web"] },
       { id: "hpappen", name: "Hp Appen", tag: "EdTech / MCQ", desc: "Swedish-based MCQ website offering a streamlined and comprehensive approach to mastering multiple-choice questions.", emoji: "&#128218;", color: "#04D9C4", link: "https://www.hpappen.se/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "Docker", "AWS"], cats: ["web"] },
       { id: "hpappenprod", name: "Hp Appen App", tag: "EdTech / Production", desc: "Production application for Hpappen — streamlined MCQ practice with advanced features and performance tracking.", emoji: "&#128202;", color: "#023047", link: "https://app.hpappen.se/", stacks: ["React", "Next.js", "Node.js", "MongoDB", "AWS"], cats: ["web"] },
     ];
+
+    const PROJECT_IMAGES = {
+      chatsupplies: { src: 'chatsupplies.svg', cover: false },
+      drafidox: { src: 'drafidox.svg', cover: false },
+      smartlogomaker: { src: 'smartlogo.png', cover: false },
+      salamly: { src: 'salamly.png', cover: true },
+      wirdbook: { src: 'wirdbook.png', cover: true },
+      fams: { src: 'fams.png', cover: true },
+      mood: { src: 'mood.png', cover: true },
+      instacalm: { src: 'instacalm.png', cover: true },
+      weteachs: { src: 'weteachs.png', cover: true },
+      sendsorta: { src: 'Sendsorta.png', cover: true },
+      circleup: { src: 'circleup.png', cover: true },
+      circleupweb: { src: 'circleup.png', cover: true },
+      certainli: { src: 'certainli.png', cover: false },
+      wyzepay: { src: 'wyzepay.png', cover: false },
+      jiffy: { src: 'jiffy.png', cover: false },
+      hpappen: { src: 'hpappen.png', cover: false },
+      hpappenprod: { src: 'hpappen.png', cover: false },
+      weteachsweb: { src: 'weteachs.png', cover: true },
+    };
 
     const projectsGrid = document.getElementById('projectsGrid');
     const projectFilterButtons = Array.from(document.querySelectorAll('.proj-filter-btn'));
@@ -4865,8 +5414,30 @@
 
         const icon = document.createElement('div');
         icon.className = 'project-icon';
-        icon.style.background = `linear-gradient(135deg, ${project.color}, ${project.color}dd)`;
-        icon.textContent = getInitials(project.name);
+        const projectImg = PROJECT_IMAGES[project.id];
+        if (projectImg) {
+          if (projectImg.cover) {
+            icon.style.background = 'transparent';
+            icon.style.boxShadow = 'none';
+          } else {
+            icon.style.background = '#fff';
+            icon.style.boxShadow = '0 4px 14px rgba(0,0,0,0.08)';
+          }
+          const img = document.createElement('img');
+          img.src = projectImg.src;
+          img.alt = project.name;
+          if (projectImg.cover) {
+            img.style.objectFit = 'cover';
+            img.style.padding = '0';
+          } else {
+            img.style.objectFit = 'contain';
+            img.style.padding = '4px';
+          }
+          icon.appendChild(img);
+        } else {
+          icon.style.background = `linear-gradient(135deg, ${project.color}, ${project.color}dd)`;
+          icon.textContent = getInitials(project.name);
+        }
 
         const title = document.createElement('h3');
         title.className = 'project-title';
@@ -4951,18 +5522,205 @@
     window.filterProjects = filterProjects;
     window.handleViewAll = handleViewAll;
 
-    // ===== REVEAL OBSERVER =====
-    const observer = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          obs.unobserve(entry.target);
+    // ===== PREMIUM ANIME.JS ANIMATIONS =====
+    // Split text into characters for staggered animation
+    const heroTitle = document.querySelector('.hero-title');
+    if (heroTitle) {
+      // Wrap every character in a span
+      heroTitle.innerHTML = heroTitle.textContent.replace(/\S/g, "<span class='letter inline-block'>$&</span>");
+
+      anime.timeline({ loop: false })
+        .add({
+          targets: '.hero-title .letter',
+          translateY: [40, 0],
+          translateZ: 0,
+          opacity: [0, 1],
+          easing: "easeOutExpo",
+          duration: 1400,
+          delay: (el, i) => 300 + 30 * i
+        });
+    }
+
+    // Anime.js floating background elements
+    anime({
+      targets: '.blob',
+      scale: [
+        { value: 1.05, easing: 'easeInOutSine', duration: 4000 },
+        { value: 1, easing: 'easeInOutSine', duration: 4000 }
+      ],
+      rotate: '1turn',
+      direction: 'alternate',
+      loop: true,
+      easing: 'linear',
+      duration: 20000
+    });
+
+    // ===== GSAP SCROLL ANIMATIONS =====
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Smooth reveal for .reveal elements
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      const delay = el.classList.contains('stagger-1') ? 0.05 :
+        el.classList.contains('stagger-2') ? 0.1 :
+          el.classList.contains('stagger-3') ? 0.15 : 0;
+      gsap.fromTo(el,
+        { y: 40, opacity: 0 },
+        {
+          y: 0, opacity: 1,
+          duration: 0.6,
+          delay: delay,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 95%',
+            toggleActions: 'play none none none',
+            once: true
+          },
+          onComplete: () => el.classList.add('visible')
+        }
+      );
+    });
+
+    // Slide from left
+    document.querySelectorAll('.reveal-left').forEach(el => {
+      gsap.fromTo(el,
+        { x: -50, opacity: 0 },
+        {
+          x: 0, opacity: 1,
+          duration: 0.6,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 95%',
+            toggleActions: 'play none none none',
+            once: true
+          },
+          onComplete: () => el.classList.add('visible')
+        }
+      );
+    });
+
+    // Slide from right
+    document.querySelectorAll('.reveal-right').forEach(el => {
+      gsap.fromTo(el,
+        { x: 50, opacity: 0 },
+        {
+          x: 0, opacity: 1,
+          duration: 0.6,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 95%',
+            toggleActions: 'play none none none',
+            once: true
+          },
+          onComplete: () => el.classList.add('visible')
+        }
+      );
+    });
+
+    // Scale in
+    document.querySelectorAll('.reveal-scale').forEach(el => {
+      gsap.fromTo(el,
+        { scale: 0.9, opacity: 0 },
+        {
+          scale: 1, opacity: 1,
+          duration: 0.7,
+          ease: 'back.out(1.4)',
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 95%',
+            toggleActions: 'play none none none',
+            once: true
+          },
+          onComplete: () => el.classList.add('visible')
+        }
+      );
+    });
+
+    // Staggered children animations for grids & card containers
+    document.querySelectorAll('.tech-bento-grid, #projectsGrid, .exp-timeline').forEach(grid => {
+      ScrollTrigger.create({
+        trigger: grid,
+        start: 'top 95%',
+        once: true,
+        onEnter: () => {
+          gsap.fromTo(grid.children,
+            { y: 30, opacity: 0 },
+            {
+              y: 0, opacity: 1,
+              duration: 0.5,
+              stagger: 0.05,
+              ease: 'power2.out'
+            }
+          );
         }
       });
-    }, { threshold: 0.15 });
+    });
 
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => {
-      observer.observe(el);
+    // Section headings - smooth text reveal
+    document.querySelectorAll('h2').forEach(heading => {
+      gsap.fromTo(heading,
+        { y: 20, opacity: 0, filter: 'blur(4px)' },
+        {
+          y: 0, opacity: 1, filter: 'blur(0px)',
+          duration: 0.6,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: heading,
+            start: 'top 98%',
+            toggleActions: 'play none none none',
+            once: true
+          }
+        }
+      );
+    });
+
+    // Experience timeline items - alternating slide
+    document.querySelectorAll('.exp-item').forEach((item, i) => {
+      const fromX = i % 2 === 0 ? -30 : 30;
+      gsap.fromTo(item,
+        { x: fromX, opacity: 0 },
+        {
+          x: 0, opacity: 1,
+          duration: 0.6,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 95%',
+            toggleActions: 'play none none none',
+            once: true
+          },
+          onComplete: () => item.classList.add('visible')
+        }
+      );
+    });
+
+    // Smooth parallax for stat cards
+    document.querySelectorAll('.stat-number').forEach(stat => {
+      gsap.fromTo(stat.closest('.card') || stat,
+        { y: 20, opacity: 0 },
+        {
+          y: 0, opacity: 1,
+          duration: 0.6,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: stat,
+            start: 'top 98%',
+            once: true
+          }
+        }
+      );
+    });
+
+    // Project cards hover tilt with GSAP
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        gsap.to(card, { y: -6, duration: 0.35, ease: 'power2.out' });
+      });
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, { y: 0, duration: 0.5, ease: 'elastic.out(1, 0.5)' });
+      });
     });
 
     // Initialize projects
@@ -4993,7 +5751,7 @@
         }
       });
     }, { threshold: 0.5 });
-    
+
     if (statsSection) {
       statsObserver.observe(statsSection.closest('.grid'));
     }
@@ -5007,314 +5765,423 @@
       mobileMenu.classList.toggle('open');
     });
 
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('open');
+      });
+    });
+
     // ===== 3D TILT EFFECT ON CARDS =====
-      document.querySelectorAll('.tilt-card').forEach(card => {
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -4;
+        const rotateY = ((x - centerX) / centerX) * 4;
+        card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) scale(1)';
+      });
+    });
+
+    // ===== PINNED PROCESS PANEL ANIMATION =====
+    const scrollContainer = document.querySelector('.scroll-jack-container');
+    const scrollSteps = Array.from(document.querySelectorAll('.scroll-jack-step'));
+    const scrollDots = Array.from(document.querySelectorAll('.scroll-jack-dot'));
+    const processStepLabel = document.getElementById('processStepLabel');
+
+    if (scrollContainer && scrollSteps.length > 0) {
+      let ticking = false;
+      let activeIndex = 0;
+      let wheelLocked = false;
+      let wheelUnlockTimer = null;
+
+      const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+
+      function applyProcessStep(nextIndex, rawProgress = activeIndex / Math.max(1, scrollSteps.length - 1)) {
+        activeIndex = clamp(nextIndex, 0, scrollSteps.length - 1);
+        scrollContainer.style.setProperty('--process-progress', rawProgress.toFixed(4));
+        scrollContainer.style.setProperty('--active-accent', scrollSteps[activeIndex].dataset.accent || '#02A6BA');
+
+        scrollSteps.forEach((step, index) => {
+          const isActive = index === activeIndex;
+          const direction = index > activeIndex ? 1 : -1;
+
+          step.style.setProperty('--step-progress', isActive ? '1' : '0');
+          step.style.opacity = isActive ? '1' : '0';
+          step.style.transform = isActive
+            ? 'translate3d(0, 0, 0)'
+            : `translate3d(0, ${direction * 40}px, 0)`;
+          step.style.filter = isActive ? 'blur(0)' : 'blur(8px)';
+          step.style.zIndex = isActive ? '3' : '0';
+          step.classList.toggle('active', isActive);
+        });
+
+        scrollDots.forEach((dot, index) => {
+          dot.classList.toggle('active', index <= activeIndex);
+        });
+
+        if (processStepLabel) {
+          processStepLabel.textContent = String(activeIndex + 1).padStart(2, '0');
+        }
+      }
+
+      function scrollToProcessStep(index, behavior = 'smooth') {
+        const maxScroll = scrollContainer.offsetHeight - window.innerHeight;
+        const target = scrollContainer.offsetTop + (maxScroll * (index / Math.max(1, scrollSteps.length - 1)));
+        applyProcessStep(index, index / Math.max(1, scrollSteps.length - 1));
+        window.scrollTo({ top: target, behavior });
+      }
+
+      function setProcessState() {
+        const rect = scrollContainer.getBoundingClientRect();
+        const maxScroll = Math.max(1, rect.height - window.innerHeight);
+        const rawProgress = clamp(-rect.top / maxScroll, 0, 1);
+        const scaled = rawProgress * (scrollSteps.length - 1);
+        const nextIndex = clamp(Math.round(scaled), 0, scrollSteps.length - 1);
+
+        applyProcessStep(nextIndex, rawProgress);
+        ticking = false;
+      }
+
+      function requestProcessFrame() {
+        if (!ticking) {
+          requestAnimationFrame(setProcessState);
+          ticking = true;
+        }
+      }
+
+      scrollDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          scrollToProcessStep(index);
+        });
+      });
+
+      scrollContainer.addEventListener('wheel', (event) => {
+        const rect = scrollContainer.getBoundingClientRect();
+        const isPinned = rect.top <= 4 && rect.bottom >= window.innerHeight - 4;
+        const direction = event.deltaY > 0 ? 1 : -1;
+        const atStart = activeIndex === 0 && direction < 0;
+        const atEnd = activeIndex === scrollSteps.length - 1 && direction > 0;
+
+        if (!isPinned || atStart || atEnd || Math.abs(event.deltaY) < 8) {
+          return;
+        }
+
+        event.preventDefault();
+
+        if (wheelLocked) {
+          window.clearTimeout(wheelUnlockTimer);
+          wheelUnlockTimer = window.setTimeout(() => {
+            wheelLocked = false;
+          }, 520);
+          return;
+        }
+
+        wheelLocked = true;
+        scrollToProcessStep(activeIndex + direction);
+
+        window.clearTimeout(wheelUnlockTimer);
+        wheelUnlockTimer = window.setTimeout(() => {
+          wheelLocked = false;
+        }, 720);
+      }, { passive: false });
+
+      setProcessState();
+      window.addEventListener('scroll', requestProcessFrame, { passive: true });
+      window.addEventListener('resize', requestProcessFrame);
+    }
+
+    // ===== SMOOTH HEADER SHADOW ON SCROLL =====
+    const header = document.querySelector('.glass-header');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+      if (currentScroll > 50) {
+        header.style.boxShadow = '0 8px 32px rgba(2, 166, 186, 0.08)';
+      } else {
+        header.style.boxShadow = 'none';
+      }
+      lastScroll = currentScroll;
+    }, { passive: true });
+
+    // ===== FORM SUBMIT WITH EMAILJS =====
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      const form = document.getElementById('contactForm');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnHTML = submitBtn.innerHTML;
+      const successMsg = document.getElementById('successMessage');
+      const errorMsg = document.getElementById('errorMessage');
+
+      // Hide any previous messages
+      successMsg.classList.remove('show');
+      errorMsg.classList.remove('show');
+
+      // Check if EmailJS is loaded/available
+      if (typeof emailjs === 'undefined') {
+        console.error('EmailJS library is not loaded. It may be blocked by an ad-blocker or failed to load.');
+        errorMsg.querySelector('span').innerText = '⚠️ Email service is unavailable/blocked. Please contact via LinkedIn or email directly.';
+        errorMsg.classList.add('show');
+        return;
+      }
+
+      // Show loading state
+      submitBtn.innerHTML = '<span class="relative z-10">Sending...</span><svg class="cf-btn-icon relative z-10 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182" /></svg>';
+      submitBtn.style.opacity = '0.7';
+      submitBtn.disabled = true;
+
+      // Extract form values
+      const fromName = form.querySelector('[name="from_name"]').value;
+      const replyTo = form.querySelector('[name="reply_to"]').value;
+      const subject = form.querySelector('[name="subject"]').value;
+      const message = form.querySelector('[name="message"]').value;
+
+      // Construct a highly robust payload supporting all common template variable names
+      const templateParams = {
+        // Option 1: standard/default variables
+        from_name: fromName,
+        reply_to: replyTo,
+
+        // Option 2: common developer variables
+        name: fromName,
+        email: replyTo,
+        from_email: replyTo,
+
+        // Subject and message
+        subject: subject,
+        message: message,
+
+        // Recipient variables
+        to_name: 'Ubaid Ullah Asim',
+        to_email: 'ubaidullahasim@gmail.com'
+      };
+
+      console.log('Sending email payload:', templateParams);
+
+      // Send using emailjs.send with the prepared parameters and public key
+      emailjs.send('service_vom5ado', 'template_e598eab', templateParams, 'UU0GtczKax9SWHiWB')
+        .then(
+          function (response) {
+            console.log('EmailJS SUCCESS!', response.status, response.text);
+            // Show success
+            successMsg.classList.add('show');
+            form.reset();
+
+            // Reset labels floating state if needed (since form is reset, placeholders will show again)
+            form.querySelectorAll('.cf-input').forEach(input => {
+              input.dispatchEvent(new Event('blur'));
+            });
+
+            // Reset button
+            submitBtn.innerHTML = originalBtnHTML;
+            submitBtn.style.opacity = '1';
+            submitBtn.disabled = false;
+
+            // Auto-hide success after 6 seconds
+            setTimeout(function () {
+              successMsg.classList.remove('show');
+            }, 6000);
+          },
+          function (error) {
+            console.error('EmailJS FAILED...', error);
+
+            // Build a helpful error message
+            let errorDetails = '';
+            if (error) {
+              if (typeof error === 'string') {
+                errorDetails = ': ' + error;
+              } else if (error.text) {
+                errorDetails = ': ' + error.text;
+              } else if (error.message) {
+                errorDetails = ': ' + error.message;
+              }
+            }
+
+            // Show error message with detailed info
+            errorMsg.querySelector('span').innerText = `⚠️ Failed to send${errorDetails}. Please try again or email directly.`;
+            errorMsg.classList.add('show');
+
+            // Reset button
+            submitBtn.innerHTML = originalBtnHTML;
+            submitBtn.style.opacity = '1';
+            submitBtn.disabled = false;
+
+            // Auto-hide error after 10 seconds
+            setTimeout(function () {
+              errorMsg.classList.remove('show');
+            }, 10000);
+          }
+        );
+    }
+
+    // ===== ACTIVE NAV HIGHLIGHT =====
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(link => {
+            link.style.color = '';
+            if (link.getAttribute('href') === '#' + id) {
+              link.style.color = 'var(--primary)';
+            }
+          });
+        }
+      });
+    }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
+
+    sections.forEach(section => navObserver.observe(section));
+
+    // ===== 3D HERO CARD TILT WITH GLARE =====
+    const heroCard = document.querySelector('.hero-3d-card');
+    const imageMask = document.querySelector('.hero-image-mask');
+    if (heroCard && imageMask) {
+      const glare = document.createElement('div');
+      glare.classList.add('hero-glare');
+      imageMask.appendChild(glare);
+
+      heroCard.addEventListener('mousemove', (e) => {
+        const rect = heroCard.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -12; // Max 12 deg
+        const rotateY = ((x - centerX) / centerX) * 12;
+
+        heroCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+
+        // Glare effect
+        const px = (x / rect.width) * 100;
+        const py = (y / rect.height) * 100;
+        glare.style.background = `radial-gradient(circle at ${px}% ${py}%, rgba(255,255,255,0.6) 0%, transparent 60%)`;
+        glare.style.opacity = '1';
+      });
+
+      heroCard.addEventListener('mouseleave', () => {
+        heroCard.style.transform = 'rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        glare.style.opacity = '0';
+      });
+    }
+
+
+    // PREMIUM JS ENHANCEMENTS — SCROLL PROGRESS, TILT, PARALLAX
+    // ============================================================//
+
+    // ===== SCROLL PROGRESS BAR =====
+    (function () {
+      const bar = document.createElement('div');
+      bar.className = 'scroll-progress-bar';
+      bar.style.width = '0%';
+      document.body.prepend(bar);
+
+      function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        bar.style.width = progress + '%';
+      }
+
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      updateProgress();
+    })();
+
+    // ===== MAGNETIC 3D TILT FOR ALL TILT-CARDS =====
+    (function () {
+      const tiltCards = document.querySelectorAll('.tilt-card');
+      tiltCards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
           const rect = card.getBoundingClientRect();
           const x = e.clientX - rect.left;
           const y = e.clientY - rect.top;
           const centerX = rect.width / 2;
           const centerY = rect.height / 2;
-          const rotateX = ((y - centerY) / centerY) * -4;
-          const rotateY = ((x - centerX) / centerX) * 4;
-          card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+          const rotateX = ((y - centerY) / centerY) * -8;
+          const rotateY = ((x - centerX) / centerX) * 8;
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px) scale(1.02)`;
         });
 
         card.addEventListener('mouseleave', () => {
-          card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) scale(1)';
+          card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
         });
       });
+    })();
 
-      // ===== PINNED PROCESS PANEL ANIMATION =====
-      const scrollContainer = document.querySelector('.scroll-jack-container');
-      const scrollSteps = Array.from(document.querySelectorAll('.scroll-jack-step'));
-      const scrollDots = Array.from(document.querySelectorAll('.scroll-jack-dot'));
-      const processStepLabel = document.getElementById('processStepLabel');
+    // ===== PARALLAX FLOATING BLOBS ON SCROLL =====
+    (function () {
+      const blobs = document.querySelectorAll('.blob');
+      if (blobs.length === 0) return;
 
-      if (scrollContainer && scrollSteps.length > 0) {
-        let ticking = false;
-        let activeIndex = 0;
-        let wheelLocked = false;
-        let wheelUnlockTimer = null;
-
-        const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
-
-        function applyProcessStep(nextIndex, rawProgress = activeIndex / Math.max(1, scrollSteps.length - 1)) {
-          activeIndex = clamp(nextIndex, 0, scrollSteps.length - 1);
-          scrollContainer.style.setProperty('--process-progress', rawProgress.toFixed(4));
-          scrollContainer.style.setProperty('--active-accent', scrollSteps[activeIndex].dataset.accent || '#02A6BA');
-
-          scrollSteps.forEach((step, index) => {
-            const isActive = index === activeIndex;
-            const direction = index > activeIndex ? 1 : -1;
-
-            step.style.setProperty('--step-progress', isActive ? '1' : '0');
-            step.style.opacity = isActive ? '1' : '0';
-            step.style.transform = isActive
-              ? 'translate3d(0, 0, 0)'
-              : `translate3d(0, ${direction * 40}px, 0)`;
-            step.style.filter = isActive ? 'blur(0)' : 'blur(8px)';
-            step.style.zIndex = isActive ? '3' : '0';
-            step.classList.toggle('active', isActive);
-          });
-
-          scrollDots.forEach((dot, index) => {
-            dot.classList.toggle('active', index <= activeIndex);
-          });
-
-          if (processStepLabel) {
-            processStepLabel.textContent = String(activeIndex + 1).padStart(2, '0');
-          }
-        }
-
-        function scrollToProcessStep(index, behavior = 'smooth') {
-          const maxScroll = scrollContainer.offsetHeight - window.innerHeight;
-          const target = scrollContainer.offsetTop + (maxScroll * (index / Math.max(1, scrollSteps.length - 1)));
-          applyProcessStep(index, index / Math.max(1, scrollSteps.length - 1));
-          window.scrollTo({ top: target, behavior });
-        }
-
-        function setProcessState() {
-          const rect = scrollContainer.getBoundingClientRect();
-          const maxScroll = Math.max(1, rect.height - window.innerHeight);
-          const rawProgress = clamp(-rect.top / maxScroll, 0, 1);
-          const scaled = rawProgress * (scrollSteps.length - 1);
-          const nextIndex = clamp(Math.round(scaled), 0, scrollSteps.length - 1);
-
-          applyProcessStep(nextIndex, rawProgress);
-          ticking = false;
-        }
-
-        function requestProcessFrame() {
-          if (!ticking) {
-            requestAnimationFrame(setProcessState);
-            ticking = true;
-          }
-        }
-
-        scrollDots.forEach((dot, index) => {
-          dot.addEventListener('click', () => {
-            scrollToProcessStep(index);
-          });
-        });
-
-        scrollContainer.addEventListener('wheel', (event) => {
-          const rect = scrollContainer.getBoundingClientRect();
-          const isPinned = rect.top <= 4 && rect.bottom >= window.innerHeight - 4;
-          const direction = event.deltaY > 0 ? 1 : -1;
-          const atStart = activeIndex === 0 && direction < 0;
-          const atEnd = activeIndex === scrollSteps.length - 1 && direction > 0;
-
-          if (!isPinned || atStart || atEnd || Math.abs(event.deltaY) < 8) {
-            return;
-          }
-
-          event.preventDefault();
-
-          if (wheelLocked) {
-            window.clearTimeout(wheelUnlockTimer);
-            wheelUnlockTimer = window.setTimeout(() => {
-              wheelLocked = false;
-            }, 520);
-            return;
-          }
-
-          wheelLocked = true;
-          scrollToProcessStep(activeIndex + direction);
-
-          window.clearTimeout(wheelUnlockTimer);
-          wheelUnlockTimer = window.setTimeout(() => {
-            wheelLocked = false;
-          }, 720);
-        }, { passive: false });
-
-        setProcessState();
-        window.addEventListener('scroll', requestProcessFrame, { passive: true });
-        window.addEventListener('resize', requestProcessFrame);
-      }
-
-      // ===== SMOOTH HEADER SHADOW ON SCROLL =====
-      const header = document.querySelector('.glass-header');
-      let lastScroll = 0;
-
+      let ticking = false;
       window.addEventListener('scroll', () => {
-        const currentScroll = window.scrollY;
-        if (currentScroll > 50) {
-          header.style.boxShadow = '0 8px 32px rgba(2, 166, 186, 0.08)';
-        } else {
-          header.style.boxShadow = 'none';
-        }
-        lastScroll = currentScroll;
-      }, { passive: true });
-
-      // ===== FORM SUBMIT =====
-      function handleSubmit(event) {
-        event.preventDefault();
-        const msg = document.getElementById('successMessage');
-        msg.classList.remove('hidden');
-        msg.style.animation = 'fadeInUp 500ms ease';
-        event.target.reset();
-      }
-
-      // ===== ACTIVE NAV HIGHLIGHT =====
-      const sections = document.querySelectorAll('section[id]');
-      const navLinks = document.querySelectorAll('.nav-link');
-
-      const navObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id;
-            navLinks.forEach(link => {
-              link.style.color = '';
-              if (link.getAttribute('href') === '#' + id) {
-                link.style.color = 'var(--primary)';
-              }
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const scrollY = window.scrollY;
+            blobs.forEach((blob, i) => {
+              const speed = (i + 1) * 0.03;
+              const yOffset = scrollY * speed;
+              const xOffset = Math.sin(scrollY * 0.001 + i) * 20;
+              blob.style.transform = `translate(${xOffset}px, ${-yOffset}px)`;
             });
-          }
-        });
-      }, { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' });
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    })();
 
-      sections.forEach(section => navObserver.observe(section));
-
-      // ===== 3D HERO CARD TILT WITH GLARE =====
-      const heroCard = document.querySelector('.hero-3d-card');
-      const imageMask = document.querySelector('.hero-image-mask');
-      if (heroCard && imageMask) {
-        const glare = document.createElement('div');
-        glare.classList.add('hero-glare');
-        imageMask.appendChild(glare);
-
-        heroCard.addEventListener('mousemove', (e) => {
-          const rect = heroCard.getBoundingClientRect();
+    // ===== CURSOR-FOLLOWING GLOW ON CARDS =====
+    (function () {
+      const cards = document.querySelectorAll('.card, .command-card, .signal-card, .tech-bento-card, .project-card');
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
           const x = e.clientX - rect.left;
           const y = e.clientY - rect.top;
-
-          const centerX = rect.width / 2;
-          const centerY = rect.height / 2;
-
-          const rotateX = ((y - centerY) / centerY) * -12; // Max 12 deg
-          const rotateY = ((x - centerX) / centerX) * 12;
-
-          heroCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-
-          // Glare effect
-          const px = (x / rect.width) * 100;
-          const py = (y / rect.height) * 100;
-          glare.style.background = `radial-gradient(circle at ${px}% ${py}%, rgba(255,255,255,0.6) 0%, transparent 60%)`;
-          glare.style.opacity = '1';
+          card.style.setProperty('--glow-x', x + 'px');
+          card.style.setProperty('--glow-y', y + 'px');
+          card.style.background = `radial-gradient(350px circle at ${x}px ${y}px, rgba(2, 166, 186, 0.06), transparent 60%), rgba(255, 255, 255, 0.55)`;
         });
 
-        heroCard.addEventListener('mouseleave', () => {
-          heroCard.style.transform = 'rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-          glare.style.opacity = '0';
+        card.addEventListener('mouseleave', () => {
+          card.style.background = '';
         });
-      }
+      });
+    })();
 
-      // ============================================================
-      // PREMIUM JS ENHANCEMENTS — SCROLL PROGRESS, TILT, PARALLAX
-      // ============================================================
+    // ===== SMOOTH HEADER SHRINK ON SCROLL =====
+    (function () {
+      const header = document.querySelector('.glass-header');
+      if (!header) return;
 
-      // ===== SCROLL PROGRESS BAR =====
-      (function() {
-        const bar = document.createElement('div');
-        bar.className = 'scroll-progress-bar';
-        bar.style.width = '0%';
-        document.body.prepend(bar);
-
-        function updateProgress() {
-          const scrollTop = window.scrollY;
-          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-          const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-          bar.style.width = progress + '%';
+      let lastScroll = 0;
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        if (scrollY > 80) {
+          header.style.paddingTop = '0.5rem';
+          header.style.paddingBottom = '0.5rem';
+          header.style.boxShadow = '0 1px 0 rgba(255,255,255,0.5), 0 8px 40px rgba(2,166,186,0.1)';
+        } else {
+          header.style.paddingTop = '';
+          header.style.paddingBottom = '';
+          header.style.boxShadow = '';
         }
-
-        window.addEventListener('scroll', updateProgress, { passive: true });
-        updateProgress();
-      })();
-
-      // ===== MAGNETIC 3D TILT FOR ALL TILT-CARDS =====
-      (function() {
-        const tiltCards = document.querySelectorAll('.tilt-card');
-        tiltCards.forEach(card => {
-          card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = ((y - centerY) / centerY) * -8;
-            const rotateY = ((x - centerX) / centerX) * 8;
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px) scale(1.02)`;
-          });
-
-          card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
-          });
-        });
-      })();
-
-      // ===== PARALLAX FLOATING BLOBS ON SCROLL =====
-      (function() {
-        const blobs = document.querySelectorAll('.blob');
-        if (blobs.length === 0) return;
-
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-          if (!ticking) {
-            requestAnimationFrame(() => {
-              const scrollY = window.scrollY;
-              blobs.forEach((blob, i) => {
-                const speed = (i + 1) * 0.03;
-                const yOffset = scrollY * speed;
-                const xOffset = Math.sin(scrollY * 0.001 + i) * 20;
-                blob.style.transform = `translate(${xOffset}px, ${-yOffset}px)`;
-              });
-              ticking = false;
-            });
-            ticking = true;
-          }
-        }, { passive: true });
-      })();
-
-      // ===== CURSOR-FOLLOWING GLOW ON CARDS =====
-      (function() {
-        const cards = document.querySelectorAll('.card, .command-card, .signal-card, .tech-bento-card, .project-card');
-        cards.forEach(card => {
-          card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            card.style.setProperty('--glow-x', x + 'px');
-            card.style.setProperty('--glow-y', y + 'px');
-            card.style.background = `radial-gradient(350px circle at ${x}px ${y}px, rgba(2, 166, 186, 0.06), transparent 60%), rgba(255, 255, 255, 0.55)`;
-          });
-
-          card.addEventListener('mouseleave', () => {
-            card.style.background = '';
-          });
-        });
-      })();
-
-      // ===== SMOOTH HEADER SHRINK ON SCROLL =====
-      (function() {
-        const header = document.querySelector('.glass-header');
-        if (!header) return;
-        
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-          const scrollY = window.scrollY;
-          if (scrollY > 80) {
-            header.style.paddingTop = '0.5rem';
-            header.style.paddingBottom = '0.5rem';
-            header.style.boxShadow = '0 1px 0 rgba(255,255,255,0.5), 0 8px 40px rgba(2,166,186,0.1)';
-          } else {
-            header.style.paddingTop = '';
-            header.style.paddingBottom = '';
-            header.style.boxShadow = '';
-          }
-          lastScroll = scrollY;
-        }, { passive: true });
-      })();
+        lastScroll = scrollY;
+      }, { passive: true });
+    })();
 
   </script>
 </body>
